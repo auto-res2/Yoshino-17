@@ -1,213 +1,150 @@
-Warning 2 in paper.tex line 49: Non-breaking space (`~') should have been used.
+Warning 2 in paper.tex line 55: Non-breaking space (`~') should have been used.
 Large language models now power chatbots, code assistants and embodied agents, but they remain alarmingly vulnerable to adversarial triggers. A 1\,000-token prompt, a small corner patch in an image or a brief audio spike can override safety policies while lying far outside the infinitesimal norm balls assumed in most certified defences. Parameter-efficient fine-tuning (PEFT) adapters promise cheap robustness retro-fits yet inherit three fundamental limitations. First, interval bounds grow roughly linearly with sequence length, so certificates collapse for long prompts. Second, hot-patch methods such as ZePatch store plaintext antidote vectors that can be inverted or probed through membership inference. Third, existing multimodal adapters certify only the fused representation, leaving modality-specific heads open to bypass attacks. Recent progress—fast adversarial training \cite{wong-2020-fast}, remedies for catastrophic overfitting \cite{andriushchenko-2020-understanding} and low-rank robustness adapters \cite{xu-2023-autolora}—reduces compute cost but does not solve these structural gaps.  
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ^
-Warning 2 in paper.tex line 49: Non-breaking space (`~') should have been used.
+Warning 2 in paper.tex line 55: Non-breaking space (`~') should have been used.
 Large language models now power chatbots, code assistants and embodied agents, but they remain alarmingly vulnerable to adversarial triggers. A 1\,000-token prompt, a small corner patch in an image or a brief audio spike can override safety policies while lying far outside the infinitesimal norm balls assumed in most certified defences. Parameter-efficient fine-tuning (PEFT) adapters promise cheap robustness retro-fits yet inherit three fundamental limitations. First, interval bounds grow roughly linearly with sequence length, so certificates collapse for long prompts. Second, hot-patch methods such as ZePatch store plaintext antidote vectors that can be inverted or probed through membership inference. Third, existing multimodal adapters certify only the fused representation, leaving modality-specific heads open to bypass attacks. Recent progress—fast adversarial training \cite{wong-2020-fast}, remedies for catastrophic overfitting \cite{andriushchenko-2020-understanding} and low-rank robustness adapters \cite{xu-2023-autolora}—reduces compute cost but does not solve these structural gaps.  
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ^
-Warning 2 in paper.tex line 49: Non-breaking space (`~') should have been used.
+Warning 2 in paper.tex line 55: Non-breaking space (`~') should have been used.
 Large language models now power chatbots, code assistants and embodied agents, but they remain alarmingly vulnerable to adversarial triggers. A 1\,000-token prompt, a small corner patch in an image or a brief audio spike can override safety policies while lying far outside the infinitesimal norm balls assumed in most certified defences. Parameter-efficient fine-tuning (PEFT) adapters promise cheap robustness retro-fits yet inherit three fundamental limitations. First, interval bounds grow roughly linearly with sequence length, so certificates collapse for long prompts. Second, hot-patch methods such as ZePatch store plaintext antidote vectors that can be inverted or probed through membership inference. Third, existing multimodal adapters certify only the fused representation, leaving modality-specific heads open to bypass attacks. Recent progress—fast adversarial training \cite{wong-2020-fast}, remedies for catastrophic overfitting \cite{andriushchenko-2020-understanding} and low-rank robustness adapters \cite{xu-2023-autolora}—reduces compute cost but does not solve these structural gaps.  
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ^
-Warning 2 in paper.tex line 54: Non-breaking space (`~') should have been used.
-    \item \textbf{Secure-Hash Retrieval (SHR).} Stores only 128-bit locality-sensitive hashes of harmful prompt embeddings and reconstructs the corresponding antidote vector with a 256-bit-keyed pseudo-random function. This eliminates practical inversion and gives \(\epsilon_{\mathrm{DP}}<1\) privacy guarantees, countering BrainWash-style attacks \cite{abbasi-2023-brainwash}.  
-                                                                                                                                                                                                                                                                                                                                                            ^
-Warning 2 in paper.tex line 55: Non-breaking space (`~') should have been used.
+Warning 2 in paper.tex line 60: Non-breaking space (`~') should have been used.
+    \item \textbf{Secure-Hash Retrieval (SHR).} Stores only 128-bit locality-sensitive hashes of harmful prompt embeddings and reconstructs the corresponding antidote vector with a 256-bit-keyed pseudo-random function. This eliminates practical inversion and gives $\epsilon_{\mathrm{DP}}<1$ privacy guarantees, countering BrainWash-style attacks \cite{abbasi-2023-brainwash}.  
+                                                                                                                                                                                                                                                                                                                                                          ^
+Warning 2 in paper.tex line 61: Non-breaking space (`~') should have been used.
     \item \textbf{Dual-Cert Fusion (DCF).} Attaches lightweight bound heads to the vision and audio branches and merges interval logits through bound-aware attention. The design extends multi-perturbation robustness ideas \cite{tramr-2019-adversarial} to the multimodal LLM setting and yields logical-AND certificates for all three modalities at <6\% compute overhead.  
                                                                                                                                                                                                                              ^
-Warning 18 in paper.tex line 67: Use either `` or '' as an alternative to `"'.
-The remainder of the paper is organised as follows. Section "Related Work" contrasts C3PO-MoRA-2 with previous approaches, Section "Background" introduces formal notions and threat models, Section "Method" details SACT, SHR and DCF, Section "Experimental Setup" specifies datasets, metrics and implementation guards, Section "Results" reports empirical and certified performance, and Section "Conclusion" summarises contributions and future directions.  
-                                                            ^
-Warning 18 in paper.tex line 67: Use either `` or '' as an alternative to `"'.
-The remainder of the paper is organised as follows. Section "Related Work" contrasts C3PO-MoRA-2 with previous approaches, Section "Background" introduces formal notions and threat models, Section "Method" details SACT, SHR and DCF, Section "Experimental Setup" specifies datasets, metrics and implementation guards, Section "Results" reports empirical and certified performance, and Section "Conclusion" summarises contributions and future directions.  
-                                                                         ^
-Warning 18 in paper.tex line 67: Use either `` or '' as an alternative to `"'.
-The remainder of the paper is organised as follows. Section "Related Work" contrasts C3PO-MoRA-2 with previous approaches, Section "Background" introduces formal notions and threat models, Section "Method" details SACT, SHR and DCF, Section "Experimental Setup" specifies datasets, metrics and implementation guards, Section "Results" reports empirical and certified performance, and Section "Conclusion" summarises contributions and future directions.  
+Warning 18 in paper.tex line 73: Use either `` or '' as an alternative to `"'.
+The remainder of the paper is organised as follows. Section ``Related Work" contrasts C3PO-MoRA-2 with previous approaches, Section ``Background" introduces formal notions and threat models, Section ``Method" details SACT, SHR and DCF, Section ``Experimental Setup" specifies datasets, metrics and implementation guards, Section ``Results" reports empirical and certified performance, and Section ``Conclusion" summarises contributions and future directions.  
+                                                                          ^
+Warning 18 in paper.tex line 73: Use either `` or '' as an alternative to `"'.
+The remainder of the paper is organised as follows. Section ``Related Work" contrasts C3PO-MoRA-2 with previous approaches, Section ``Background" introduces formal notions and threat models, Section ``Method" details SACT, SHR and DCF, Section ``Experimental Setup" specifies datasets, metrics and implementation guards, Section ``Results" reports empirical and certified performance, and Section ``Conclusion" summarises contributions and future directions.  
+                                                                                                                                                ^
+Warning 18 in paper.tex line 73: Use either `` or '' as an alternative to `"'.
+The remainder of the paper is organised as follows. Section ``Related Work" contrasts C3PO-MoRA-2 with previous approaches, Section ``Background" introduces formal notions and threat models, Section ``Method" details SACT, SHR and DCF, Section ``Experimental Setup" specifies datasets, metrics and implementation guards, Section ``Results" reports empirical and certified performance, and Section ``Conclusion" summarises contributions and future directions.  
+                                                                                                                                                                                                               ^
+Warning 18 in paper.tex line 73: Use either `` or '' as an alternative to `"'.
+The remainder of the paper is organised as follows. Section ``Related Work" contrasts C3PO-MoRA-2 with previous approaches, Section ``Background" introduces formal notions and threat models, Section ``Method" details SACT, SHR and DCF, Section ``Experimental Setup" specifies datasets, metrics and implementation guards, Section ``Results" reports empirical and certified performance, and Section ``Conclusion" summarises contributions and future directions.  
+                                                                                                                                                                                                                                                                        ^
+Warning 18 in paper.tex line 73: Use either `` or '' as an alternative to `"'.
+The remainder of the paper is organised as follows. Section ``Related Work" contrasts C3PO-MoRA-2 with previous approaches, Section ``Background" introduces formal notions and threat models, Section ``Method" details SACT, SHR and DCF, Section ``Experimental Setup" specifies datasets, metrics and implementation guards, Section ``Results" reports empirical and certified performance, and Section ``Conclusion" summarises contributions and future directions.  
+                                                                                                                                                                                                                                                                                                                                                  ^
+Warning 18 in paper.tex line 73: Use either `` or '' as an alternative to `"'.
+The remainder of the paper is organised as follows. Section ``Related Work" contrasts C3PO-MoRA-2 with previous approaches, Section ``Background" introduces formal notions and threat models, Section ``Method" details SACT, SHR and DCF, Section ``Experimental Setup" specifies datasets, metrics and implementation guards, Section ``Results" reports empirical and certified performance, and Section ``Conclusion" summarises contributions and future directions.  
+                                                                                                                                                                                                                                                                                                                                                                                                                         ^
+Warning 2 in paper.tex line 76: Non-breaking space (`~') should have been used.
+Certified text defences traditionally assume a single global perturbation budget. UniT propagates IBP bounds over word replacements \cite{author-year-unit} and FreeLB introduces continuous-embedding perturbations, but both break down beyond $\epsilon\approx 0.15$ and a few hundred tokens. Adaptive budgets have been attempted for contextual representations \cite{wu-2023-toward} yet lacked formal guarantees. SACT is the first to learn per-token $\epsilon_i$ inside IBP while avoiding the catastrophic overfitting that plagues single-step adversarial training \cite{andriushchenko-2020-understanding}.  
                                                                                                                                    ^
-Warning 18 in paper.tex line 67: Use either `` or '' as an alternative to `"'.
-The remainder of the paper is organised as follows. Section "Related Work" contrasts C3PO-MoRA-2 with previous approaches, Section "Background" introduces formal notions and threat models, Section "Method" details SACT, SHR and DCF, Section "Experimental Setup" specifies datasets, metrics and implementation guards, Section "Results" reports empirical and certified performance, and Section "Conclusion" summarises contributions and future directions.  
-                                                                                                                                              ^
-Warning 18 in paper.tex line 67: Use either `` or '' as an alternative to `"'.
-The remainder of the paper is organised as follows. Section "Related Work" contrasts C3PO-MoRA-2 with previous approaches, Section "Background" introduces formal notions and threat models, Section "Method" details SACT, SHR and DCF, Section "Experimental Setup" specifies datasets, metrics and implementation guards, Section "Results" reports empirical and certified performance, and Section "Conclusion" summarises contributions and future directions.  
-                                                                                                                                                                                                     ^
-Warning 18 in paper.tex line 67: Use either `` or '' as an alternative to `"'.
-The remainder of the paper is organised as follows. Section "Related Work" contrasts C3PO-MoRA-2 with previous approaches, Section "Background" introduces formal notions and threat models, Section "Method" details SACT, SHR and DCF, Section "Experimental Setup" specifies datasets, metrics and implementation guards, Section "Results" reports empirical and certified performance, and Section "Conclusion" summarises contributions and future directions.  
-                                                                                                                                                                                                            ^
-Warning 18 in paper.tex line 67: Use either `` or '' as an alternative to `"'.
-The remainder of the paper is organised as follows. Section "Related Work" contrasts C3PO-MoRA-2 with previous approaches, Section "Background" introduces formal notions and threat models, Section "Method" details SACT, SHR and DCF, Section "Experimental Setup" specifies datasets, metrics and implementation guards, Section "Results" reports empirical and certified performance, and Section "Conclusion" summarises contributions and future directions.  
-                                                                                                                                                                                                                                                 ^
-Warning 18 in paper.tex line 67: Use either `` or '' as an alternative to `"'.
-The remainder of the paper is organised as follows. Section "Related Work" contrasts C3PO-MoRA-2 with previous approaches, Section "Background" introduces formal notions and threat models, Section "Method" details SACT, SHR and DCF, Section "Experimental Setup" specifies datasets, metrics and implementation guards, Section "Results" reports empirical and certified performance, and Section "Conclusion" summarises contributions and future directions.  
-                                                                                                                                                                                                                                                                    ^
-Warning 18 in paper.tex line 67: Use either `` or '' as an alternative to `"'.
-The remainder of the paper is organised as follows. Section "Related Work" contrasts C3PO-MoRA-2 with previous approaches, Section "Background" introduces formal notions and threat models, Section "Method" details SACT, SHR and DCF, Section "Experimental Setup" specifies datasets, metrics and implementation guards, Section "Results" reports empirical and certified performance, and Section "Conclusion" summarises contributions and future directions.  
-                                                                                                                                                                                                                                                                                                                                     ^
-Warning 18 in paper.tex line 67: Use either `` or '' as an alternative to `"'.
-The remainder of the paper is organised as follows. Section "Related Work" contrasts C3PO-MoRA-2 with previous approaches, Section "Background" introduces formal notions and threat models, Section "Method" details SACT, SHR and DCF, Section "Experimental Setup" specifies datasets, metrics and implementation guards, Section "Results" reports empirical and certified performance, and Section "Conclusion" summarises contributions and future directions.  
-                                                                                                                                                                                                                                                                                                                                             ^
-Warning 18 in paper.tex line 67: Use either `` or '' as an alternative to `"'.
-The remainder of the paper is organised as follows. Section "Related Work" contrasts C3PO-MoRA-2 with previous approaches, Section "Background" introduces formal notions and threat models, Section "Method" details SACT, SHR and DCF, Section "Experimental Setup" specifies datasets, metrics and implementation guards, Section "Results" reports empirical and certified performance, and Section "Conclusion" summarises contributions and future directions.  
-                                                                                                                                                                                                                                                                                                                                                                                                        ^
-Warning 18 in paper.tex line 67: Use either `` or '' as an alternative to `"'.
-The remainder of the paper is organised as follows. Section "Related Work" contrasts C3PO-MoRA-2 with previous approaches, Section "Background" introduces formal notions and threat models, Section "Method" details SACT, SHR and DCF, Section "Experimental Setup" specifies datasets, metrics and implementation guards, Section "Results" reports empirical and certified performance, and Section "Conclusion" summarises contributions and future directions.  
-                                                                                                                                                                                                                                                                                                                                                                                                                   ^
-Warning 2 in paper.tex line 70: Non-breaking space (`~') should have been used.
-Certified text defences traditionally assume a single global perturbation budget. UniT propagates IBP bounds over word replacements \cite{author-year-unit} and FreeLB introduces continuous-embedding perturbations , but both break down beyond \(\epsilon\approx 0.15\) and a few hundred tokens. Adaptive budgets have been attempted for contextual representations \cite{wu-2023-toward} yet lacked formal guarantees. SACT is the first to learn per-token \(\epsilon_i\) inside IBP while avoiding the catastrophic overfitting that plagues single-step adversarial training \cite{andriushchenko-2020-understanding}.  
-                                                                                                                                   ^
-Warning 26 in paper.tex line 70: You ought to remove spaces in front of punctuation.
-Certified text defences traditionally assume a single global perturbation budget. UniT propagates IBP bounds over word replacements \cite{author-year-unit} and FreeLB introduces continuous-embedding perturbations , but both break down beyond \(\epsilon\approx 0.15\) and a few hundred tokens. Adaptive budgets have been attempted for contextual representations \cite{wu-2023-toward} yet lacked formal guarantees. SACT is the first to learn per-token \(\epsilon_i\) inside IBP while avoiding the catastrophic overfitting that plagues single-step adversarial training \cite{andriushchenko-2020-understanding}.  
-                                                                                                                                                                                                                    ^
-Warning 2 in paper.tex line 70: Non-breaking space (`~') should have been used.
-Certified text defences traditionally assume a single global perturbation budget. UniT propagates IBP bounds over word replacements \cite{author-year-unit} and FreeLB introduces continuous-embedding perturbations , but both break down beyond \(\epsilon\approx 0.15\) and a few hundred tokens. Adaptive budgets have been attempted for contextual representations \cite{wu-2023-toward} yet lacked formal guarantees. SACT is the first to learn per-token \(\epsilon_i\) inside IBP while avoiding the catastrophic overfitting that plagues single-step adversarial training \cite{andriushchenko-2020-understanding}.  
-                                                                                                                                                                                                                                                                                                                                                                        ^
-Warning 2 in paper.tex line 70: Non-breaking space (`~') should have been used.
-Certified text defences traditionally assume a single global perturbation budget. UniT propagates IBP bounds over word replacements \cite{author-year-unit} and FreeLB introduces continuous-embedding perturbations , but both break down beyond \(\epsilon\approx 0.15\) and a few hundred tokens. Adaptive budgets have been attempted for contextual representations \cite{wu-2023-toward} yet lacked formal guarantees. SACT is the first to learn per-token \(\epsilon_i\) inside IBP while avoiding the catastrophic overfitting that plagues single-step adversarial training \cite{andriushchenko-2020-understanding}.  
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ^
-Warning 2 in paper.tex line 72: Non-breaking space (`~') should have been used.
+Warning 2 in paper.tex line 76: Non-breaking space (`~') should have been used.
+Certified text defences traditionally assume a single global perturbation budget. UniT propagates IBP bounds over word replacements \cite{author-year-unit} and FreeLB introduces continuous-embedding perturbations, but both break down beyond $\epsilon\approx 0.15$ and a few hundred tokens. Adaptive budgets have been attempted for contextual representations \cite{wu-2023-toward} yet lacked formal guarantees. SACT is the first to learn per-token $\epsilon_i$ inside IBP while avoiding the catastrophic overfitting that plagues single-step adversarial training \cite{andriushchenko-2020-understanding}.  
+                                                                                                                                                                                                                                                                                                                                                                     ^
+Warning 2 in paper.tex line 76: Non-breaking space (`~') should have been used.
+Certified text defences traditionally assume a single global perturbation budget. UniT propagates IBP bounds over word replacements \cite{author-year-unit} and FreeLB introduces continuous-embedding perturbations, but both break down beyond $\epsilon\approx 0.15$ and a few hundred tokens. Adaptive budgets have been attempted for contextual representations \cite{wu-2023-toward} yet lacked formal guarantees. SACT is the first to learn per-token $\epsilon_i$ inside IBP while avoiding the catastrophic overfitting that plagues single-step adversarial training \cite{andriushchenko-2020-understanding}.  
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ^
+Warning 2 in paper.tex line 78: Non-breaking space (`~') should have been used.
 Hot-patch mechanisms provide rapid mitigation but leak information. BrainWash demonstrates inversion and poisoning attacks on continual-learning memories \cite{abbasi-2023-brainwash}. SHR adopts locality-sensitive hashing and keyed pseudo-random functions to bound leakage below 0.03 mutual information, outperforming plaintext ZePatch.  
                                                                                                                                                          ^
-Warning 2 in paper.tex line 74: Non-breaking space (`~') should have been used.
+Warning 2 in paper.tex line 80: Non-breaking space (`~') should have been used.
 Cross-modal robustness has largely remained siloed. PatchGuard-ViT focuses on localised vision noise \cite{navaneet-2023-slowformer} and SoundShield on audio spikes, yet neither provides end-to-end guarantees after fusion. Dual-Cert Fusion pioneers modality-specific certificates in a multimodal LLM, extending robustness to the router stage inspired by multi-perturbation theory \cite{tramr-2019-adversarial}.  
                                                                                                     ^
-Warning 2 in paper.tex line 74: Non-breaking space (`~') should have been used.
+Warning 2 in paper.tex line 80: Non-breaking space (`~') should have been used.
 Cross-modal robustness has largely remained siloed. PatchGuard-ViT focuses on localised vision noise \cite{navaneet-2023-slowformer} and SoundShield on audio spikes, yet neither provides end-to-end guarantees after fusion. Dual-Cert Fusion pioneers modality-specific certificates in a multimodal LLM, extending robustness to the router stage inspired by multi-perturbation theory \cite{tramr-2019-adversarial}.  
                                                                                                                                                                                                                                                                                                                                                                                            ^
-Warning 2 in paper.tex line 76: Non-breaking space (`~') should have been used.
+Warning 2 in paper.tex line 82: Non-breaking space (`~') should have been used.
 Finally, efficient robust fine-tuning has advanced via low-rank adapters (AutoLoRa \cite{xu-2023-autolora}) and safety-aligned subspaces (Safe LoRA \cite{hsu-2024-safe}). C3PO-MoRA-2 stays within the same parameter budget while delivering formal, cross-modal guarantees.  
                                                                                   ^
-Warning 2 in paper.tex line 76: Non-breaking space (`~') should have been used.
+Warning 2 in paper.tex line 82: Non-breaking space (`~') should have been used.
 Finally, efficient robust fine-tuning has advanced via low-rank adapters (AutoLoRa \cite{xu-2023-autolora}) and safety-aligned subspaces (Safe LoRA \cite{hsu-2024-safe}). C3PO-MoRA-2 stays within the same parameter budget while delivering formal, cross-modal guarantees.  
                                                                                                                                                    ^
-Warning 2 in paper.tex line 81: Non-breaking space (`~') should have been used.
-Interval bound propagation. For an input \(x\) with element-wise lower and upper bounds \((l,u)\), IBP propagates intervals layer-wise and returns output bounds; a classification is certified when the lower logit of the true class exceeds all competing upper logits \cite{zhang-2020-robustness}. Bound width grows roughly with sequence length, motivating per-token radii.  
-                                                                                                                                                                                                                                                                         ^
-Warning 1 in paper.tex line 97: Command terminated with space.
-    \State \textbf{Input:} tokens \(T\), embeddings \(E\), model \(f\), warm-up radius \(\epsilon_0\), max radius \(\epsilon_{\max}\), SpanRisk MLP \(R(\cdot)\)  
+Warning 2 in paper.tex line 87: Non-breaking space (`~') should have been used.
+Interval bound propagation. For an input $x$ with element-wise lower and upper bounds $(l,u)$, IBP propagates intervals layer-wise and returns output bounds; a classification is certified when the lower logit of the true class exceeds all competing upper logits \cite{zhang-2020-robustness}. Bound width grows roughly with sequence length, motivating per-token radii.  
+                                                                                                                                                                                                                                                                     ^
+Warning 1 in paper.tex line 104: Command terminated with space.
+    \State \textbf{Input:} tokens $T$, embeddings $E$, model $f$, warm-up radius $\epsilon_0$, max radius $\epsilon_{\max}$, SpanRisk MLP $R(\cdot)$  
           ^
-Warning 1 in paper.tex line 98: Command terminated with space.
-    \State \textbf{Warm-up:} train one epoch with all tokens wrapped by radius \(\epsilon_0\)  
+Warning 1 in paper.tex line 105: Command terminated with space.
+    \State \textbf{Warm-up:} train one epoch with all tokens wrapped by radius $\epsilon_0$  
           ^
-Warning 1 in paper.tex line 101: Command terminated with space.
+Warning 1 in paper.tex line 108: Command terminated with space.
             \State Compute per-token features: gradient norms and attention entropy  
                   ^
-Warning 1 in paper.tex line 102: Command terminated with space.
-            \State Risk scores: \(r_i \leftarrow R(e_i)\) for \(e_i\in E(B)\)  
+Warning 1 in paper.tex line 109: Command terminated with space.
+            \State Risk scores: $r_i \gets R(e_i)$ for $e_i\in E(B)$  
                   ^
-Warning 1 in paper.tex line 103: Command terminated with space.
-            \State Radii: \(\epsilon_i \leftarrow \sigma(r_i)\cdot \epsilon_{\max}\)  
+Warning 1 in paper.tex line 110: Command terminated with space.
+            \State Radii: $\epsilon_i \gets \sigma(r_i)\cdot \epsilon_{\max}$  
                   ^
-Warning 1 in paper.tex line 104: Command terminated with space.
-            \State Wrap tokens: \(\tilde{T}\leftarrow \mathrm{BoundedTensor}(T,\epsilon)\)  
+Warning 1 in paper.tex line 111: Command terminated with space.
+            \State Wrap tokens: $\tilde{T}\gets \mathrm{BoundedTensor}(T,\epsilon)$  
                   ^
-Warning 1 in paper.tex line 105: Command terminated with space.
-            \State Propagate IBP bounds through \(f\): obtain interval logits \(\ell\)  
+Warning 1 in paper.tex line 112: Command terminated with space.
+            \State Propagate IBP bounds through $f$: obtain interval logits $\ell$  
                   ^
-Warning 1 in paper.tex line 106: Command terminated with space.
-            \State Loss: upper-bound CE(\(\ell\)) + \(\lambda\,\sum_i |\epsilon_i|\)  
+Warning 1 in paper.tex line 113: Command terminated with space.
+            \State Loss: \emph{upper}-bound CE$(\ell)$ $+\;\lambda\sum_i |\epsilon_i|$  
                   ^
-Warning 36 in paper.tex line 106: You should put a space in front of parenthesis.
-            \State Loss: upper-bound CE(\(\ell\)) + \(\lambda\,\sum_i |\epsilon_i|\)  
-                                       ^
-Warning 1 in paper.tex line 107: Command terminated with space.
-            \State Update parameters of MoRA and \(R\) with AdamW  
+Warning 1 in paper.tex line 114: Command terminated with space.
+            \State Update parameters of MoRA and $R$ with AdamW  
                   ^
-Warning 1 in paper.tex line 108: Command terminated with space.
+Warning 1 in paper.tex line 115: Command terminated with space.
         \EndFor  
                ^
-Warning 1 in paper.tex line 109: Command terminated with space.
+Warning 1 in paper.tex line 116: Command terminated with space.
     \EndFor  
            ^
-Warning 1 in paper.tex line 118: Command terminated with space.
-    \State \textbf{Input:} embedding \(h\), hash table \(\mathcal{H}\subset\{0,1\}^{128}\), secret key \(K\)  
+Warning 1 in paper.tex line 126: Command terminated with space.
+    \State \textbf{Input:} embedding $h$, hash table $\mathcal{H}\subset\{0,1\}^{128}$, secret key $K$  
           ^
-Warning 3 in paper.tex line 118: You should enclose the previous parenthesis with `{}'.
-    \State \textbf{Input:} embedding \(h\), hash table \(\mathcal{H}\subset\{0,1\}^{128}\), secret key \(K\)  
-                                                                                ^^
-Warning 1 in paper.tex line 119: Command terminated with space.
-    \State \(g \leftarrow \mathrm{LSH}_{128}(h)\)  
+Warning 3 in paper.tex line 126: You should enclose the previous parenthesis with `{}'.
+    \State \textbf{Input:} embedding $h$, hash table $\mathcal{H}\subset\{0,1\}^{128}$, secret key $K$  
+                                                                             ^^
+Warning 1 in paper.tex line 127: Command terminated with space.
+    \State $g \gets \mathrm{LSH}_{128}(h)$  
           ^
-Warning 1 in paper.tex line 121: Command terminated with space.
-        \State \(a \leftarrow \mathrm{PRF}_K(g)\) \Comment{derive 2\,048-float antidote}  
+Warning 1 in paper.tex line 129: Command terminated with space.
+        \State $a \gets \mathrm{PRF}_K(g)$ \Comment{derive 2\,048-float antidote}  
               ^
-Warning 1 in paper.tex line 122: Command terminated with space.
-        \State Apply patch: \(h' \leftarrow h + a\)  
+Warning 1 in paper.tex line 130: Command terminated with space.
+        \State Apply patch: $h' \gets h + a$  
               ^
-Warning 1 in paper.tex line 123: Command terminated with space.
+Warning 1 in paper.tex line 131: Command terminated with space.
     \Else  
          ^
-Warning 1 in paper.tex line 124: Command terminated with space.
-        \State \(h' \leftarrow h\)  
+Warning 1 in paper.tex line 132: Command terminated with space.
+        \State $h' \gets h$  
               ^
-Warning 1 in paper.tex line 125: Command terminated with space.
+Warning 1 in paper.tex line 133: Command terminated with space.
     \EndIf  
           ^
-Warning 1 in paper.tex line 126: Command terminated with space.
-    \State Return \(h'\)  
+Warning 1 in paper.tex line 134: Command terminated with space.
+    \State \Return $h'$  
           ^
-Warning 13 in paper.tex line 131: Intersentence spacing (`\@') should perhaps be used.
-Vision and audio inputs are enveloped as \((x-\epsilon,\,x+\epsilon)\). Each modality passes through a lightweight bound head that outputs interval logits \(\ell^{\mathrm{vis}}\) and \(\ell^{\mathrm{aud}}\). The text branch produces \(\ell^{\mathrm{txt}}\) under SACT. Bound-aware attention computes conservative weights \(\alpha\) from lower logits; final logits are \(\alpha\odot\ell\). Certification demands identical \(\arg\max\) across modalities, yielding logically rigorous AND certificates.  
-                                                                                                                                                                                                                                                                           ^
-Warning 1 in paper.tex line 135: Command terminated with space.
-    \State \textbf{Input:} interval logits \(\ell^{\mathrm{txt}},\ell^{\mathrm{vis}},\ell^{\mathrm{aud}}\)  
+Warning 1 in paper.tex line 134: Command terminated with space.
+    \State \Return $h'$  
+                  ^
+Warning 13 in paper.tex line 139: Intersentence spacing (`\@') should perhaps be used.
+Vision and audio inputs are enveloped as $(x-\epsilon,\,x+\epsilon)$. Each modality passes through a lightweight bound head that outputs interval logits $\ell^{\mathrm{vis}}$ and $\ell^{\mathrm{aud}}$. The text branch produces $\ell^{\mathrm{txt}}$ under SACT. Bound-aware attention computes conservative weights $\alpha$ from lower logits; final logits are $\alpha\odot\ell$. Certification demands identical $\arg\max$ across modalities, yielding logically rigorous AND certificates.  
+                                                                                                                                                                                                                                                                   ^
+Warning 1 in paper.tex line 144: Command terminated with space.
+    \State \textbf{Input:} interval logits $\ell^{\mathrm{txt}},\ell^{\mathrm{vis}},\ell^{\mathrm{aud}}$  
           ^
-Warning 1 in paper.tex line 137: Command terminated with space.
-        \State Compute weights from lower bounds: \(\alpha^m \leftarrow \mathrm{softmax}(\mathrm{lower}(\ell^{m})/\tau)\)  
+Warning 1 in paper.tex line 146: Command terminated with space.
+        \State Compute weights from lower bounds: $\alpha^m \gets \mathrm{softmax}(\mathrm{lower}(\ell^{m})/\tau)$  
               ^
-Warning 1 in paper.tex line 138: Command terminated with space.
-        \State Fuse per modality: \(z^m \leftarrow \alpha^m \odot \ell^{m}\)  
+Warning 1 in paper.tex line 147: Command terminated with space.
+        \State Fuse per modality: $z^m \gets \alpha^m \odot \ell^{m}$  
               ^
-Warning 1 in paper.tex line 139: Command terminated with space.
+Warning 1 in paper.tex line 148: Command terminated with space.
     \EndFor  
            ^
-Warning 1 in paper.tex line 140: Command terminated with space.
-    \State Joint certification holds if \(\arg\max\,\mathrm{lower}(z^{\mathrm{txt}})=\arg\max\,\mathrm{lower}(z^{\mathrm{vis}})=\arg\max\,\mathrm{lower}(z^{\mathrm{aud}})\)  
+Warning 1 in paper.tex line 149: Command terminated with space.
+    \State Joint certification holds if $\arg\max\,\mathrm{lower}(z^{\mathrm{txt}})=\arg\max\,\mathrm{lower}(z^{\mathrm{vis}})=\arg\max\,\mathrm{lower}(z^{\mathrm{aud}})$  
           ^
-Warning 1 in paper.tex line 141: Command terminated with space.
-    \State Return certificate and fused logits  
+Warning 1 in paper.tex line 150: Command terminated with space.
+    \State \Return certificate and fused logits  
           ^
-Warning 13 in paper.tex line 146: Intersentence spacing (`\@') should perhaps be used.
-SACT adds \(|x|\) radii; SHR consumes 2 MB storage; DCF adds \(\approx 0.1\) M weights. Torch profiler measures a 5.4 \(\pm\) 0.3\% FLOP overhead relative to vanilla MoRA.  
-                                                                                                                                                                          ^
-Warning 8 in paper.tex line 149: Wrong length of dash may have been used.
-Hardware and libraries. All experiments run on a single NVIDIA A100-80 GB with PyTorch 2.1, CUDA 12.2, cuDNN 8.9 and auto\_LiRPA 0.4.2. A global harness aborts on library import failure, dataset checksum mismatch, constant \(\epsilon_i\), zeroed modality tensors or >2 MB hash table.  
-                                                                   ^
-Warning 8 in paper.tex line 151: Wrong length of dash may have been used.
-Experiment 1 - SACT for long prompts. Dataset PromptBench-XL v1.2 (42\,381 prompts, 32–1\,024 tokens) is split 70/10/20\%. Models: (a) C3PO-MoRA-2, (b) Abl-Global\(\epsilon\) (\(\epsilon_i\) fixed to the median), (c) SmoothLLM-\(\sigma = 0.25\) \cite{xhonneux-2024-efficient}. Training: one warm-up epoch then two SACT epochs with AdamW (lr \(3\times 10^{-4}\), batch 128 via gradient accumulation), five predetermined seeds. Certification uses IBP+Backward on batch 32. Metrics: certified accuracy (CA) per length bucket, mean bound volume, \(\epsilon_i\) distribution and empirical HotFlip-SA attack success (30\% budget). Statistics: Wilcoxon paired tests with Holm correction; 95\% BCa bootstrap.  
-             ^
-Warning 2 in paper.tex line 151: Non-breaking space (`~') should have been used.
-Experiment 1 - SACT for long prompts. Dataset PromptBench-XL v1.2 (42\,381 prompts, 32–1\,024 tokens) is split 70/10/20\%. Models: (a) C3PO-MoRA-2, (b) Abl-Global\(\epsilon\) (\(\epsilon_i\) fixed to the median), (c) SmoothLLM-\(\sigma = 0.25\) \cite{xhonneux-2024-efficient}. Training: one warm-up epoch then two SACT epochs with AdamW (lr \(3\times 10^{-4}\), batch 128 via gradient accumulation), five predetermined seeds. Certification uses IBP+Backward on batch 32. Metrics: certified accuracy (CA) per length bucket, mean bound volume, \(\epsilon_i\) distribution and empirical HotFlip-SA attack success (30\% budget). Statistics: Wilcoxon paired tests with Holm correction; 95\% BCa bootstrap.  
-                                                                                                                                                                                                                                                      ^
-Warning 8 in paper.tex line 153: Wrong length of dash may have been used.
-Experiment 2 - DCF for patch and bypass attacks. Datasets: AdvPatch-LAION-25k (224\(^2\) images, 10\% patch), NoisePatch-Vox-8k (\(\leq 30\) s clips, 20 dB spike) and TriModal-Fusion-15k. Split 70/15/15\%. Models: (a) C3PO-MoRA-2 (DCF on), (b) Abl-DCFoff (single shared head), (c) PatchGuard-ViT-B16 \cite{navaneet-2023-slowformer}, (d) SoundShield-base. Training: two epochs on modality heads and router, seeds 7, 13, 19. Certification budgets: \(\epsilon_{\mathrm{vis}} = 4/255\), \(\epsilon_{\mathrm{aud}} = 0.01\), \(\epsilon_{\mathrm{text}}\) from frozen SpanRisk; joint certificate takes logical AND. Metrics: CA per modality and joint, adaptive-PGD and bypass ASR, FLOP overhead, calibration (ECE); sweep fusion temperature \(\tau\in\{0.5, 1.0, 2.0\}\) and router-\(k\in\{64, 128\}\).  
-             ^
-Warning 2 in paper.tex line 153: Non-breaking space (`~') should have been used.
-Experiment 2 - DCF for patch and bypass attacks. Datasets: AdvPatch-LAION-25k (224\(^2\) images, 10\% patch), NoisePatch-Vox-8k (\(\leq 30\) s clips, 20 dB spike) and TriModal-Fusion-15k. Split 70/15/15\%. Models: (a) C3PO-MoRA-2 (DCF on), (b) Abl-DCFoff (single shared head), (c) PatchGuard-ViT-B16 \cite{navaneet-2023-slowformer}, (d) SoundShield-base. Training: two epochs on modality heads and router, seeds 7, 13, 19. Certification budgets: \(\epsilon_{\mathrm{vis}} = 4/255\), \(\epsilon_{\mathrm{aud}} = 0.01\), \(\epsilon_{\mathrm{text}}\) from frozen SpanRisk; joint certificate takes logical AND. Metrics: CA per modality and joint, adaptive-PGD and bypass ASR, FLOP overhead, calibration (ECE); sweep fusion temperature \(\tau\in\{0.5, 1.0, 2.0\}\) and router-\(k\in\{64, 128\}\).  
-                                                                                                                                                                                                                                                                                                           ^
-Warning 13 in paper.tex line 153: Intersentence spacing (`\@') should perhaps be used.
-Experiment 2 - DCF for patch and bypass attacks. Datasets: AdvPatch-LAION-25k (224\(^2\) images, 10\% patch), NoisePatch-Vox-8k (\(\leq 30\) s clips, 20 dB spike) and TriModal-Fusion-15k. Split 70/15/15\%. Models: (a) C3PO-MoRA-2 (DCF on), (b) Abl-DCFoff (single shared head), (c) PatchGuard-ViT-B16 \cite{navaneet-2023-slowformer}, (d) SoundShield-base. Training: two epochs on modality heads and router, seeds 7, 13, 19. Certification budgets: \(\epsilon_{\mathrm{vis}} = 4/255\), \(\epsilon_{\mathrm{aud}} = 0.01\), \(\epsilon_{\mathrm{text}}\) from frozen SpanRisk; joint certificate takes logical AND. Metrics: CA per modality and joint, adaptive-PGD and bypass ASR, FLOP overhead, calibration (ECE); sweep fusion temperature \(\tau\in\{0.5, 1.0, 2.0\}\) and router-\(k\in\{64, 128\}\).  
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ^
-Warning 8 in paper.tex line 155: Wrong length of dash may have been used.
-Experiment 3 - SHR privacy and stability. Part A compares C3PO-SHR to ZePatch-Plain under (i) auto-encoder inversion (2\,560-512-2\,048) and (ii) Salem-19 membership inference. Metrics: Kraskov mutual information, BLEU-4 reconstruction, MIA-AUC; 1\,000-rep bootstrap and DeLong test. Part B streams 1\,500 red-team prompts, applies a patch after each, and every 100 patches evaluates TruthfulQA exact match and MMLU ECE; analysis via two-way RM-ANOVA.  
-             ^
-Warning 8 in paper.tex line 155: Wrong length of dash may have been used.
-Experiment 3 - SHR privacy and stability. Part A compares C3PO-SHR to ZePatch-Plain under (i) auto-encoder inversion (2\,560-512-2\,048) and (ii) Salem-19 membership inference. Metrics: Kraskov mutual information, BLEU-4 reconstruction, MIA-AUC; 1\,000-rep bootstrap and DeLong test. Part B streams 1\,500 red-team prompts, applies a patch after each, and every 100 patches evaluates TruthfulQA exact match and MMLU ECE; analysis via two-way RM-ANOVA.  
-                                                                                                                            ^
-Warning 8 in paper.tex line 155: Wrong length of dash may have been used.
-Experiment 3 - SHR privacy and stability. Part A compares C3PO-SHR to ZePatch-Plain under (i) auto-encoder inversion (2\,560-512-2\,048) and (ii) Salem-19 membership inference. Metrics: Kraskov mutual information, BLEU-4 reconstruction, MIA-AUC; 1\,000-rep bootstrap and DeLong test. Part B streams 1\,500 red-team prompts, applies a patch after each, and every 100 patches evaluates TruthfulQA exact match and MMLU ECE; analysis via two-way RM-ANOVA.  
-                                                                                                                                ^
+Warning 1 in paper.tex line 150: Command terminated with space.
+    \State \Return certificate and fused logits  
+                  ^
 Warning 13 in paper.tex line 155: Intersentence spacing (`\@') should perhaps be used.
-Experiment 3 - SHR privacy and stability. Part A compares C3PO-SHR to ZePatch-Plain under (i) auto-encoder inversion (2\,560-512-2\,048) and (ii) Salem-19 membership inference. Metrics: Kraskov mutual information, BLEU-4 reconstruction, MIA-AUC; 1\,000-rep bootstrap and DeLong test. Part B streams 1\,500 red-team prompts, applies a patch after each, and every 100 patches evaluates TruthfulQA exact match and MMLU ECE; analysis via two-way RM-ANOVA.  
-                                                                                                                                                                                                                                                    ^
-Warning 13 in paper.tex line 155: Intersentence spacing (`\@') should perhaps be used.
-Experiment 3 - SHR privacy and stability. Part A compares C3PO-SHR to ZePatch-Plain under (i) auto-encoder inversion (2\,560-512-2\,048) and (ii) Salem-19 membership inference. Metrics: Kraskov mutual information, BLEU-4 reconstruction, MIA-AUC; 1\,000-rep bootstrap and DeLong test. Part B streams 1\,500 red-team prompts, applies a patch after each, and every 100 patches evaluates TruthfulQA exact match and MMLU ECE; analysis via two-way RM-ANOVA.  
-                                                                                                                                                                                                                                                                                                                                                                                                                                   ^
-Warning 13 in paper.tex line 155: Intersentence spacing (`\@') should perhaps be used.
-Experiment 3 - SHR privacy and stability. Part A compares C3PO-SHR to ZePatch-Plain under (i) auto-encoder inversion (2\,560-512-2\,048) and (ii) Salem-19 membership inference. Metrics: Kraskov mutual information, BLEU-4 reconstruction, MIA-AUC; 1\,000-rep bootstrap and DeLong test. Part B streams 1\,500 red-team prompts, applies a patch after each, and every 100 patches evaluates TruthfulQA exact match and MMLU ECE; analysis via two-way RM-ANOVA.  
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ^
-Warning 13 in paper.tex line 160: Intersentence spacing (`\@') should perhaps be used.
-Long-prompt robustness. On PromptBench-XL C3PO-MoRA-2 attains 88.6 \(\pm\) 0.7\% CA for \(\leq\)128 tokens, 83.1 \(\pm\) 0.9\% for 129–512 and 78.4 \(\pm\) 1.0\% for 512–1\,024, versus 52.5 \(\pm\) 1.3\% and 41.2 \(\pm\) 1.5\% for the fixed-\(\epsilon\) ablation and 46.8 \(\pm\) 1.4\%, 36.9 \(\pm\) 1.7\% for SmoothLLM. The 37.2 pp gain on the longest bucket is significant (Wilcoxon \(p < 10^{-4}\)). Mean bound volume shrinks by 31 \(\pm\) 2\% (\(p < 0.001\)). Tokens in the lowest-entropy quartile receive 2.4\(\times\) larger \(\epsilon_i\), confirming adaptive allocation.  
-                                                                                                                                                                                                                                                                                                                                   ^
-Warning 13 in paper.tex line 166: Intersentence spacing (`\@') should perhaps be used.
-Robustness sweeps. Vision CA remains 52\% under 20\% patch area, still 40 pp above Abl-DCFoff. Audio CA degrades to 63\% at 10 dB SNR. Fusion temperature \(\tau = 1.0\) maximises joint CA with \(\leq\)2 pp variance.  
-                                                                                                                                     ^
-Warning 2 in paper.tex line 171: Non-breaking space (`~') should have been used.
-C3PO-MoRA-2 delivers the first token-adaptive, privacy-preserving and cross-modal certificates for large language models within a standard PEFT budget. Span-Adaptive Certified Training raises certified accuracy on 1\,024-token jailbreaks by 37 pp, Dual-Cert Fusion furnishes per-modality guarantees at <6\% extra compute and Secure-Hash Retrieval eliminates inversion leakage while preserving factuality through 1\,500 live patches. A fail-fast experimental harness ensures perfect alignment between manuscript and artefacts, offering a dependable test-bed for future research. Next steps include widening adaptive radii, certifying semantic perturbations and hardening SHR against key leakage. By open-sourcing our guarded pipeline we hope to catalyse rigorous evaluation of forthcoming robust fine-tuning techniques \cite{andriushchenko-2020-understanding,tramr-2019-adversarial,wong-2020-fast}.  
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ^
+SACT adds $|x|$ radii; SHR consumes 2~MB storage; DCF adds $\approx$0.1~M weights. Torch profiler measures a 5.4~\textpm~0.3\% FLOP overhead relative to vanilla MoRA.  
+                                                                                                                                                                     ^

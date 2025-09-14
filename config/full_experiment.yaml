@@ -1,0 +1,52 @@
+experiment_name: hirma_paper_experiments
+random_seeds: [111, 222, 333]
+run_mode: full
+hardware:
+  device: cuda
+  gpu_id: 0
+  dtype: bfloat16
+models:
+  mixtral_local:
+    engine: vllm
+    name_or_path: mistralai/Mixtral-8x7B-Instruct
+    tensor_parallel_size: 1
+    temperature: 0.7
+llm_apis:
+  gpt4o:
+    provider: openai
+    model: gpt-4o-preview
+    env_var_key: OPENAI_API_KEY
+    temperature: 0.7
+  gemini15:
+    provider: google
+    model: gemini-1.5-pro-latest
+    env_var_key: GEMINI_API_KEY
+    temperature: 0.7
+  claude3:
+    provider: anthropic
+    model: claude-3-sonnet-20240229
+    env_var_key: ANTHROPIC_API_KEY
+    temperature: 0.7
+guardrails:
+  - none
+  - pat
+  - tarpo
+  - detector
+  - hirma
+datasets:
+  jailbreakbench:
+    hf_repo: EleutherAI/jailbreakbench
+    split: test
+  jambench:
+    hf_repo: LLMSafety/JAMBench
+    split: test
+  autodan_opro:
+    url: https://huggingface.co/datasets/llm-safety/autodan-opro-eval/resolve/main/fresh_eval.jsonl
+metrics:
+  - multi_turn_asr
+  - single_turn_asr
+  - mt_bench_helpfulness
+  - latency
+  - cross_model_gap
+  - risk_ece
+output_dir: results/full

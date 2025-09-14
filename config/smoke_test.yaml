@@ -1,0 +1,29 @@
+experiment_name: smoke_test_hirma
+random_seeds: [111]
+run_mode: smoke
+hardware:
+  device: cpu
+models:
+  mixtral_local:
+    engine: vllm
+    name_or_path: mistralai/Mixtral-8x7B-Instruct
+    tensor_parallel_size: 1
+    temperature: 0.7
+llm_apis: {}
+guardrails:
+  - none
+  - pat
+  - tarpo
+  - hirma
+datasets:
+  jailbreakbench:
+    hf_repo: EleutherAI/jailbreakbench
+    split: test[:10]
+  jambench:
+    hf_repo: LLMSafety/JAMBench
+    split: test[:10]
+metrics:
+  - multi_turn_asr
+  - single_turn_asr
+  - latency
+output_dir: results/smoke

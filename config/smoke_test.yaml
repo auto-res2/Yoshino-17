@@ -1,10 +1,10 @@
 experiment: "exp1_text_cert"
 mode: "smoke"
 data:
-  max_len: 32   # drastically smaller for CI speed
+  max_len: 32   # smaller for CI speed
   num_labels: 2
 train:
-  epochs: 1      # single epoch smoke test
+  epochs: 1
   batch_size: 2
   lr: 3e-4
   wd: 0.01

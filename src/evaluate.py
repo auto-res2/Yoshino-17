@@ -1,6 +1,5 @@
-"""Evaluation utilities: light-weight certification stub + plotting helpers.
-The real certification step uses auto_LiRPA if available; otherwise we fall
-back to a dummy scorer so that smoke-tests do not fail in minimal CI.
+"""Evaluation utilities with mandatory IBP certification.
+If auto_LiRPA is missing we abort immediately – no silent fallbacks.
 """
 from __future__ import annotations
 
@@ -9,21 +8,17 @@ import pathlib
 from typing import Any, Dict, List
 
 import numpy as np
-import torch  # Ensure torch is always imported
+import torch
 import torch.nn.functional as F
 
-# Optional plotting libraries (may be missing in head-less CI)
+from auto_LiRPA import BoundedTensor  # fail-fast if missing
+
+# Optional plotting libraries (non-critical)
 try:
     import matplotlib.pyplot as plt  # noqa: F401
     import seaborn as sns  # noqa: F401
-except Exception:  # pragma: no cover – head-less CI containers often miss these libs
+except Exception:  # pragma: no cover
     plt = sns = None
-
-# auto_LiRPA is optional – keep rest of code functional if it is absent
-try:
-    from auto_LiRPA import BoundedTensor
-except Exception:
-    BoundedTensor = None
 
 
 def save_json(obj: Dict[str, Any], path: pathlib.Path | str) -> None:
@@ -32,16 +27,15 @@ def save_json(obj: Dict[str, Any], path: pathlib.Path | str) -> None:
     p.parent.mkdir(parents=True, exist_ok=True)
     with open(p, "w", encoding="utf-8") as f:
         json.dump(obj, f, indent=2)
-    # Print for verification in CI / task grader
     print(json.dumps(obj, indent=2))
 
 
 def line_plot(values: List[float], title: str, ylabel: str, name: str) -> None:
     """Line plot helper. Falls back to a no-op when matplotlib is unavailable."""
     if plt is None or sns is None:
-        return  # gracefully skip when plotting stack is unavailable
+        return
 
-    import matplotlib.pyplot as _plt  # Local alias for mypy clarity
+    import matplotlib.pyplot as _plt
     import seaborn as _sns
 
     _plt.figure()
@@ -51,7 +45,6 @@ def line_plot(values: List[float], title: str, ylabel: str, name: str) -> None:
     _plt.title(title)
     _plt.xlabel("Epoch")
     _plt.ylabel(ylabel)
-    _plt.legend([ylabel])
     _plt.tight_layout()
 
     out_path = pathlib.Path(f"{name}.pdf")
@@ -60,41 +53,17 @@ def line_plot(values: List[float], title: str, ylabel: str, name: str) -> None:
     _plt.close()
 
 
-def _dummy_certification(model: Any, dataset: Any, num_items: int = 16) -> float:
-    """Very light-weight accuracy estimator used when auto_LiRPA is absent."""
-    correct = 0
-    model.eval()
-    for i in range(min(num_items, len(dataset))):
-        batch = dataset[i]
-        with torch.no_grad():
-            inp = batch["input_ids"].unsqueeze(0)
-            if torch.cuda.is_available():
-                inp = inp.cuda()
-            logits = model(inp)
-            pred = logits.argmax(-1).item()
-            correct += int(pred == batch["label"].item())
-    return correct / min(num_items, len(dataset))
-
+# ---------------------------------------------------------------------------
+#  IBP Certification – runs on a small subset for CI viability
+# ---------------------------------------------------------------------------
 
 def certify_model(model: Any, dataset: Any, cfg: Dict[str, Any]) -> float:  # noqa: D401
-    """Run IBP certification on *model* for a small subset of *dataset*.
+    """Run Interval Bound Propagation certification on *model*."""
 
-    The heavy auto_LiRPA dependency is optional.  If it is not available we
-    fall back to a much faster but weaker dummy certification that merely
-    checks standard accuracy on a handful of samples – good enough for CI.
-    """
-
-    if BoundedTensor is None:
-        return _dummy_certification(model, dataset)
-
-    # Real IBP certification – still restricted to a tiny subset for speed
     model.eval()
     acc: List[int] = []
-    try:
-        ibp = model.certifiable_module((1, cfg["data"]["max_len"]))
-    except Exception:
-        # Model does not implement the interface – fall back
-        return _dummy_certification(model, dataset)
+
+    ibp = model.certifiable_module((1, cfg["data"]["max_len"]))
 
     with torch.no_grad():
         for i in range(min(32, len(dataset))):

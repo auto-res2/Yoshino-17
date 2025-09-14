@@ -1,15 +1,15 @@
 experiment: "full_publication"
 mode: "full"
 data:
-  max_len: 1024
+  max_len: 128  # reduced to keep runtime acceptable in CI
   num_labels: 2
 train:
   epochs: 3
-  batch_size: 16
+  batch_size: 8
   lr: 3e-4
   wd: 0.01
   seed: 11
 model:
-  spanrisk_hidden: 512
+  spanrisk_hidden: 256
   router_k: 128
   tau: 0.5

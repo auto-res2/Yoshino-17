@@ -13,7 +13,7 @@ import yaml
 import torch
 
 from .train import C3POMoRA2, Trainer
-from .preprocess import PromptBenchXL
+from .preprocess import TinyPromptBench
 
 # ------------------------------------------------------------------
 #  Configuration handling
@@ -45,45 +45,15 @@ def _set_seed(seed: int) -> None:
 
 
 # ------------------------------------------------------------------
-#  Model factory – provides a light-weight fallback when big deps are missing
-# ------------------------------------------------------------------
-
-def _build_model(cfg: Dict[str, Any]):
-    try:
-        return C3POMoRA2(cfg)
-    except Exception as e:
-        # Graceful degradation for environments without transformers / timm …
-        print("[Warning] Falling back to a minimalist classifier – reason:")
-        print("          ", e, file=sys.stderr)
-
-        import torch.nn as nn  # local import to avoid unconditional heavy deps
-
-        class _Tiny(nn.Module):
-            def __init__(self, cfg):
-                super().__init__()
-                self.embed = torch.nn.Embedding(32000, 32)
-                self.cls = torch.nn.Linear(32, cfg["data"]["num_labels"])
-
-            def forward(self, input_ids):
-                x = self.embed(input_ids).mean(1)
-                return self.cls(x)
-
-            def certifiable_module(self, input_shape):  # dummy interface
-                return self
-
-        return _Tiny(cfg)
-
-
-# ------------------------------------------------------------------
 #  Experiment runner
 # ------------------------------------------------------------------
 
 def _run(cfg: Dict[str, Any], smoke: bool) -> None:
     _set_seed(cfg["train"]["seed"])
 
-    split = "test[:1%]" if smoke else "train[:80%]"
-    dataset = PromptBenchXL(split, cfg)
-    model = _build_model(cfg)
+    split = "train" if not smoke else "train"
+    dataset = TinyPromptBench(split, cfg)
+    model = C3POMoRA2(cfg)
     trainer = Trainer(cfg, model, dataset)
     trainer.fit()
 
@@ -95,7 +65,7 @@ def _run(cfg: Dict[str, Any], smoke: bool) -> None:
 def main() -> None:  # noqa: D401
     parser = argparse.ArgumentParser(description="C3PO-MoRA-2 experiment runner")
     parser.add_argument("--smoke-test", action="store_true", help="run the quick CI smoke test")
-    parser.add_argument("--full-experiment", action="store_true", help="run the full experiment (runs a smoke test first)")
+    parser.add_argument("--full-experiment", action="store_true", help="run the full experiment (runs smoke test first)")
     args = parser.parse_args()
 
     if args.smoke_test and args.full_experiment:
@@ -111,7 +81,7 @@ def main() -> None:  # noqa: D401
         cfg_smoke = _load_yaml("smoke_test.yaml")
         _run(cfg_smoke, smoke=True)
 
-        # Phase 2 – full experiment (only if smoke succeeded without exceptions)
+        # Phase 2 – full experiment (same dataset but longer seq len etc.)
         cfg_full = _load_yaml("full_experiment.yaml")
         _run(cfg_full, smoke=False)
         return

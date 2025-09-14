@@ -1,0 +1,10 @@
+{
+  "research_topic": "マルチターン防御機構の改善による攻撃成功率（ASR）低減を目的とし、現状では人間が設計したマルチターン型ジェイルブレイクが現行のすべての防御を突破して70〜85%のASRを達成しており、商用LLMにおける最重要の脆弱性（Scale AI +4）であるという問題に対して、Robust Prompt Optimization（RPO）を用いてマルチターンASRを70%から10%未満へ低減することを具体的目標とし、利用可能なリソースとしてHarmBench（7カテゴリ、400種類の有害行動、arXiv +3）をベンチマークとし、ベースラインとしてRPOがGPT-4の単一ターン攻撃でASRを6%に抑えるがマルチターン攻撃には失敗するという結果（arXiv +2）を踏まえ、実装にはGitHub上のHarmBenchリポジトリ（https://github.com/centerforaisafety/HarmBench）を活用し、計算資源として16GB V100で実行可能で評価サイクルは約3時間（中程度負荷）であることを前提とし、研究の新規性として会話状態解析を通じてターンをまたいだ攻撃パターンを検出する「会話認識型防御機構」を開発するものである。",
+  "queries": [
+    "multi-turn adversarial defense",
+    "robust prompt optimization",
+    "cross-turn attack detection",
+    "HarmBench benchmark",
+    "ASR reduction"
+  ]
+}

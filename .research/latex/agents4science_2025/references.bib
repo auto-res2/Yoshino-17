@@ -5,3 +5,1279 @@
   publisher = {GitHub},
   url       = {https://github.com/airas-org/airas}
 }
+
+% ===========================================
+% REQUIRED CITATIONS
+% These papers must be cited in the manuscript
+% ===========================================
+
+@article{alam-2024-ctibench,
+ abstract = {Cyber threat intelligence (CTI) is crucial in today's cybersecurity
+landscape, providing essential insights to understand and mitigate the
+ever-evolving cyber threats. The recent rise of Large Language Models (LLMs)
+have shown potential in this domain, but concerns about their reliability,
+accuracy, and hallucinations persist. While existing benchmarks provide general
+evaluations of LLMs, there are no benchmarks that address the practical and
+applied aspects of CTI-specific tasks. To bridge this gap, we introduce
+CTIBench, a benchmark designed to assess LLMs' performance in CTI applications.
+CTIBench includes multiple datasets focused on evaluating knowledge acquired by
+LLMs in the cyber-threat landscape. Our evaluation of several state-of-the-art
+models on these tasks provides insights into their strengths and weaknesses in
+CTI contexts, contributing to a better understanding of LLM capabilities in
+CTI.},
+ arxiv_url = {https://arxiv.org/pdf/2406.07599v3.pdf},
+ author = {Md Tanvirul Alam and Dipkamal Bhusal and Le Nguyen and Nidhi Rastogi},
+ github_url = {https://github.com/xashru/cti-bench},
+ title = {CTIBench: A Benchmark for Evaluating LLMs in Cyber Threat Intelligence},
+ year = {2024}
+}
+
+@article{author-year-distraction,
+ title = {Distraction is All You Need: Memory-Efficient Image Immunization against Diffusion-Based Image Editing}
+}
+
+@article{author-year-dynamic,
+ title = {Dynamic Generative Targeted Attacks With Pattern Injection}
+}
+
+@article{author-year-nas,
+ title = {NAS-Bench-ASR: Reproducible Neural Architecture Search for Speech Recognition}
+}
+
+@article{author-year-panning,
+ title = {Panning for Gold in Federated Learning: Targeted Text Extraction under Arbitrarily Large-Scale Aggregation}
+}
+
+@article{author-year-situ,
+ title = {In-Situ Text-Only Adaptation of Speech Models with Low-Overhead Speech Imputations}
+}
+
+@article{chao-2024-jailbreakbench,
+ abstract = {Jailbreak attacks cause large language models (LLMs) to generate harmful,
+unethical, or otherwise objectionable content. Evaluating these attacks
+presents a number of challenges, which the current collection of benchmarks and
+evaluation techniques do not adequately address. First, there is no clear
+standard of practice regarding jailbreaking evaluation. Second, existing works
+compute costs and success rates in incomparable ways. And third, numerous works
+are not reproducible, as they withhold adversarial prompts, involve
+closed-source code, or rely on evolving proprietary APIs. To address these
+challenges, we introduce JailbreakBench, an open-sourced benchmark with the
+following components: (1) an evolving repository of state-of-the-art
+adversarial prompts, which we refer to as jailbreak artifacts; (2) a
+jailbreaking dataset comprising 100 behaviors -- both original and sourced from
+prior work (Zou et al., 2023; Mazeika et al., 2023, 2024) -- which align with
+OpenAI's usage policies; (3) a standardized evaluation framework at
+https://github.com/JailbreakBench/jailbreakbench that includes a clearly
+defined threat model, system prompts, chat templates, and scoring functions;
+and (4) a leaderboard at https://jailbreakbench.github.io/ that tracks the
+performance of attacks and defenses for various LLMs. We have carefully
+considered the potential ethical implications of releasing this benchmark, and
+believe that it will be a net positive for the community.},
+ arxiv_url = {https://arxiv.org/pdf/2404.01318v5.pdf},
+ author = {Patrick Chao and Edoardo Debenedetti and Alexander Robey and Maksym Andriushchenko and Francesco Croce and Vikash Sehwag and Edgar Dobriban and Nicolas Flammarion and George J. Pappas and Florian Tramer and Hamed Hassani and Eric Wong},
+ github_url = {https://github.com/JailbreakBench/jailbreakbench},
+ title = {JailbreakBench: An Open Robustness Benchmark for Jailbreaking Large Language Models},
+ year = {2024}
+}
+
+@article{cheng-2024-self,
+ abstract = {We explore the potential of self-play training for large language models
+(LLMs) in a two-player adversarial language game called Adversarial Taboo. In
+this game, an attacker and a defender communicate around a target word only
+visible to the attacker. The attacker aims to induce the defender to speak the
+target word unconsciously, while the defender tries to infer the target word
+from the attacker's utterances. To win the game, both players must have
+sufficient knowledge about the target word and high-level reasoning ability to
+infer and express in this information-reserved conversation. Hence, we are
+curious about whether LLMs' reasoning ability can be further enhanced by
+Self-Playing this Adversarial language Game (SPAG). With this goal, we select
+several open-source LLMs and let each act as the attacker and play with a copy
+of itself as the defender on an extensive range of target words. Through
+reinforcement learning on the game outcomes, we observe that the LLMs'
+performances uniformly improve on a broad range of reasoning benchmarks.
+Furthermore, iteratively adopting this self-play process can continuously
+promote LLMs' reasoning abilities. The code is available at
+https://github.com/Linear95/SPAG.},
+ arxiv_url = {https://arxiv.org/pdf/2404.10642v3.pdf},
+ author = {Pengyu Cheng and Tianhao Hu and Han Xu and Zhisong Zhang and Zheng Yuan and Yong Dai and Lei Han and Nan Du and Xiaolong Li},
+ github_url = {https://github.com/Linear95/SPAG},
+ title = {Self-playing Adversarial Language Game Enhances LLM Reasoning},
+ year = {2024}
+}
+
+@article{coalson-2023-bert,
+ abstract = {In this paper, we systematically evaluate the robustness of multi-exit
+language models against adversarial slowdown. To audit their robustness, we
+design a slowdown attack that generates natural adversarial text bypassing
+early-exit points. We use the resulting WAFFLE attack as a vehicle to conduct a
+comprehensive evaluation of three multi-exit mechanisms with the GLUE benchmark
+against adversarial slowdown. We then show our attack significantly reduces the
+computational savings provided by the three methods in both white-box and
+black-box settings. The more complex a mechanism is, the more vulnerable it is
+to adversarial slowdown. We also perform a linguistic analysis of the perturbed
+text inputs, identifying common perturbation patterns that our attack
+generates, and comparing them with standard adversarial text attacks. Moreover,
+we show that adversarial training is ineffective in defeating our slowdown
+attack, but input sanitization with a conversational model, e.g., ChatGPT, can
+remove perturbations effectively. This result suggests that future work is
+needed for developing efficient yet robust multi-exit models. Our code is
+available at: https://github.com/ztcoalson/WAFFLE},
+ arxiv_url = {https://arxiv.org/pdf/2310.19152v2.pdf},
+ author = {Zachary Coalson and Gabriel Ritter and Rakesh Bobba and Sanghyun Hong},
+ github_url = {https://github.com/QData/TextAttack},
+ title = {BERT Lost Patience Won't Be Robust to Adversarial Slowdown},
+ year = {2023}
+}
+
+@article{dai-2023-multirobustbench,
+ abstract = {The bulk of existing research in defending against adversarial examples
+focuses on defending against a single (typically bounded Lp-norm) attack, but
+for a practical setting, machine learning (ML) models should be robust to a
+wide variety of attacks. In this paper, we present the first unified framework
+for considering multiple attacks against ML models. Our framework is able to
+model different levels of learner's knowledge about the test-time adversary,
+allowing us to model robustness against unforeseen attacks and robustness
+against unions of attacks. Using our framework, we present the first
+leaderboard, MultiRobustBench, for benchmarking multiattack evaluation which
+captures performance across attack types and attack strengths. We evaluate the
+performance of 16 defended models for robustness against a set of 9 different
+attack types, including Lp-based threat models, spatial transformations, and
+color changes, at 20 different attack strengths (180 attacks total).
+Additionally, we analyze the state of current defenses against multiple
+attacks. Our analysis shows that while existing defenses have made progress in
+terms of average robustness across the set of attacks used, robustness against
+the worst-case attack is still a big open problem as all existing models
+perform worse than random guessing.},
+ arxiv_url = {https://arxiv.org/pdf/2302.10980v3.pdf},
+ author = {Sihui Dai and Saeed Mahloujifar and Chong Xiang and Vikash Sehwag and Pin-Yu Chen and Prateek Mittal},
+ title = {MultiRobustBench: Benchmarking Robustness Against Multiple Attacks},
+ year = {2023}
+}
+
+@article{garov-2023-hiding,
+ abstract = {Malicious server (MS) attacks have enabled the scaling of data stealing in
+federated learning to large batch sizes and secure aggregation, settings
+previously considered private. However, many concerns regarding the client-side
+detectability of MS attacks were raised, questioning their practicality. In
+this work, for the first time, we thoroughly study client-side detectability.
+We first demonstrate that all prior MS attacks are detectable by principled
+checks, and formulate a necessary set of requirements that a practical MS
+attack must satisfy. Next, we propose SEER, a novel attack framework that
+satisfies these requirements. The key insight of SEER is the use of a secret
+decoder, jointly trained with the shared model. We show that SEER can steal
+user data from gradients of realistic networks, even for large batch sizes of
+up to 512 and under secure aggregation. Our work is a promising step towards
+assessing the true vulnerability of federated learning in real-world settings.},
+ arxiv_url = {https://arxiv.org/pdf/2306.03013v5.pdf},
+ author = {Kostadin Garov and Dimitar I. Dimitrov and Nikola Jovanović and Martin Vechev},
+ github_url = {https://github.com/insait-institute/SEER},
+ title = {Hiding in Plain Sight: Disguising Data Stealing Attacks in Federated Learning},
+ year = {2023}
+}
+
+@article{gong-2024-cross,
+ abstract = {In recent years, there has been significant research focusing on addressing
+security concerns in single-modal person re-identification (ReID) systems that
+are based on RGB images. However, the safety of cross-modality scenarios, which
+are more commonly encountered in practical applications involving images
+captured by infrared cameras, has not received adequate attention. The main
+challenge in cross-modality ReID lies in effectively dealing with visual
+differences between different modalities. For instance, infrared images are
+typically grayscale, unlike visible images that contain color information.
+Existing attack methods have primarily focused on the characteristics of the
+visible image modality, overlooking the features of other modalities and the
+variations in data distribution among different modalities. This oversight can
+potentially undermine the effectiveness of these methods in image retrieval
+across diverse modalities. This study represents the first exploration into the
+security of cross-modality ReID models and proposes a universal perturbation
+attack specifically designed for cross-modality ReID. This attack optimizes
+perturbations by leveraging gradients from diverse modality data, thereby
+disrupting the discriminator and reinforcing the differences between
+modalities. We conducted experiments on three widely used cross-modality
+datasets, namely RegDB, SYSU, and LLCM. The results not only demonstrate the
+effectiveness of our method but also provide insights for future improvements
+in the robustness of cross-modality ReID systems. The code will be available at
+https://github.com/finger-monkey/cmps__attack.},
+ arxiv_url = {https://arxiv.org/pdf/2401.10090v6.pdf},
+ author = {Yunpeng Gong and Zhun Zhong and Yansong Qu and Zhiming Luo and Rongrong Ji and Min Jiang},
+ github_url = {https://github.com/finger-monkey/LTA_and_joint-defence},
+ title = {Cross-Modality Perturbation Synergy Attack for Person Re-identification},
+ year = {2024}
+}
+
+@article{guo-2023-connecting,
+ abstract = {Large Language Models (LLMs) excel in various tasks, but they rely on
+carefully crafted prompts that often demand substantial human effort. To
+automate this process, in this paper, we propose a novel framework for discrete
+prompt optimization, called EvoPrompt, which borrows the idea of evolutionary
+algorithms (EAs) as they exhibit good performance and fast convergence. To
+enable EAs to work on discrete prompts, which are natural language expressions
+that need to be coherent and human-readable, we connect LLMs with EAs. This
+approach allows us to simultaneously leverage the powerful language processing
+capabilities of LLMs and the efficient optimization performance of EAs.
+Specifically, abstaining from any gradients or parameters, EvoPrompt starts
+from a population of prompts and iteratively generates new prompts with LLMs
+based on the evolutionary operators, improving the population based on the
+development set. We optimize prompts for both closed- and open-source LLMs
+including GPT-3.5 and Alpaca, on 31 datasets covering language understanding,
+generation tasks, as well as BIG-Bench Hard (BBH) tasks. EvoPrompt
+significantly outperforms human-engineered prompts and existing methods for
+automatic prompt generation (e.g., up to 25% on BBH). Furthermore, EvoPrompt
+demonstrates that connecting LLMs with EAs creates synergies, which could
+inspire further research on the combination of LLMs and conventional
+algorithms.},
+ arxiv_url = {https://arxiv.org/pdf/2309.08532v3.pdf},
+ author = {Qingyan Guo and Rui Wang and Junliang Guo and Bei Li and Kaitao Song and Xu Tan and Guoqing Liu and Jiang Bian and Yujiu Yang},
+ github_url = {https://github.com/beeevita/EvoPrompt},
+ title = {Connecting Large Language Models with Evolutionary Algorithms Yields Powerful Prompt Optimizers},
+ year = {2023}
+}
+
+@article{hu-2024-localized,
+ abstract = {The efficacy of large language models (LLMs) in understanding and generating
+natural language has aroused a wide interest in developing prompt-based methods
+to harness the power of black-box LLMs. Existing methodologies usually
+prioritize a global optimization for finding the global optimum, which however
+will perform poorly in certain tasks. This thus motivates us to re-think the
+necessity of finding a global optimum in prompt optimization. To answer this,
+we conduct a thorough empirical study on prompt optimization and draw two major
+insights. Contrasting with the rarity of global optimum, local optima are
+usually prevalent and well-performed, which can be more worthwhile for
+efficient prompt optimization (Insight I). The choice of the input domain,
+covering both the generation and the representation of prompts, affects the
+identification of well-performing local optima (Insight II). Inspired by these
+insights, we propose a novel algorithm, namely localized zeroth-order prompt
+optimization (ZOPO), which incorporates a Neural Tangent Kernel-based derived
+Gaussian process into standard zeroth-order optimization for an efficient
+search of well-performing local optima in prompt optimization. Remarkably, ZOPO
+outperforms existing baselines in terms of both the optimization performance
+and the query efficiency, which we demonstrate through extensive experiments.},
+ arxiv_url = {https://arxiv.org/pdf/2403.02993v1.pdf},
+ author = {Wenyang Hu and Yao Shu and Zongmin Yu and Zhaoxuan Wu and Xiangqiang Lin and Zhongxiang Dai and See-Kiong Ng and Bryan Kian Hsiang Low},
+ title = {Localized Zeroth-Order Prompt Optimization},
+ year = {2024}
+}
+
+@article{jin-2024-jailbreaking,
+ abstract = {Large Language Models (LLMs) are typically harmless but remain vulnerable to
+carefully crafted prompts known as ``jailbreaks'', which can bypass protective
+measures and induce harmful behavior. Recent advancements in LLMs have
+incorporated moderation guardrails that can filter outputs, which trigger
+processing errors for certain malicious questions. Existing red-teaming
+benchmarks often neglect to include questions that trigger moderation
+guardrails, making it difficult to evaluate jailbreak effectiveness. To address
+this issue, we introduce JAMBench, a harmful behavior benchmark designed to
+trigger and evaluate moderation guardrails. JAMBench involves 160 manually
+crafted instructions covering four major risk categories at multiple severity
+levels. Furthermore, we propose a jailbreak method, JAM (Jailbreak Against
+Moderation), designed to attack moderation guardrails using jailbreak prefixes
+to bypass input-level filters and a fine-tuned shadow model functionally
+equivalent to the guardrail model to generate cipher characters to bypass
+output-level filters. Our extensive experiments on four LLMs demonstrate that
+JAM achieves higher jailbreak success ($\sim$ $\times$ 19.88) and lower
+filtered-out rates ($\sim$ $\times$ 1/6) than baselines.},
+ arxiv_url = {https://arxiv.org/pdf/2405.20413v1.pdf},
+ author = {Haibo Jin and Andy Zhou and Joe D. Menke and Haohan Wang},
+ github_url = {https://github.com/meta-llama/PurpleLlama},
+ title = {Jailbreaking Large Language Models Against Moderation Guardrails via Cipher Characters},
+ year = {2024}
+}
+
+@article{kim-2022-squeezeformer,
+ abstract = {The recently proposed Conformer model has become the de facto backbone model
+for various downstream speech tasks based on its hybrid attention-convolution
+architecture that captures both local and global features. However, through a
+series of systematic studies, we find that the Conformer architecture's design
+choices are not optimal. After re-examining the design choices for both the
+macro and micro-architecture of Conformer, we propose Squeezeformer which
+consistently outperforms the state-of-the-art ASR models under the same
+training schemes. In particular, for the macro-architecture, Squeezeformer
+incorporates (i) the Temporal U-Net structure which reduces the cost of the
+multi-head attention modules on long sequences, and (ii) a simpler block
+structure of multi-head attention or convolution modules followed up by
+feed-forward module instead of the Macaron structure proposed in Conformer.
+Furthermore, for the micro-architecture, Squeezeformer (i) simplifies the
+activations in the convolutional block, (ii) removes redundant Layer
+Normalization operations, and (iii) incorporates an efficient depthwise
+down-sampling layer to efficiently sub-sample the input signal. Squeezeformer
+achieves state-of-the-art results of 7.5%, 6.5%, and 6.0% word-error-rate (WER)
+on LibriSpeech test-other without external language models, which are 3.1%,
+1.4%, and 0.6% better than Conformer-CTC with the same number of FLOPs. Our
+code is open-sourced and available online.},
+ arxiv_url = {https://arxiv.org/pdf/2206.00888v2.pdf},
+ author = {Sehoon Kim and Amir Gholami and Albert Shaw and Nicholas Lee and Karttikeya Mangalam and Jitendra Malik and Michael W. Mahoney and Kurt Keutzer},
+ github_url = {https://github.com/kssteven418/squeezeformer},
+ title = {Squeezeformer: An Efficient Transformer for Automatic Speech Recognition},
+ year = {2022}
+}
+
+@article{lee-2022-query,
+ abstract = {We focus on the problem of adversarial attacks against models on discrete
+sequential data in the black-box setting where the attacker aims to craft
+adversarial examples with limited query access to the victim model. Existing
+black-box attacks, mostly based on greedy algorithms, find adversarial examples
+using pre-computed key positions to perturb, which severely limits the search
+space and might result in suboptimal solutions. To this end, we propose a
+query-efficient black-box attack using Bayesian optimization, which dynamically
+computes important positions using an automatic relevance determination (ARD)
+categorical kernel. We introduce block decomposition and history subsampling
+techniques to improve the scalability of Bayesian optimization when an input
+sequence becomes long. Moreover, we develop a post-optimization algorithm that
+finds adversarial examples with smaller perturbation size. Experiments on
+natural language and protein classification tasks demonstrate that our method
+consistently achieves higher attack success rate with significant reduction in
+query count and modification rate compared to the previous state-of-the-art
+methods.},
+ arxiv_url = {https://arxiv.org/pdf/2206.08575v1.pdf},
+ author = {Deokjae Lee and Seungyong Moon and Junhyeok Lee and Hyun Oh Song},
+ title = {Query-Efficient and Scalable Black-Box Adversarial Attacks on Discrete Sequential Data via Bayesian Optimization},
+ year = {2022}
+}
+
+@article{lee-2023-general,
+ abstract = {The performance of acoustic models degrades notably in noisy environments.
+Speech enhancement (SE) can be used as a front-end strategy to aid automatic
+speech recognition (ASR) systems. However, existing training objectives of SE
+methods are not fully effective at integrating speech-text and noisy-clean
+paired data for training toward unseen ASR systems. In this study, we propose a
+general denoising framework, D4AM, for various downstream acoustic models. Our
+framework fine-tunes the SE model with the backward gradient according to a
+specific acoustic model and the corresponding classification objective. In
+addition, our method aims to consider the regression objective as an auxiliary
+loss to make the SE model generalize to other unseen acoustic models. To
+jointly train an SE unit with regression and classification objectives, D4AM
+uses an adjustment scheme to directly estimate suitable weighting coefficients
+rather than undergoing a grid search process with additional training costs.
+The adjustment scheme consists of two parts: gradient calibration and
+regression objective weighting. The experimental results show that D4AM can
+consistently and effectively provide improvements to various unseen acoustic
+models and outperforms other combination setups. Specifically, when evaluated
+on the Google ASR API with real noisy data completely unseen during SE
+training, D4AM achieves a relative WER reduction of 24.65% compared with the
+direct feeding of noisy input. To our knowledge, this is the first work that
+deploys an effective combination scheme of regression (denoising) and
+classification (ASR) objectives to derive a general pre-processor applicable to
+various unseen ASR systems. Our code is available at
+https://github.com/ChangLee0903/D4AM.},
+ arxiv_url = {https://arxiv.org/pdf/2311.16595v1.pdf},
+ author = {Chi-Chang Lee and Yu Tsao and Hsin-Min Wang and Chu-Song Chen},
+ github_url = {https://github.com/ChangLee0903/D4AM},
+ title = {D4AM: A General Denoising Framework for Downstream Acoustic Models},
+ year = {2023}
+}
+
+@article{leng-2021-fastcorrect,
+ abstract = {Error correction techniques have been used to refine the output sentences
+from automatic speech recognition (ASR) models and achieve a lower word error
+rate (WER) than original ASR outputs. Previous works usually use a
+sequence-to-sequence model to correct an ASR output sentence autoregressively,
+which causes large latency and cannot be deployed in online ASR services. A
+straightforward solution to reduce latency, inspired by non-autoregressive
+(NAR) neural machine translation, is to use an NAR sequence generation model
+for ASR error correction, which, however, comes at the cost of significantly
+increased ASR error rate. In this paper, observing distinctive error patterns
+and correction operations (i.e., insertion, deletion, and substitution) in ASR,
+we propose FastCorrect, a novel NAR error correction model based on edit
+alignment. In training, FastCorrect aligns each source token from an ASR output
+sentence to the target tokens from the corresponding ground-truth sentence
+based on the edit distance between the source and target sentences, and
+extracts the number of target tokens corresponding to each source token during
+edition/correction, which is then used to train a length predictor and to
+adjust the source tokens to match the length of the target sentence for
+parallel generation. In inference, the token number predicted by the length
+predictor is used to adjust the source tokens for target sequence generation.
+Experiments on the public AISHELL-1 dataset and an internal industrial-scale
+ASR dataset show the effectiveness of FastCorrect for ASR error correction: 1)
+it speeds up the inference by 6-9 times and maintains the accuracy (8-14% WER
+reduction) compared with the autoregressive correction model; and 2) it
+outperforms the popular NAR models adopted in neural machine translation and
+text edition by a large margin.},
+ arxiv_url = {https://arxiv.org/pdf/2105.03842v6.pdf},
+ author = {Yichong Leng and Xu Tan and Linchen Zhu and Jin Xu and Renqian Luo and Linquan Liu and Tao Qin and Xiang-Yang Li and Ed Lin and Tie-Yan Liu},
+ github_url = {https://github.com/microsoft/NeuralSpeech},
+ title = {FastCorrect: Fast Error Correction with Edit Alignment for Automatic Speech Recognition},
+ year = {2021}
+}
+
+@article{li-2024-concentrate,
+ abstract = {Recent advances in prompt optimization have notably enhanced the performance
+of pre-trained language models (PLMs) on downstream tasks. However, the
+potential of optimized prompts on domain generalization has been
+under-explored. To explore the nature of prompt generalization on unknown
+domains, we conduct pilot experiments and find that (i) Prompts gaining more
+attention weight from PLMs' deep layers are more generalizable and (ii) Prompts
+with more stable attention distributions in PLMs' deep layers are more
+generalizable. Thus, we offer a fresh objective towards domain-generalizable
+prompts optimization named "Concentration", which represents the "lookback"
+attention from the current decoding token to the prompt tokens, to increase the
+attention strength on prompts and reduce the fluctuation of attention
+distribution. We adapt this new objective to popular soft prompt and hard
+prompt optimization methods, respectively. Extensive experiments demonstrate
+that our idea improves comparison prompt optimization methods by 1.42% for soft
+prompt generalization and 2.16% for hard prompt generalization in accuracy on
+the multi-source domain generalization setting, while maintaining satisfying
+in-domain performance. The promising results validate the effectiveness of our
+proposed prompt optimization objective and provide key insights into
+domain-generalizable prompts.},
+ arxiv_url = {https://arxiv.org/pdf/2406.10584v4.pdf},
+ author = {Chengzhengxu Li and Xiaoming Liu and Zhaohan Zhang and Yichen Wang and Chen Liu and Yu Lan and Chao Shen},
+ github_url = {https://github.com/czx-li/Concentrate-Attention},
+ title = {Concentrate Attention: Towards Domain-Generalizable Prompt Optimization for Language Models},
+ year = {2024}
+}
+
+@article{liu-2023-rethinking,
+ abstract = {Most existing works focus on direct perturbations to the victim's
+state/action or the underlying transition dynamics to demonstrate the
+vulnerability of reinforcement learning agents to adversarial attacks. However,
+such direct manipulations may not be always realizable. In this paper, we
+consider a multi-agent setting where a well-trained victim agent $\nu$ is
+exploited by an attacker controlling another agent $\alpha$ with an
+\textit{adversarial policy}. Previous models do not account for the possibility
+that the attacker may only have partial control over $\alpha$ or that the
+attack may produce easily detectable "abnormal" behaviors. Furthermore, there
+is a lack of provably efficient defenses against these adversarial policies. To
+address these limitations, we introduce a generalized attack framework that has
+the flexibility to model to what extent the adversary is able to control the
+agent, and allows the attacker to regulate the state distribution shift and
+produce stealthier adversarial policies. Moreover, we offer a provably
+efficient defense with polynomial convergence to the most robust victim policy
+through adversarial training with timescale separation. This stands in sharp
+contrast to supervised learning, where adversarial training typically provides
+only \textit{empirical} defenses. Using the Robosumo competition experiments,
+we show that our generalized attack formulation results in much stealthier
+adversarial policies when maintaining the same winning rate as baselines.
+Additionally, our adversarial training approach yields stable learning dynamics
+and less exploitable victim policies.},
+ arxiv_url = {https://arxiv.org/pdf/2305.17342v3.pdf},
+ author = {Xiangyu Liu and Souradip Chakraborty and Yanchao Sun and Furong Huang},
+ github_url = {https://github.com/xiangyu-liu/Rethinking-Adversarial-Policies-in-RL},
+ title = {Rethinking Adversarial Policies: A Generalized Attack Formulation and Provable Defense in RL},
+ year = {2023}
+}
+
+@article{liu-2023-towards,
+ abstract = {It has become cognitive inertia to employ cross-entropy loss function in
+classification related tasks. In the untargeted attacks on graph structure, the
+gradients derived from the attack objective are the attacker's basis for
+evaluating a perturbation scheme. Previous methods use negative cross-entropy
+loss as the attack objective in attacking node-level classification models.
+However, the suitability of the cross-entropy function for constructing the
+untargeted attack objective has yet been discussed in previous works. This
+paper argues about the previous unreasonable attack objective from the
+perspective of budget allocation. We demonstrate theoretically and empirically
+that negative cross-entropy tends to produce more significant gradients from
+nodes with lower confidence in the labeled classes, even if the predicted
+classes of these nodes have been misled. To free up these inefficient attack
+budgets, we propose a simple attack model for untargeted attacks on graph
+structure based on a novel attack objective which generates unweighted
+gradients on graph structures that are not affected by the node confidence. By
+conducting experiments in gray-box poisoning attack scenarios, we demonstrate
+that a reasonable budget allocation can significantly improve the effectiveness
+of gradient-based edge perturbations without any extra hyper-parameter.},
+ arxiv_url = {https://arxiv.org/pdf/2304.00010v1.pdf},
+ author = {Zihan Liu and Yun Luo and Lirong Wu and Zicheng Liu and Stan Z. Li},
+ github_url = {https://github.com/Zihan-Liu-00/GraD},
+ journal = {36th Conference on Neural Information Processing Systems (NeurIPS
+  2022)},
+ title = {Towards Reasonable Budget Allocation in Untargeted Graph Structure Attacks via Gradient Debias},
+ year = {2023}
+}
+
+@article{liu-2024-audiomarkbench,
+ abstract = {The increasing realism of synthetic speech, driven by advancements in
+text-to-speech models, raises ethical concerns regarding impersonation and
+disinformation. Audio watermarking offers a promising solution via embedding
+human-imperceptible watermarks into AI-generated audios. However, the
+robustness of audio watermarking against common/adversarial perturbations
+remains understudied. We present AudioMarkBench, the first systematic benchmark
+for evaluating the robustness of audio watermarking against watermark removal
+and watermark forgery. AudioMarkBench includes a new dataset created from
+Common-Voice across languages, biological sexes, and ages, 3 state-of-the-art
+watermarking methods, and 15 types of perturbations. We benchmark the
+robustness of these methods against the perturbations in no-box, black-box, and
+white-box settings. Our findings highlight the vulnerabilities of current
+watermarking techniques and emphasize the need for more robust and fair audio
+watermarking solutions. Our dataset and code are publicly available at
+https://github.com/moyangkuo/AudioMarkBench.},
+ arxiv_url = {https://arxiv.org/pdf/2406.06979v2.pdf},
+ author = {Hongbin Liu and Moyang Guo and Zhengyuan Jiang and Lun Wang and Neil Zhenqiang Gong},
+ github_url = {https://github.com/moyangkuo/AudioMarkBench},
+ title = {AudioMarkBench: Benchmarking Robustness of Audio Watermarking},
+ year = {2024}
+}
+
+@article{mazeika-2024-harmbench,
+ abstract = {Automated red teaming holds substantial promise for uncovering and mitigating
+the risks associated with the malicious use of large language models (LLMs),
+yet the field lacks a standardized evaluation framework to rigorously assess
+new methods. To address this issue, we introduce HarmBench, a standardized
+evaluation framework for automated red teaming. We identify several desirable
+properties previously unaccounted for in red teaming evaluations and
+systematically design HarmBench to meet these criteria. Using HarmBench, we
+conduct a large-scale comparison of 18 red teaming methods and 33 target LLMs
+and defenses, yielding novel insights. We also introduce a highly efficient
+adversarial training method that greatly enhances LLM robustness across a wide
+range of attacks, demonstrating how HarmBench enables codevelopment of attacks
+and defenses. We open source HarmBench at
+https://github.com/centerforaisafety/HarmBench.},
+ arxiv_url = {https://arxiv.org/pdf/2402.04249v2.pdf},
+ author = {Mantas Mazeika and Long Phan and Xuwang Yin and Andy Zou and Zifan Wang and Norman Mu and Elham Sakhaee and Nathaniel Li and Steven Basart and Bo Li and David Forsyth and Dan Hendrycks},
+ title = {HarmBench: A Standardized Evaluation Framework for Automated Red Teaming and Robust Refusal},
+ year = {2024}
+}
+
+@article{mo-2024-fight,
+ abstract = {While Large Language Models (LLMs) have achieved tremendous success in
+various applications, they are also susceptible to jailbreaking attacks.
+Several primary defense strategies have been proposed to protect LLMs from
+producing harmful information, mostly focusing on model fine-tuning or
+heuristical defense designs. However, how to achieve intrinsic robustness
+through prompt optimization remains an open problem. In this paper, motivated
+by adversarial training paradigms for achieving reliable robustness, we propose
+an approach named Prompt Adversarial Tuning (PAT) that trains a prompt control
+attached to the user prompt as a guard prefix. To achieve our defense goal
+whilst maintaining natural performance, we optimize the control prompt with
+both adversarial and benign prompts. Comprehensive experiments show that our
+method is effective against both grey-box and black-box attacks, reducing the
+success rate of advanced attacks to nearly 0%, while maintaining the model's
+utility on the benign task and incurring only negligible computational
+overhead, charting a new perspective for future explorations in LLM security.
+Our code is available at https://github.com/PKU-ML/PAT.},
+ arxiv_url = {https://arxiv.org/pdf/2402.06255v4.pdf},
+ author = {Yichuan Mo and Yuji Wang and Zeming Wei and Yisen Wang},
+ github_url = {https://github.com/PKU-ML/PAT},
+ title = {Fight Back Against Jailbreaking via Prompt Adversarial Tuning},
+ year = {2024}
+}
+
+@article{rauh-2022-characteristics,
+ abstract = {Large language models produce human-like text that drive a growing number of
+applications. However, recent literature and, increasingly, real world
+observations, have demonstrated that these models can generate language that is
+toxic, biased, untruthful or otherwise harmful. Though work to evaluate
+language model harms is under way, translating foresight about which harms may
+arise into rigorous benchmarks is not straightforward. To facilitate this
+translation, we outline six ways of characterizing harmful text which merit
+explicit consideration when designing new benchmarks. We then use these
+characteristics as a lens to identify trends and gaps in existing benchmarks.
+Finally, we apply them in a case study of the Perspective API, a toxicity
+classifier that is widely used in harm benchmarks. Our characteristics provide
+one piece of the bridge that translates between foresight and effective
+evaluation.},
+ arxiv_url = {https://arxiv.org/pdf/2206.08325v2.pdf},
+ author = {Maribeth Rauh and John Mellor and Jonathan Uesato and Po-Sen Huang and Johannes Welbl and Laura Weidinger and Sumanth Dathathri and Amelia Glaese and Geoffrey Irving and Iason Gabriel and William Isaac and Lisa Anne Hendricks},
+ title = {Characteristics of Harmful Text: Towards Rigorous Benchmarking of Language Models},
+ year = {2022}
+}
+
+@article{sankar-2024-indicvoices,
+ abstract = {Recent advancements in text-to-speech (TTS) synthesis show that large-scale
+models trained with extensive web data produce highly natural-sounding output.
+However, such data is scarce for Indian languages due to the lack of
+high-quality, manually subtitled data on platforms like LibriVox or YouTube. To
+address this gap, we enhance existing large-scale ASR datasets containing
+natural conversations collected in low-quality environments to generate
+high-quality TTS training data. Our pipeline leverages the cross-lingual
+generalization of denoising and speech enhancement models trained on English
+and applied to Indian languages. This results in IndicVoices-R (IV-R), the
+largest multilingual Indian TTS dataset derived from an ASR dataset, with 1,704
+hours of high-quality speech from 10,496 speakers across 22 Indian languages.
+IV-R matches the quality of gold-standard TTS datasets like LJSpeech, LibriTTS,
+and IndicTTS. We also introduce the IV-R Benchmark, the first to assess
+zero-shot, few-shot, and many-shot speaker generalization capabilities of TTS
+models on Indian voices, ensuring diversity in age, gender, and style. We
+demonstrate that fine-tuning an English pre-trained model on a combined dataset
+of high-quality IndicTTS and our IV-R dataset results in better zero-shot
+speaker generalization compared to fine-tuning on the IndicTTS dataset alone.
+Further, our evaluation reveals limited zero-shot generalization for Indian
+voices in TTS models trained on prior datasets, which we improve by fine-tuning
+the model on our data containing diverse set of speakers across language
+families. We open-source all data and code, releasing the first TTS model for
+all 22 official Indian languages.},
+ arxiv_url = {https://arxiv.org/pdf/2409.05356v2.pdf},
+ author = {Ashwin Sankar and Srija Anand and Praveen Srinivasa Varadhan and Sherry Thomas and Mehak Singal and Shridhar Kumar and Deovrat Mehendale and Aditi Krishana and Giri Raju and Mitesh Khapra},
+ github_url = {https://github.com/AI4Bharat/IndicVoices-R},
+ title = {IndicVoices-R: Unlocking a Massive Multilingual Multi-speaker Speech Corpus for Scaling Indian TTS},
+ year = {2024}
+}
+
+@article{shen-2021-backdoor,
+ abstract = {Back-door attack poses a severe threat to deep learning systems. It injects
+hidden malicious behaviors to a model such that any input stamped with a
+special pattern can trigger such behaviors. Detecting back-door is hence of
+pressing need. Many existing defense techniques use optimization to generate
+the smallest input pattern that forces the model to misclassify a set of benign
+inputs injected with the pattern to a target label. However, the complexity is
+quadratic to the number of class labels such that they can hardly handle models
+with many classes. Inspired by Multi-Arm Bandit in Reinforcement Learning, we
+propose a K-Arm optimization method for backdoor detection. By iteratively and
+stochastically selecting the most promising labels for optimization with the
+guidance of an objective function, we substantially reduce the complexity,
+allowing to handle models with many classes. Moreover, by iteratively refining
+the selection of labels to optimize, it substantially mitigates the uncertainty
+in choosing the right labels, improving detection accuracy. At the time of
+submission, the evaluation of our method on over 4000 models in the IARPA
+TrojAI competition from round 1 to the latest round 4 achieves top performance
+on the leaderboard. Our technique also supersedes three state-of-the-art
+techniques in terms of accuracy and the scanning time needed.},
+ arxiv_url = {https://arxiv.org/pdf/2102.05123v3.pdf},
+ author = {Guangyu Shen and Yingqi Liu and Guanhong Tao and Shengwei An and Qiuling Xu and Siyuan Cheng and Shiqing Ma and Xiangyu Zhang},
+ title = {Backdoor Scanning for Deep Neural Networks through K-Arm Optimization},
+ year = {2021}
+}
+
+@article{stimberg-2023-benchmarking,
+ abstract = {Automated content filtering and moderation is an important tool that allows
+online platforms to build striving user communities that facilitate cooperation
+and prevent abuse. Unfortunately, resourceful actors try to bypass automated
+filters in a bid to post content that violate platform policies and codes of
+conduct. To reach this goal, these malicious actors may obfuscate policy
+violating images (e.g. overlay harmful images by carefully selected benign
+images or visual patterns) to prevent machine learning models from reaching the
+correct decision. In this paper, we invite researchers to tackle this specific
+issue and present a new image benchmark. This benchmark, based on ImageNet,
+simulates the type of obfuscations created by malicious actors. It goes beyond
+ImageNet-$\textrm{C}$ and ImageNet-$\bar{\textrm{C}}$ by proposing general,
+drastic, adversarial modifications that preserve the original content intent.
+It aims to tackle a more common adversarial threat than the one considered by
+$\ell_p$-norm bounded adversaries. We evaluate 33 pretrained models on the
+benchmark and train models with different augmentations, architectures and
+training methods on subsets of the obfuscations to measure generalization. We
+hope this benchmark will encourage researchers to test their models and methods
+and try to find new approaches that are more robust to these obfuscations.},
+ arxiv_url = {https://arxiv.org/pdf/2301.12993v2.pdf},
+ author = {Florian Stimberg and Ayan Chakrabarti and Chun-Ta Lu and Hussein Hazimeh and Otilia Stretcu and Wei Qiao and Yintao Liu and Merve Kaya and Cyrus Rashtchian and Ariel Fuxman and Mehmet Tek and Sven Gowal},
+ github_url = {https://github.com/OpenAI/CLIP},
+ title = {Benchmarking Robustness to Adversarial Image Obfuscations},
+ year = {2023}
+}
+
+@article{strimel-2023-lookahead,
+ abstract = {Streaming speech recognition architectures are employed for low-latency,
+real-time applications. Such architectures are often characterized by their
+causality. Causal architectures emit tokens at each frame, relying only on
+current and past signal, while non-causal models are exposed to a window of
+future frames at each step to increase predictive accuracy. This dichotomy
+amounts to a trade-off for real-time Automatic Speech Recognition (ASR) system
+design: profit from the low-latency benefit of strictly-causal architectures
+while accepting predictive performance limitations, or realize the modeling
+benefits of future-context models accompanied by their higher latency penalty.
+In this work, we relax the constraints of this choice and present the Adaptive
+Non-Causal Attention Transducer (ANCAT). Our architecture is non-causal in the
+traditional sense, but executes in a low-latency, streaming manner by
+dynamically choosing when to rely on future context and to what degree within
+the audio stream. The resulting mechanism, when coupled with our novel
+regularization algorithms, delivers comparable accuracy to non-causal
+configurations while improving significantly upon latency, closing the gap with
+their causal counterparts. We showcase our design experimentally by reporting
+comparative ASR task results with measures of accuracy and latency on both
+publicly accessible and production-scale, voice-assistant datasets.},
+ arxiv_url = {https://arxiv.org/pdf/2305.04159v2.pdf},
+ author = {Grant P. Strimel and Yi Xie and Brian King and Martin Radfar and Ariya Rastrow and Athanasios Mouchtaris},
+ title = {Lookahead When It Matters: Adaptive Non-causal Transformers for Streaming Neural Transducers},
+ year = {2023}
+}
+
+@article{sun-2022-black,
+ abstract = {Extremely large pre-trained language models (PTMs) such as GPT-3 are usually
+released as a service. It allows users to design task-specific prompts to query
+the PTMs through some black-box APIs. In such a scenario, which we call
+Language-Model-as-a-Service (LMaaS), the gradients of PTMs are usually
+unavailable. Can we optimize the task prompts by only accessing the model
+inference APIs? This paper proposes the black-box tuning framework to optimize
+the continuous prompt prepended to the input text via derivative-free
+optimization. Instead of optimizing in the original high-dimensional prompt
+space, which is intractable for traditional derivative-free optimization, we
+perform optimization in a randomly generated subspace due to the low intrinsic
+dimensionality of large PTMs. The experimental results show that the black-box
+tuning with RoBERTa on a few labeled samples not only significantly outperforms
+manual prompt and GPT-3's in-context learning, but also surpasses the
+gradient-based counterparts, i.e., prompt tuning and full model tuning.},
+ arxiv_url = {https://arxiv.org/pdf/2201.03514v4.pdf},
+ author = {Tianxiang Sun and Yunfan Shao and Hong Qian and Xuanjing Huang and Xipeng Qiu},
+ title = {Black-Box Tuning for Language-Model-as-a-Service},
+ year = {2022}
+}
+
+@article{takamoto-2022-pdebench,
+ abstract = {Machine learning-based modeling of physical systems has experienced increased
+interest in recent years. Despite some impressive progress, there is still a
+lack of benchmarks for Scientific ML that are easy to use but still challenging
+and representative of a wide range of problems. We introduce PDEBench, a
+benchmark suite of time-dependent simulation tasks based on Partial
+Differential Equations (PDEs). PDEBench comprises both code and data to
+benchmark the performance of novel machine learning models against both
+classical numerical simulations and machine learning baselines. Our proposed
+set of benchmark problems contribute the following unique features: (1) A much
+wider range of PDEs compared to existing benchmarks, ranging from relatively
+common examples to more realistic and difficult problems; (2) much larger
+ready-to-use datasets compared to prior work, comprising multiple simulation
+runs across a larger number of initial and boundary conditions and PDE
+parameters; (3) more extensible source codes with user-friendly APIs for data
+generation and baseline results with popular machine learning models (FNO,
+U-Net, PINN, Gradient-Based Inverse Method). PDEBench allows researchers to
+extend the benchmark freely for their own purposes using a standardized API and
+to compare the performance of new models to existing baseline methods. We also
+propose new evaluation metrics with the aim to provide a more holistic
+understanding of learning methods in the context of Scientific ML. With those
+metrics we identify tasks which are challenging for recent ML methods and
+propose these tasks as future challenges for the community. The code is
+available at https://github.com/pdebench/PDEBench.},
+ arxiv_url = {https://arxiv.org/pdf/2210.07182v7.pdf},
+ author = {Makoto Takamoto and Timothy Praditia and Raphael Leiteritz and Dan MacKinlay and Francesco Alesiani and Dirk Pflüger and Mathias Niepert},
+ github_url = {https://github.com/pdebench/PDEBench},
+ title = {PDEBench: An Extensive Benchmark for Scientific Machine Learning},
+ year = {2022}
+}
+
+@article{wan-2023-poisoning,
+ abstract = {Instruction-tuned LMs such as ChatGPT, FLAN, and InstructGPT are finetuned on
+datasets that contain user-submitted examples, e.g., FLAN aggregates numerous
+open-source datasets and OpenAI leverages examples submitted in the browser
+playground. In this work, we show that adversaries can contribute poison
+examples to these datasets, allowing them to manipulate model predictions
+whenever a desired trigger phrase appears in the input. For example, when a
+downstream user provides an input that mentions "Joe Biden", a poisoned LM will
+struggle to classify, summarize, edit, or translate that input. To construct
+these poison examples, we optimize their inputs and outputs using a
+bag-of-words approximation to the LM. We evaluate our method on open-source
+instruction-tuned LMs. By using as few as 100 poison examples, we can cause
+arbitrary phrases to have consistent negative polarity or induce degenerate
+outputs across hundreds of held-out tasks. Worryingly, we also show that larger
+LMs are increasingly vulnerable to poisoning and that defenses based on data
+filtering or reducing model capacity provide only moderate protections while
+reducing test accuracy.},
+ arxiv_url = {https://arxiv.org/pdf/2305.00944v1.pdf},
+ author = {Alexander Wan and Eric Wallace and Sheng Shen and Dan Klein},
+ title = {Poisoning Language Models During Instruction Tuning},
+ year = {2023}
+}
+
+@article{wang-2023-cooperation,
+ abstract = {Despite incredible advances, deep learning has been shown to be susceptible
+to adversarial attacks. Numerous approaches have been proposed to train robust
+networks both empirically and certifiably. However, most of them defend against
+only a single type of attack, while recent work takes steps forward in
+defending against multiple attacks. In this paper, to understand multi-target
+robustness, we view this problem as a bargaining game in which different
+players (adversaries) negotiate to reach an agreement on a joint direction of
+parameter updating. We identify a phenomenon named player domination in the
+bargaining game, namely that the existing max-based approaches, such as MAX and
+MSD, do not converge. Based on our theoretical analysis, we design a novel
+framework that adjusts the budgets of different adversaries to avoid any player
+dominance. Experiments on standard benchmarks show that employing the proposed
+framework to the existing approaches significantly advances multi-target
+robustness.},
+ arxiv_url = {https://arxiv.org/pdf/2306.15482v1.pdf},
+ author = {Yimu Wang and Dinghuai Zhang and Yihan Wu and Heng Huang and Hongyang Zhang},
+ title = {Cooperation or Competition: Avoiding Player Domination for Multi-Target Robustness via Adaptive Budgets},
+ year = {2023}
+}
+
+@article{wang-2024-discrete,
+ abstract = {This paper introduces the first gradient-based framework for prompt
+optimization in text-to-image diffusion models. We formulate prompt engineering
+as a discrete optimization problem over the language space. Two major
+challenges arise in efficiently finding a solution to this problem: (1)
+Enormous Domain Space: Setting the domain to the entire language space poses
+significant difficulty to the optimization process. (2) Text Gradient:
+Efficiently computing the text gradient is challenging, as it requires
+backpropagating through the inference steps of the diffusion model and a
+non-differentiable embedding lookup table. Beyond the problem formulation, our
+main technical contributions lie in solving the above challenges. First, we
+design a family of dynamically generated compact subspaces comprised of only
+the most relevant words to user input, substantially restricting the domain
+space. Second, we introduce "Shortcut Text Gradient" -- an effective
+replacement for the text gradient that can be obtained with constant memory and
+runtime. Empirical evaluation on prompts collected from diverse sources
+(DiffusionDB, ChatGPT, COCO) suggests that our method can discover prompts that
+substantially improve (prompt enhancement) or destroy (adversarial attack) the
+faithfulness of images generated by the text-to-image diffusion model.},
+ arxiv_url = {https://arxiv.org/pdf/2407.01606v1.pdf},
+ author = {Ruochen Wang and Ting Liu and Cho-Jui Hsieh and Boqing Gong},
+ github_url = {https://github.com/ruocwang/dpo-diffusion},
+ journal = {Proceedings of the 41st International Conference on Machine
+  Learning (ICML 2024)},
+ title = {On Discrete Prompt Optimization for Diffusion Models},
+ year = {2024}
+}
+
+@article{wen-2023-hard,
+ abstract = {The strength of modern generative models lies in their ability to be
+controlled through text-based prompts. Typical "hard" prompts are made from
+interpretable words and tokens, and must be hand-crafted by humans. There are
+also "soft" prompts, which consist of continuous feature vectors. These can be
+discovered using powerful optimization methods, but they cannot be easily
+interpreted, re-used across models, or plugged into a text-based interface.
+  We describe an approach to robustly optimize hard text prompts through
+efficient gradient-based optimization. Our approach automatically generates
+hard text-based prompts for both text-to-image and text-to-text applications.
+In the text-to-image setting, the method creates hard prompts for diffusion
+models, allowing API users to easily generate, discover, and mix and match
+image concepts without prior knowledge on how to prompt the model. In the
+text-to-text setting, we show that hard prompts can be automatically discovered
+that are effective in tuning LMs for classification.},
+ arxiv_url = {https://arxiv.org/pdf/2302.03668v2.pdf},
+ author = {Yuxin Wen and Neel Jain and John Kirchenbauer and Micah Goldblum and Jonas Geiping and Tom Goldstein},
+ title = {Hard Prompts Made Easy: Gradient-Based Discrete Optimization for Prompt Tuning and Discovery},
+ year = {2023}
+}
+
+@article{wu-2023-toward,
+ abstract = {Beyond the success story of adversarial training (AT) in the recent text
+domain on top of pre-trained language models (PLMs), our empirical study
+showcases the inconsistent gains from AT on some tasks, e.g. commonsense
+reasoning, named entity recognition. This paper investigates AT from the
+perspective of the contextualized language representation outputted by PLM
+encoders. We find the current AT attacks lean to generate sub-optimal
+adversarial examples that can fool the decoder part but have a minor effect on
+the encoder. However, we find it necessary to effectively deviate the latter
+one to allow AT to gain. Based on the observation, we propose simple yet
+effective \textit{Contextualized representation-Adversarial Training} (CreAT),
+in which the attack is explicitly optimized to deviate the contextualized
+representation of the encoder. It allows a global optimization of adversarial
+examples that can fool the entire model. We also find CreAT gives rise to a
+better direction to optimize the adversarial examples, to let them less
+sensitive to hyperparameters. Compared to AT, CreAT produces consistent
+performance gains on a wider range of tasks and is proven to be more effective
+for language pre-training where only the encoder part is kept for downstream
+tasks. We achieve the new state-of-the-art performances on a series of
+challenging benchmarks, e.g. AdvGLUE (59.1 $ \rightarrow $ 61.1), HellaSWAG
+(93.0 $ \rightarrow $ 94.9), ANLI (68.1 $ \rightarrow $ 69.3).},
+ arxiv_url = {https://arxiv.org/pdf/2305.04557v1.pdf},
+ author = {Hongqiu Wu and Yongxiang Liu and Hanwen Shi and Hai Zhao and Min Zhang},
+ github_url = {https://github.com/gingasan/CreAT},
+ title = {Toward Adversarial Training on Contextualized Language Representation},
+ year = {2023}
+}
+
+@article{xu-2024-perturbing,
+ abstract = {Diffusion models (DMs) embark a new era of generative modeling and offer more
+opportunities for efficient generating high-quality and realistic data samples.
+However, their widespread use has also brought forth new challenges in model
+security, which motivates the creation of more effective adversarial attackers
+on DMs to understand its vulnerability. We propose CAAT, a simple but generic
+and efficient approach that does not require costly training to effectively
+fool latent diffusion models (LDMs). The approach is based on the observation
+that cross-attention layers exhibits higher sensitivity to gradient change,
+allowing for leveraging subtle perturbations on published images to
+significantly corrupt the generated images. We show that a subtle perturbation
+on an image can significantly impact the cross-attention layers, thus changing
+the mapping between text and image during the fine-tuning of customized
+diffusion models. Extensive experiments demonstrate that CAAT is compatible
+with diverse diffusion models and outperforms baseline attack methods in a more
+effective (more noise) and efficient (twice as fast as Anti-DreamBooth and
+Mist) manner.},
+ arxiv_url = {https://arxiv.org/pdf/2404.15081v2.pdf},
+ author = {Jingyao Xu and Yuetong Lu and Yandong Li and Siyang Lu and Dongdong Wang and Xiang Wei},
+ doi = {10.1109/cvpr52733.2024.02316},
+ title = {Perturbing Attention Gives You More Bang for the Buck: Subtle Imaging Perturbations That Efficiently Fool Customized Diffusion Models},
+ year = {2024}
+}
+
+@article{yang-2023-large,
+ abstract = {Optimization is ubiquitous. While derivative-based algorithms have been
+powerful tools for various problems, the absence of gradient imposes challenges
+on many real-world applications. In this work, we propose Optimization by
+PROmpting (OPRO), a simple and effective approach to leverage large language
+models (LLMs) as optimizers, where the optimization task is described in
+natural language. In each optimization step, the LLM generates new solutions
+from the prompt that contains previously generated solutions with their values,
+then the new solutions are evaluated and added to the prompt for the next
+optimization step. We first showcase OPRO on linear regression and traveling
+salesman problems, then move on to our main application in prompt optimization,
+where the goal is to find instructions that maximize the task accuracy. With a
+variety of LLMs, we demonstrate that the best prompts optimized by OPRO
+outperform human-designed prompts by up to 8% on GSM8K, and by up to 50% on
+Big-Bench Hard tasks. Code at https://github.com/google-deepmind/opro.},
+ arxiv_url = {https://arxiv.org/pdf/2309.03409v3.pdf},
+ author = {Chengrun Yang and Xuezhi Wang and Yifeng Lu and Hanxiao Liu and Quoc V. Le and Denny Zhou and Xinyun Chen},
+ github_url = {https://github.com/google-deepmind/opro},
+ title = {Large Language Models as Optimizers},
+ year = {2023}
+}
+
+@article{yang-2024-not,
+ abstract = {Given the power of vision transformers, a new learning paradigm, pre-training
+and then prompting, makes it more efficient and effective to address downstream
+visual recognition tasks. In this paper, we identify a novel security threat
+towards such a paradigm from the perspective of backdoor attacks. Specifically,
+an extra prompt token, called the switch token in this work, can turn the
+backdoor mode on, i.e., converting a benign model into a backdoored one. Once
+under the backdoor mode, a specific trigger can force the model to predict a
+target class. It poses a severe risk to the users of cloud API, since the
+malicious behavior can not be activated and detected under the benign mode,
+thus making the attack very stealthy. To attack a pre-trained model, our
+proposed attack, named SWARM, learns a trigger and prompt tokens including a
+switch token. They are optimized with the clean loss which encourages the model
+always behaves normally even the trigger presents, and the backdoor loss that
+ensures the backdoor can be activated by the trigger when the switch is on.
+Besides, we utilize the cross-mode feature distillation to reduce the effect of
+the switch token on clean samples. The experiments on diverse visual
+recognition tasks confirm the success of our switchable backdoor attack, i.e.,
+achieving 95%+ attack success rate, and also being hard to be detected and
+removed. Our code is available at https://github.com/20000yshust/SWARM.},
+ arxiv_url = {https://arxiv.org/pdf/2405.10612v1.pdf},
+ author = {Sheng Yang and Jiawang Bai and Kuofeng Gao and Yong Yang and Yiming Li and Shu-tao Xia},
+ github_url = {https://github.com/20000yshust/SWARM},
+ title = {Not All Prompts Are Secure: A Switchable Backdoor Attack Against Pre-trained Vision Transfomers},
+ year = {2024}
+}
+
+@article{yao-2023-zipformer,
+ abstract = {The Conformer has become the most popular encoder model for automatic speech
+recognition (ASR). It adds convolution modules to a transformer to learn both
+local and global dependencies. In this work we describe a faster, more
+memory-efficient, and better-performing transformer, called Zipformer. Modeling
+changes include: 1) a U-Net-like encoder structure where middle stacks operate
+at lower frame rates; 2) reorganized block structure with more modules, within
+which we re-use attention weights for efficiency; 3) a modified form of
+LayerNorm called BiasNorm allows us to retain some length information; 4) new
+activation functions SwooshR and SwooshL work better than Swish. We also
+propose a new optimizer, called ScaledAdam, which scales the update by each
+tensor's current scale to keep the relative change about the same, and also
+explictly learns the parameter scale. It achieves faster convergence and better
+performance than Adam. Extensive experiments on LibriSpeech, Aishell-1, and
+WenetSpeech datasets demonstrate the effectiveness of our proposed Zipformer
+over other state-of-the-art ASR models. Our code is publicly available at
+https://github.com/k2-fsa/icefall.},
+ arxiv_url = {https://arxiv.org/pdf/2310.11230v4.pdf},
+ author = {Zengwei Yao and Liyong Guo and Xiaoyu Yang and Wei Kang and Fangjun Kuang and Yifan Yang and Zengrui Jin and Long Lin and Daniel Povey},
+ github_url = {https://github.com/k2-fsa/icefall},
+ title = {Zipformer: A faster and better encoder for automatic speech recognition},
+ year = {2023}
+}
+
+@article{yeh-2024-meet,
+ abstract = {To address the risks of encountering inappropriate or harmful content,
+researchers managed to incorporate several harmful contents datasets with
+machine learning methods to detect harmful concepts. However, existing harmful
+datasets are curated by the presence of a narrow range of harmful objects, and
+only cover real harmful content sources. This hinders the generalizability of
+methods based on such datasets, potentially leading to misjudgments. Therefore,
+we propose a comprehensive harmful dataset, Visual Harmful Dataset 11K
+(VHD11K), consisting of 10,000 images and 1,000 videos, crawled from the
+Internet and generated by 4 generative models, across a total of 10 harmful
+categories covering a full spectrum of harmful concepts with nontrivial
+definition. We also propose a novel annotation framework by formulating the
+annotation process as a multi-agent Visual Question Answering (VQA) task,
+having 3 different VLMs "debate" about whether the given image/video is
+harmful, and incorporating the in-context learning strategy in the debating
+process. Therefore, we can ensure that the VLMs consider the context of the
+given image/video and both sides of the arguments thoroughly before making
+decisions, further reducing the likelihood of misjudgments in edge cases.
+Evaluation and experimental results demonstrate that (1) the great alignment
+between the annotation from our novel annotation framework and those from
+human, ensuring the reliability of VHD11K; (2) our full-spectrum harmful
+dataset successfully identifies the inability of existing harmful content
+detection methods to detect extensive harmful contents and improves the
+performance of existing harmfulness recognition methods; (3) VHD11K outperforms
+the baseline dataset, SMID, as evidenced by the superior improvement in
+harmfulness recognition methods. The complete dataset and code can be found at
+https://github.com/nctu-eva-lab/VHD11K.},
+ arxiv_url = {https://arxiv.org/pdf/2409.19734v2.pdf},
+ author = {Chen Yeh and You-Ming Chang and Wei-Chen Chiu and Ning Yu},
+ github_url = {https://github.com/meta-llama/llama3},
+ title = {T2Vs Meet VLMs: A Scalable Multimodal Dataset for Visual Harmfulness Recognition},
+ year = {2024}
+}
+
+@article{yu-2020-dual,
+ abstract = {Streaming automatic speech recognition (ASR) aims to emit each hypothesized
+word as quickly and accurately as possible, while full-context ASR waits for
+the completion of a full speech utterance before emitting completed hypotheses.
+In this work, we propose a unified framework, Dual-mode ASR, to train a single
+end-to-end ASR model with shared weights for both streaming and full-context
+speech recognition. We show that the latency and accuracy of streaming ASR
+significantly benefit from weight sharing and joint training of full-context
+ASR, especially with inplace knowledge distillation during the training. The
+Dual-mode ASR framework can be applied to recent state-of-the-art
+convolution-based and transformer-based ASR networks. We present extensive
+experiments with two state-of-the-art ASR networks, ContextNet and Conformer,
+on two datasets, a widely used public dataset LibriSpeech and a large-scale
+dataset MultiDomain. Experiments and ablation studies demonstrate that
+Dual-mode ASR not only simplifies the workflow of training and deploying
+streaming and full-context ASR models, but also significantly improves both
+emission latency and recognition accuracy of streaming ASR. With Dual-mode ASR,
+we achieve new state-of-the-art streaming ASR results on both LibriSpeech and
+MultiDomain in terms of accuracy and latency.},
+ arxiv_url = {https://arxiv.org/pdf/2010.06030v2.pdf},
+ author = {Jiahui Yu and Wei Han and Anmol Gulati and Chung-Cheng Chiu and Bo Li and Tara N. Sainath and Yonghui Wu and Ruoming Pang},
+ title = {Dual-mode ASR: Unify and Improve Streaming ASR with Full-context Modeling},
+ year = {2020}
+}
+
+@article{yu-2023-master,
+ abstract = {Despite the impressive performance recently achieved by automatic speech
+recognition (ASR), we observe two primary challenges that hinder its broader
+applications: (1) The difficulty of introducing scalability into the model to
+support more languages with limited training, inference, and storage overhead;
+(2) The low-resource adaptation ability that enables effective low-resource
+adaptation while avoiding over-fitting and catastrophic forgetting issues.
+Inspired by recent findings, we hypothesize that we can address the above
+challenges with modules widely shared across languages. To this end, we propose
+an ASR framework, dubbed \METHODNS, that, \textit{for the first time},
+simultaneously achieves strong multilingual scalability and low-resource
+adaptation ability thanks to its modularize-then-assemble strategy.
+Specifically, \METHOD learns a small set of generalizable sub-modules and
+adaptively assembles them for different languages to reduce the multilingual
+overhead and enable effective knowledge transfer for low-resource adaptation.
+Extensive experiments and visualizations demonstrate that \METHOD can
+effectively discover language similarity and improve multilingual and
+low-resource ASR performance over state-of-the-art (SOTA) methods, e.g., under
+multilingual-ASR, our framework achieves a 0.13$\sim$2.41 lower character error
+rate (CER) with 30\% smaller inference overhead over SOTA solutions on
+multilingual ASR and a comparable CER, with nearly 50 times fewer trainable
+parameters over SOTA solutions on low-resource tuning, respectively.},
+ arxiv_url = {https://arxiv.org/pdf/2306.15686v1.pdf},
+ author = {Zhongzhi Yu and Yang Zhang and Kaizhi Qian and Yonggan Fu and Yingyan Lin},
+ title = {Master-ASR: Achieving Multilingual Scalability and Low-Resource Adaptation in ASR with Modular Learning},
+ year = {2023}
+}
+
+@article{zhou-2024-novobench,
+ abstract = {Tandem mass spectrometry has played a pivotal role in advancing proteomics,
+enabling the high-throughput analysis of protein composition in biological
+tissues. Many deep learning methods have been developed for \emph{de novo}
+peptide sequencing task, i.e., predicting the peptide sequence for the observed
+mass spectrum. However, two key challenges seriously hinder the further
+advancement of this important task. Firstly, since there is no consensus for
+the evaluation datasets, the empirical results in different research papers are
+often not comparable, leading to unfair comparison. Secondly, the current
+methods are usually limited to amino acid-level or peptide-level precision and
+recall metrics. In this work, we present the first unified benchmark NovoBench
+for \emph{de novo} peptide sequencing, which comprises diverse mass spectrum
+data, integrated models, and comprehensive evaluation metrics. Recent
+impressive methods, including DeepNovo, PointNovo, Casanovo, InstaNovo, AdaNovo
+and $\pi$-HelixNovo are integrated into our framework. In addition to amino
+acid-level and peptide-level precision and recall, we evaluate the models'
+performance in terms of identifying post-tranlational modifications (PTMs),
+efficiency and robustness to peptide length, noise peaks and missing fragment
+ratio, which are important influencing factors while seldom be considered.
+Leveraging this benchmark, we conduct a large-scale study of current methods,
+report many insightful findings that open up new possibilities for future
+development.},
+ arxiv_url = {https://arxiv.org/pdf/2406.11906v2.pdf},
+ author = {Jingbo Zhou and Shaorong Chen and Jun Xia and Sizhe Liu and Tianze Ling and Wenjie Du and Yue Liu and Jianwei Yin and Stan Z. Li},
+ github_url = {https://github.com/Westlake-OmicsAI/NovoBench},
+ title = {NovoBench: Benchmarking Deep Learning-based \emph{De Novo} Sequencing Methods in Proteomics},
+ year = {2024}
+}
+
+@article{zhou-2024-robust,
+ abstract = {Despite advances in AI alignment, large language models (LLMs) remain
+vulnerable to adversarial attacks or jailbreaking, in which adversaries can
+modify prompts to induce unwanted behavior. While some defenses have been
+proposed, they have not been adapted to newly proposed attacks and more
+challenging threat models. To address this, we propose an optimization-based
+objective for defending LLMs against jailbreaking attacks and an algorithm,
+Robust Prompt Optimization (RPO) to create robust system-level defenses. Our
+approach directly incorporates the adversary into the defensive objective and
+optimizes a lightweight and transferable suffix, enabling RPO to adapt to
+worst-case adaptive attacks. Our theoretical and experimental results show
+improved robustness to both jailbreaks seen during optimization and unknown
+jailbreaks, reducing the attack success rate (ASR) on GPT-4 to 6% and Llama-2
+to 0% on JailbreakBench, setting the state-of-the-art. Code can be found at
+https://github.com/lapisrocks/rpo},
+ arxiv_url = {https://arxiv.org/pdf/2401.17263v5.pdf},
+ author = {Andy Zhou and Bo Li and Haohan Wang},
+ title = {Robust Prompt Optimization for Defending Language Models Against Jailbreaking Attacks},
+ year = {2024}
+}
+
+% ===========================================
+% REFERENCE CANDIDATES
+% Additional reference papers for context
+% ===========================================
+
+@article{athalye-2018-obfuscated,
+ abstract = {We identify obfuscated gradients, a kind of gradient masking, as a phenomenon
+that leads to a false sense of security in defenses against adversarial
+examples. While defenses that cause obfuscated gradients appear to defeat
+iterative optimization-based attacks, we find defenses relying on this effect
+can be circumvented. We describe characteristic behaviors of defenses
+exhibiting the effect, and for each of the three types of obfuscated gradients
+we discover, we develop attack techniques to overcome it. In a case study,
+examining non-certified white-box-secure defenses at ICLR 2018, we find
+obfuscated gradients are a common occurrence, with 7 of 9 defenses relying on
+obfuscated gradients. Our new attacks successfully circumvent 6 completely, and
+1 partially, in the original threat model each paper considers.},
+ arxiv_url = {https://arxiv.org/pdf/1802.00420v4.pdf},
+ author = {Anish Athalye and Nicholas Carlini and David Wagner},
+ title = {Obfuscated gradients give a false sense of security: Circumventing defenses to adversarial examples},
+ year = {2018}
+}
+
+@article{author-year-imagenet,
+ title = {Imagenet: A large-scale hierarchical image database}
+}
+
+@article{author-year-intelligent,
+ title = {Intelligent driving intelligence test for autonomous vehicles with naturalistic and adversarial environment}
+}
+
+@article{brendel-2017-decision,
+ abstract = {Many machine learning algorithms are vulnerable to almost imperceptible
+perturbations of their inputs. So far it was unclear how much risk adversarial
+perturbations carry for the safety of real-world machine learning applications
+because most methods used to generate such perturbations rely either on
+detailed model information (gradient-based attacks) or on confidence scores
+such as class probabilities (score-based attacks), neither of which are
+available in most real-world scenarios. In many such cases one currently needs
+to retreat to transfer-based attacks which rely on cumbersome substitute
+models, need access to the training data and can be defended against. Here we
+emphasise the importance of attacks which solely rely on the final model
+decision. Such decision-based attacks are (1) applicable to real-world
+black-box models such as autonomous cars, (2) need less knowledge and are
+easier to apply than transfer-based attacks and (3) are more robust to simple
+defences than gradient- or score-based attacks. Previous attacks in this
+category were limited to simple models or simple datasets. Here we introduce
+the Boundary Attack, a decision-based attack that starts from a large
+adversarial perturbation and then seeks to reduce the perturbation while
+staying adversarial. The attack is conceptually simple, requires close to no
+hyperparameter tuning, does not rely on substitute models and is competitive
+with the best gradient-based attacks in standard computer vision tasks like
+ImageNet. We apply the attack on two black-box algorithms from Clarifai.com.
+The Boundary Attack in particular and the class of decision-based attacks in
+general open new avenues to study the robustness of machine learning models and
+raise new questions regarding the safety of deployed machine learning systems.
+An implementation of the attack is available as part of Foolbox at
+https://github.com/bethgelab/foolbox .},
+ arxiv_url = {https://arxiv.org/pdf/1712.04248v2.pdf},
+ author = {Wieland Brendel and Jonas Rauber and Matthias Bethge},
+ title = {Decision-based adversarial attacks: Reliable attacks against black-box machine learning models},
+ year = {2017}
+}
+
+@article{brendel-2019-accurate,
+ abstract = {Throughout the past five years, the susceptibility of neural networks to
+minimal adversarial perturbations has moved from a peculiar phenomenon to a
+core issue in Deep Learning. Despite much attention, however, progress towards
+more robust models is significantly impaired by the difficulty of evaluating
+the robustness of neural network models. Today's methods are either fast but
+brittle (gradient-based attacks), or they are fairly reliable but slow (score-
+and decision-based attacks). We here develop a new set of gradient-based
+adversarial attacks which (a) are more reliable in the face of gradient-masking
+than other gradient-based attacks, (b) perform better and are more query
+efficient than current state-of-the-art gradient-based attacks, (c) can be
+flexibly adapted to a wide range of adversarial criteria and (d) require
+virtually no hyperparameter tuning. These findings are carefully validated
+across a diverse set of six different models and hold for L0, L1, L2 and Linf
+in both targeted as well as untargeted scenarios. Implementations will soon be
+available in all major toolboxes (Foolbox, CleverHans and ART). We hope that
+this class of attacks will make robustness evaluations easier and more
+reliable, thus contributing to more signal in the search for more robust
+machine learning models.},
+ arxiv_url = {https://arxiv.org/pdf/1907.01003v2.pdf},
+ author = {Wieland Brendel and Jonas Rauber and Matthias Kümmerer and Ivan Ustyuzhaninov and Matthias Bethge},
+ title = {Accurate, reliable and fast robustness evaluation},
+ year = {2019}
+}
+
+@article{carlini-2016-towards,
+ abstract = {Neural networks provide state-of-the-art results for most machine learning
+tasks. Unfortunately, neural networks are vulnerable to adversarial examples:
+given an input $x$ and any target classification $t$, it is possible to find a
+new input $x'$ that is similar to $x$ but classified as $t$. This makes it
+difficult to apply neural networks in security-critical areas. Defensive
+distillation is a recently proposed approach that can take an arbitrary neural
+network, and increase its robustness, reducing the success rate of current
+attacks' ability to find adversarial examples from $95\%$ to $0.5\%$.
+  In this paper, we demonstrate that defensive distillation does not
+significantly increase the robustness of neural networks by introducing three
+new attack algorithms that are successful on both distilled and undistilled
+neural networks with $100\%$ probability. Our attacks are tailored to three
+distance metrics used previously in the literature, and when compared to
+previous adversarial example generation algorithms, our attacks are often much
+more effective (and never worse). Furthermore, we propose using high-confidence
+adversarial examples in a simple transferability test we show can also be used
+to break defensive distillation. We hope our attacks will be used as a
+benchmark in future defense attempts to create neural networks that resist
+adversarial examples.},
+ arxiv_url = {https://arxiv.org/pdf/1608.04644v2.pdf},
+ author = {Nicholas Carlini and David Wagner},
+ title = {Towards evaluating the robustness of neural networks},
+ year = {2016}
+}
+
+@article{croce-2019-provable,
+ abstract = {In recent years several adversarial attacks and defenses have been proposed.
+Often seemingly robust models turn out to be non-robust when more sophisticated
+attacks are used. One way out of this dilemma are provable robustness
+guarantees. While provably robust models for specific $l_p$-perturbation models
+have been developed, we show that they do not come with any guarantee against
+other $l_q$-perturbations. We propose a new regularization scheme,
+MMR-Universal, for ReLU networks which enforces robustness wrt $l_1$- and
+$l_\infty$-perturbations and show how that leads to the first provably robust
+models wrt any $l_p$-norm for $p\geq 1$.},
+ arxiv_url = {https://arxiv.org/pdf/1905.11213v2.pdf},
+ author = {Francesco Croce and Matthias Hein},
+ title = {Provable robustness against all adversarial lp-perturbations for p "greater_than_or_equal_to" 1},
+ year = {2019}
+}
+
+@article{croce-2020-reliable,
+ abstract = {The field of defense strategies against adversarial attacks has significantly
+grown over the last years, but progress is hampered as the evaluation of
+adversarial defenses is often insufficient and thus gives a wrong impression of
+robustness. Many promising defenses could be broken later on, making it
+difficult to identify the state-of-the-art. Frequent pitfalls in the evaluation
+are improper tuning of hyperparameters of the attacks, gradient obfuscation or
+masking. In this paper we first propose two extensions of the PGD-attack
+overcoming failures due to suboptimal step size and problems of the objective
+function. We then combine our novel attacks with two complementary existing
+ones to form a parameter-free, computationally affordable and user-independent
+ensemble of attacks to test adversarial robustness. We apply our ensemble to
+over 50 models from papers published at recent top machine learning and
+computer vision venues. In all except one of the cases we achieve lower robust
+test accuracy than reported in these papers, often by more than $10\%$,
+identifying several broken defenses.},
+ arxiv_url = {https://arxiv.org/pdf/2003.01690v2.pdf},
+ author = {Francesco Croce and Matthias Hein},
+ title = {Reliable evaluation of adversarial robustness with an ensemble of diverse parameter-free attacks},
+ year = {2020}
+}
+
+@article{gao-2022-fast,
+ abstract = {The AutoAttack (AA) has been the most reliable method to evaluate adversarial
+robustness when considerable computational resources are available. However,
+the high computational cost (e.g., 100 times more than that of the project
+gradient descent attack) makes AA infeasible for practitioners with limited
+computational resources, and also hinders applications of AA in the adversarial
+training (AT). In this paper, we propose a novel method, minimum-margin (MM)
+attack, to fast and reliably evaluate adversarial robustness. Compared with AA,
+our method achieves comparable performance but only costs 3% of the
+computational time in extensive experiments. The reliability of our method lies
+in that we evaluate the quality of adversarial examples using the margin
+between two targets that can precisely identify the most adversarial example.
+The computational efficiency of our method lies in an effective Sequential
+TArget Ranking Selection (STARS) method, ensuring that the cost of the MM
+attack is independent of the number of classes. The MM attack opens a new way
+for evaluating adversarial robustness and provides a feasible and reliable way
+to generate high-quality adversarial examples in AT.},
+ arxiv_url = {https://arxiv.org/pdf/2206.07314v1.pdf},
+ author = {Ruize Gao and Jiongxiao Wang and Kaiwen Zhou and Feng Liu and Binghui Xie and Gang Niu and Bo Han and James Cheng},
+ title = {Fast and reliable evaluation of adversarial robustness with minimum-margin attack},
+ year = {2022}
+}
+
+@article{goodfellow-2014-explaining,
+ abstract = {Several machine learning models, including neural networks, consistently
+misclassify adversarial examples---inputs formed by applying small but
+intentionally worst-case perturbations to examples from the dataset, such that
+the perturbed input results in the model outputting an incorrect answer with
+high confidence. Early attempts at explaining this phenomenon focused on
+nonlinearity and overfitting. We argue instead that the primary cause of neural
+networks' vulnerability to adversarial perturbation is their linear nature.
+This explanation is supported by new quantitative results while giving the
+first explanation of the most intriguing fact about them: their generalization
+across architectures and training sets. Moreover, this view yields a simple and
+fast method of generating adversarial examples. Using this approach to provide
+examples for adversarial training, we reduce the test set error of a maxout
+network on the MNIST dataset.},
+ arxiv_url = {https://arxiv.org/pdf/1412.6572v3.pdf},
+ author = {Ian J. Goodfellow and Jonathon Shlens and Christian Szegedy},
+ title = {Explaining and Harnessing Adversarial Examples},
+ year = {2014}
+}

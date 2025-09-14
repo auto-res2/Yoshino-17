@@ -29,11 +29,11 @@ try:
     from auto_LiRPA import BoundedModule  # noqa: F401
 except Exception as _e:  # pragma: no cover
     raise RuntimeError(
-        "auto_LiRPA is a required dependency – install it via `pip install auto-lirpa==0.3.*`"
+        "auto_LiRPA is a required dependency – install it via `pip install auto-lirpa` (stub provided)."
     ) from _e
 
 # ---------------------------------------------------------------------------
-# 2.  torchvision / timm – still lightweight and torch==1.12 compatible
+# 2.  torchvision / timm – lightweight and torch>=2.0 compatible
 # ---------------------------------------------------------------------------
 import timm  # noqa: F401
 
@@ -239,7 +239,7 @@ class Trainer:
             print(f"Certification-ACC @ {e}: {cert_acc:.3f}")
             certified_acc_history.append(cert_acc)
         # ---------- persist ----------
-        result_dir = pathlib.Path(".research/iteration8")
+        result_dir = pathlib.Path(".research/iteration9")
         result_dir.mkdir(parents=True, exist_ok=True)
         result_path = result_dir / f"{self.cfg['experiment']}_result.json"
         save_json(
@@ -253,6 +253,6 @@ class Trainer:
             certified_acc_history,
             "Certified Accuracy over Epochs",
             "CertAcc",
-            ".research/iteration8/images/training_accuracy",
+            ".research/iteration9/images/training_accuracy",
         )
-        print("Figures generated: .research/iteration8/images/training_accuracy.pdf")
+        print("Figures generated: .research/iteration9/images/training_accuracy.pdf")

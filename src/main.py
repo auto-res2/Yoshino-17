@@ -1,14 +1,6 @@
 """src/main.py
 CLI entry-point handling both smoke and full experiment modes.
-Key fixes:
-1.  Mandatory research paths – all JSON artefacts are now saved under
-    `.research/iteration2/` and all figures under `.research/iteration2/images/`.
-2.  Robust LLM factory – supports a light-weight dummy backend that is used when the
-    config sets `engine: dummy` or when `vllm` cannot be imported / initialised.  This
-    guarantees that the smoke-test does not attempt to load the 8×7B Mixtral model on
-    CPU.
-3.  The helper now gracefully skips the `sampler` argument when the dummy backend is
-    active.
+Updated paths: all artefacts now live under `.research/iteration3/` as required.
 """
 from __future__ import annotations
 
@@ -79,7 +71,7 @@ def _create_llm(model_cfg):  # noqa: D401
 ################################################################################
 
 _CONFIG_DIR = SRC_DIR.parent / "config"
-_RESULTS_ROOT = Path(".research/iteration2")
+_RESULTS_ROOT = Path(".research/iteration3")
 _IMAGES_DIR = _RESULTS_ROOT / "images"
 _IMAGES_DIR.mkdir(parents=True, exist_ok=True)
 _RESULTS_ROOT.mkdir(parents=True, exist_ok=True)

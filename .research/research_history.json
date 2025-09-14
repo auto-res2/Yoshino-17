@@ -1243,6 +1243,53 @@
       }
     }
   ],
+  "reference_research_study_list": [
+    {
+      "title": "Obfuscated gradients give a false sense of security: Circumventing defenses to adversarial examples"
+    },
+    {
+      "title": "Adversarial training and provable defenses: Bridging the gap"
+    },
+    {
+      "title": "Decision-based adversarial attacks: Reliable attacks against black-box machine learning models"
+    },
+    {
+      "title": "Accurate, reliable and fast robustness evaluation"
+    },
+    {
+      "title": "Towards evaluating the robustness of neural networks"
+    },
+    {
+      "title": "Class-aware robust adversarial training for object detection"
+    },
+    {
+      "title": "Provable robustness against all adversarial lp-perturbations for p \"greater_than_or_equal_to\" 1"
+    },
+    {
+      "title": "Reliable evaluation of adversarial robustness with an ensemble of diverse parameter-free attacks"
+    },
+    {
+      "title": "Imagenet: A large-scale hierarchical image database"
+    },
+    {
+      "title": "Adaptive Subgradient Methods for Online Learning and Stochastic Optimization"
+    },
+    {
+      "title": "A Rotation and a Translation Suffice: Fooling CNNs with Simple Transformations"
+    },
+    {
+      "title": "Intelligent driving intelligence test for autonomous vehicles with naturalistic and adversarial environment"
+    },
+    {
+      "title": "Fast and reliable evaluation of adversarial robustness with minimum-margin attack"
+    },
+    {
+      "title": "Explaining and Harnessing Adversarial Examples"
+    },
+    {
+      "title": "Deep residual learning for image recognition"
+    }
+  ],
   "new_method": {
     "method": "Open Problems: 1. Static, suffix-only guardrails cannot track an attacker’s step-by-step steering, yielding >70 % multi-turn ASR even on proprietary LLMs.\n2. Prior dynamic schemes either require heavy detectors or per-turn model re-prompting that break commercial latency budgets.\n3. Current research tunes a single defence for one LLM; in production, a vendor must protect several closed models whose gradients are inaccessible and that evolve over time.\n4. Training a turn-aware detector still needs thousands of labelled harmful traces, which quickly become stale as jailbreaking tactics mutate.\n5. Benchmarks focus on HarmBench; more recent datasets such as JailbreakBench (JBB-Behaviors) and JAMBench reveal qualitatively different multi-turn attacks.\nMethods: We propose HIRMA – Hierarchical, Incremental Risk-Modulated Alignment – a defence that couples self-supervised dialogue modelling with meta-prompt consolidation.\nA. Dual-Granularity Dialogue Encoder (DGDE):\n   • Sentence-level: 8-layer DistilRoBERTa fine-tuned by next-turn prediction on 10 M open-domain chats (no safety labels).\n   • Turn-graph: a 2-layer Transformer decoder that attends over the last k=6 encoded turns to produce a 384-d conversation state.\n   • Self-supervised contrast: turns that shift model policy (e.g. from refusal→comply) are treated as positives, learned via VICReg, eliminating the need for manual harmful labels.\nB. Risk Forecaster & Early-Warning Head: a lightweight MLP outputs p(threat ≤ t+2) allowing the guard to anticipate attacker intent two steps ahead.\nC. Meta-Prompt Bank (MPB): instead of one mild/one harsh suffix, we co-optimise N=5 defence shards {S₀…S₄} with increasing strictness. The controller selects shard i whose strength matches the predicted risk quantile q∈[0,1] (i = ⌊4q⌋).\nD. Cross-Model Shared Optimisation: prompt shards are trained simultaneously on three surrogate LLMs (open-source Llama-3-8B-Instruct, Qwen-14B-Chat, Claude-3-Sonnet via API) using a federated variant of RPO that aggregates token gradients only locally available for OSS models and bandit feedback for closed models.\nE. Adversarial Self-Play Curriculum: an automated attacker (AutoDAN+OPRO) is trained online to maximise ASR against the current defence; its multi-turn traces augment training, ensuring robustness to evolving jailbreak styles with zero extra labels.\nF. Incremental On-Device Update: DGDE (60 M params) is distilled into an 8-bit linear adapter (<7 M params) so updates can be pushed weekly without recompiling the whole service. Per-turn latency ≈18 ms on a single V100.\nExperimental Setup: Datasets: HarmBench (400 behaviours), JailbreakBench (100 harmful, 100 benign), JAMBench (160 queries) plus 5 k self-play conversations generated during training → ≈120 k dialogue turns.\nSplits: 70 / 15 / 15 train/val/test with disjoint behaviours.\nTargets: GPT-4-o, Gemini 1.5 Pro (API only), Claude-3-Sonnet, and an open-source sandbox (Mixtral-8x7B-Instruct).\nBaselines: (1) No defence, (2) vanilla RPO-20tok, (3) PAT prefix, (4) TARPO (dual-suffix), (5) LLM-detector + static refusal.\nMetrics:   • Multi-turn ASR (primary)   • Single-turn ASR   • Benign utility on MT-Bench v1.1   • Latency overhead   • Cross-model transfer gap (∆-ASR when defence tuned on one LLM but evaluated on another).\nAblations: number of shards N, look-ahead horizon, self-supervised vs label-supervised encoder, with/without attacker curriculum.\nHardware budget: training ≤10 h on 4 × V100-16GB; inference ≤18 ms per turn on one V100.\nExpected Result: • HIRMA lowers mean multi-turn ASR from 73 % (no defence) and 38 % (best prior, TARPO) to ≤5 % across all four target LLMs; worst-case (GPT-4-o) ≤8 %.\n• Single-turn ASR remains ≤6 %.\n• Benign MT-Bench score drop ≤2 points (vs undefended).\n• Cross-model transfer: defence tuned on OSS models retains ≤9 % ASR against closed models (baseline RPO: 27 %).\n• Latency overhead 16–18 ms/turn; memory footprint 120 MB.\n• Label-free contrastive training matches labelled HarmBench training within ±1 % ASR, reducing annotation cost by >90 %.\nExpected Conclusion: A hierarchical, self-supervised understanding of dialogue dynamics, coupled with risk-modulated prompt shards and adversarial self-play, closes the multi-turn jailbreak gap under real-world latency and data constraints. HIRMA generalises across unseen behaviours, attacker strategies, and heterogeneous commercial LLMs, offering a deployable blueprint for next-generation guardrails.",
     "experimental_design": {

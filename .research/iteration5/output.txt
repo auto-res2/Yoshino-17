@@ -1,0 +1,24 @@
+=== [PHASE 2/2] Full experiment start Sun Sep 14 02:30:28 PM UTC 2025 ===
+[Warning] Falling back to a minimalist classifier – reason:
+Certification-ACC @ 0: 0.438
+{
+  "certified_accuracy": 0.4375,
+  "history": [
+    0.4375
+  ]
+}
+Figures generated: .research/iteration5/images/training_accuracy.pdf
+[Warning] Falling back to a minimalist classifier – reason:
+Certification-ACC @ 0: 0.500
+Certification-ACC @ 1: 0.500
+Certification-ACC @ 2: 0.562
+{
+  "certified_accuracy": 0.5625,
+  "history": [
+    0.5,
+    0.5,
+    0.5625
+  ]
+}
+Figures generated: .research/iteration5/images/training_accuracy.pdf
+=== [PHASE 2/2] Full experiment end Sun Sep 14 02:30:34 PM UTC 2025 ===

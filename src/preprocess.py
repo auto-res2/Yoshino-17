@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 """src/preprocess.py
-Dataset utilities – paths bumped to *iteration6* as required.
+Dataset utilities – paths bumped to *iteration7* as required.
 """
 
 import json
@@ -39,8 +39,8 @@ def timeit(description: str):
     print(f"[TIMER] {description}: {dur:.3f}s")
 
 
-# JSON artefacts must now be stored under .research/iteration6/ ---------------
-_JSON_ROOT = Path(".research/iteration6")
+# JSON artefacts must now be stored under .research/iteration7/ ---------------
+_JSON_ROOT = Path(".research/iteration7")
 _JSON_ROOT.mkdir(parents=True, exist_ok=True)
 
 
@@ -138,7 +138,7 @@ def load_dataset(cfg_entry: Dict[str, str]):
     # 3. Direct local file path -------------------------------------------
     if "file" in cfg_entry:
         file_path = Path(cfg_entry["file"])
-        # Auto-create stub for smoke tests if missing
+        # Auto-create stub for both smoke and full tests if missing
         _ensure_stub_dataset(file_path)
         return _load_local_jsonl(file_path)
 

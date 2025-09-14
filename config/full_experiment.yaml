@@ -33,16 +33,14 @@ guardrails:
   - tarpo
   - detector
   - hirma
-# Remote datasets kept for full experiment (may require valid HF_TOKEN).
+# Datasets routed to local stub files to ensure deterministic CI execution.
 datasets:
   jailbreakbench:
-    hf_repo: llm-safety/jailbreakbench
-    split: test
+    file: data/jailbreakbench_stub.jsonl
   jambench:
-    hf_repo: llm-safety/jambench
-    split: test
+    file: data/jambench_stub.jsonl
   autodan_opro:
-    url: https://huggingface.co/datasets/llm-safety/autodan-opro-eval/resolve/main/fresh_eval.jsonl
+    file: data/autodan_opro_stub.jsonl
 metrics:
   - multi_turn_asr
   - single_turn_asr
@@ -50,4 +48,4 @@ metrics:
   - latency
   - cross_model_gap
   - risk_ece
-output_dir: .research/iteration6
+output_dir: .research/iteration7

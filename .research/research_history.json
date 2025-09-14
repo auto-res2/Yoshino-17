@@ -995,6 +995,53 @@
       }
     }
   ],
+  "reference_research_study_list": [
+    {
+      "title": "Intriguing properties of neural networks"
+    },
+    {
+      "title": "Theoretically principled trade-off between robustness and accuracy"
+    },
+    {
+      "title": "Adversarial training and robustness for multiple perturbations"
+    },
+    {
+      "title": "Adversarial neural pruning with latent vulnerability suppression"
+    },
+    {
+      "title": "Improving the robustness of deep neural networks via stability training"
+    },
+    {
+      "title": "Benchmarking neural network robustness to common corruptions and perturbations"
+    },
+    {
+      "title": "A fourier perspective on model robustness in computer vision"
+    },
+    {
+      "title": "Explaining and harnessing adversarial examples"
+    },
+    {
+      "title": "Towards deep learning models resistant to adversarial attacks"
+    },
+    {
+      "title": "Unsupervised representation learning by predicting image rotations"
+    },
+    {
+      "title": "Unsupervised learning of visual representations by solving jigsaw puzzles"
+    },
+    {
+      "title": "A simple framework for contrastive learning of visual representations"
+    },
+    {
+      "title": "Momentum contrast for unsupervised visual representation learning"
+    },
+    {
+      "title": "Unsupervised feature learning via non-parametric instance discrimination"
+    },
+    {
+      "title": "Contrastive multiview coding"
+    }
+  ],
   "new_method": {
     "method": "Open Problems: 1. The current plan still certifies robustness only within small ℓ2 radii (ε≤0.15 text, 4/255 vision). In practice jailbreaks often work with longer prompts or patch-based image attacks that fall outside this norm ball. 2. IBP certificates for language models explode with sequence length; no mechanism adapts ε per token or re-centers bounds around high-risk spans. 3. ZePatch’s retrieval table can itself leak: mapping vectors may be inverted to reconstruct harmful prompts. 4. Hot-patches accumulate stochastically; after hundreds of injections the adapter could drift and hurt factuality or calibration although utility metrics stay high. 5. Cross-modal robustness is only enforced at the fused representation; modality-specific heads remain uncertified and can be bypassed (e.g. adversarial audio that is benign in text space but flips logits before fusion).\nMethods: We introduce C3PO-MoRA-2, adding three orthogonal upgrades.\nA) Span-Adaptive Certified Training (SACT): replace global ε with token-wise learnable radii ε_i produced by a small SpanRisk predictor fed with gradient norms and attention entropy. During IBP we normalise each token by ε_i, allowing longer but sparse perturbations while keeping bound tightness.\nB) Secure Hash Retrieval (SHR) for ZePatch: instead of storing full ‘antidote’ vectors we store 128-bit LSH hashes of harmful prompt embeddings and derive the patch vector on-the-fly via a keyed PRF inside the hyper-network. This prevents inversion and enables formal privacy guarantees (ε_DP<1 under hashing randomness).\nC) Dual-Cert Fusion (DCF): we attach lightweight modality-specific bound heads that propagate interval bounds up to the router, then merge with the shared LoRA branch using bound-aware attention. This yields per-modality certificates and detects bypass attacks before fusion. All new components are trained with the same PEFT budget (<2 M params) and add <6 % compute.\nExperimental Setup: Base encoders unchanged. Additional data: 25 k patch-based adversarial images (AdvPatch-LAION) and 8 k adversarial audio clips (NoisePatch-Vox) to test long-range & patch attacks. Training: 1 epoch warm-up, 2 epochs SACT + DCF + SHR. Bounds evaluated at adaptive ε_i (median equal to old global ε). Hardware: same single RTX-A6000 48 GB.\nExpected Result: • Certified text robustness 77 % at median ε_i=0.1 and still 62 % at 1.5× radius; vision certified accuracy 68 % against patch attacks covering 10 % pixels (none for baselines). • Empirical ASR ≤4 % text, 7 % image-patch, 8 % audio-patch. • No detectable inversion of ZePatch table (≤0.02 MI leakage vs 0.11 prior). • After 1 500 patches factuality drop <0.3 pp and ECE change <0.5 %.\nExpected Conclusion: By introducing token-adaptive bound propagation, privacy-preserving hot-patch retrieval, and modality-specific certificates, C3PO-MoRA-2 closes critical gaps in practical LLM defence: it withstands sparse long-range and patch-based attacks, eliminates a new vector of privacy leakage, and offers the first per-modality formal guarantees in a PEFT setting—all under the same commodity GPU budget.",
     "experimental_design": {

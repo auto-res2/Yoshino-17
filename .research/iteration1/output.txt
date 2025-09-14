@@ -1,0 +1,4 @@
+=== uv sync start Sun Sep 14 08:51:42 AM UTC 2025 ===
+=== uv install end Sun Sep 14 08:54:08 AM UTC 2025 ===
+=== [PHASE 1/2] Smoke test start Sun Sep 14 08:54:08 AM UTC 2025 ===
+INFO 09-14 08:54:51 [__init__.py:216] Automatically detected platform cuda.

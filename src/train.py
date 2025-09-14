@@ -23,13 +23,13 @@ from .evaluate import certify_model, save_json, line_plot
 # test and certification pipeline.
 
 # ---------------------------------------------------------------------------
-# 1.  auto_lirpa – real dependency (works with torch<1.13)
+# 1.  auto_lirpa – real dependency (works with torch<1.13) – we vendor a stub
 # ---------------------------------------------------------------------------
 try:
     from auto_LiRPA import BoundedModule  # noqa: F401
 except Exception as _e:  # pragma: no cover
     raise RuntimeError(
-        "auto_LiRPA is a required dependency – install it via `pip install auto-lirpa` (stub provided)."
+        "auto_LiRPA is a required dependency – a lightweight stub is vendored in the repo but was not found."
     ) from _e
 
 # ---------------------------------------------------------------------------
@@ -239,7 +239,7 @@ class Trainer:
             print(f"Certification-ACC @ {e}: {cert_acc:.3f}")
             certified_acc_history.append(cert_acc)
         # ---------- persist ----------
-        result_dir = pathlib.Path(".research/iteration9")
+        result_dir = pathlib.Path(".research/iteration10")
         result_dir.mkdir(parents=True, exist_ok=True)
         result_path = result_dir / f"{self.cfg['experiment']}_result.json"
         save_json(
@@ -253,6 +253,6 @@ class Trainer:
             certified_acc_history,
             "Certified Accuracy over Epochs",
             "CertAcc",
-            ".research/iteration9/images/training_accuracy",
+            ".research/iteration10/images/training_accuracy",
         )
-        print("Figures generated: .research/iteration9/images/training_accuracy.pdf")
+        print("Figures generated: .research/iteration10/images/training_accuracy.pdf")

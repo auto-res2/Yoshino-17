@@ -1,0 +1,10 @@
+{
+  "research_topic": "多様な敵対的シナリオ生成における自動レッドチーミングシステムの改善を目的とし、現在のレッドチーミングアプローチが攻撃ベクトルの体系的カバレッジを欠き、多様で現実的な敵対的シナリオの生成に失敗しているという問題に対して、稀な端のケースと組み合わせ攻撃に焦点を当えた多様な敵対的シナリオを自動生成するLLMベースシステムを開発する具体的アプローチを採用し、評価ベンチマークとして攻撃多様性指標、OWASP Top 10 LLMリスクのカバレッジ、異なる攻撃カテゴリ間の成功率を用い、実現可能性として生成にはフロンティアモデルのAPIアクセスを活用し、評価には小規模モデルを用い、さらにPyRITとOWASPフレームワークに基づくものである。",
+  "queries": [
+    "LLM adversarial scenario generation",
+    "automated red teaming diversity",
+    "attack diversity metrics",
+    "combinatorial attack generation",
+    "OWASP Top10 LLM coverage"
+  ]
+}

@@ -1,0 +1,35 @@
+Traceback (most recent call last):
+  File "/home/toma/pt-80-1-a-13/_work/Yoshino-17/Yoshino-17/src/preprocess.py", line 107, in _download_hf_dataset
+    return datasets.load_dataset(repo, split=split, token=os.getenv("HF_TOKEN"))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/toma/pt-80-1-a-13/_work/Yoshino-17/Yoshino-17/.venv/lib/python3.11/site-packages/datasets/load.py", line 1392, in load_dataset
+    builder_instance = load_dataset_builder(
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/toma/pt-80-1-a-13/_work/Yoshino-17/Yoshino-17/.venv/lib/python3.11/site-packages/datasets/load.py", line 1132, in load_dataset_builder
+    dataset_module = dataset_module_factory(
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/toma/pt-80-1-a-13/_work/Yoshino-17/Yoshino-17/.venv/lib/python3.11/site-packages/datasets/load.py", line 1025, in dataset_module_factory
+    raise e1 from None
+  File "/home/toma/pt-80-1-a-13/_work/Yoshino-17/Yoshino-17/.venv/lib/python3.11/site-packages/datasets/load.py", line 980, in dataset_module_factory
+    raise DatasetNotFoundError(f"Dataset '{path}' doesn't exist on the Hub or cannot be accessed.") from e
+datasets.exceptions.DatasetNotFoundError: Dataset 'llm-safety/jailbreakbench' doesn't exist on the Hub or cannot be accessed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/toma/pt-80-1-a-13/_work/Yoshino-17/Yoshino-17/src/main.py", line 159, in <module>
+    run_experiment(smoke=args.smoke_test)
+  File "/home/toma/pt-80-1-a-13/_work/Yoshino-17/Yoshino-17/src/main.py", line 97, in run_experiment
+    datasets_loaded: Dict[str, "datasets.Dataset"] = {
+                                                     ^
+  File "/home/toma/pt-80-1-a-13/_work/Yoshino-17/Yoshino-17/src/main.py", line 98, in <dictcomp>
+    name: load_dataset(spec) for name, spec in cfg.datasets.items()
+          ^^^^^^^^^^^^^^^^^^
+  File "/home/toma/pt-80-1-a-13/_work/Yoshino-17/Yoshino-17/src/preprocess.py", line 125, in load_dataset
+    return _download_hf_dataset(cfg_entry["hf_repo"], cfg_entry.get("split", "test"))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/toma/pt-80-1-a-13/_work/Yoshino-17/Yoshino-17/src/preprocess.py", line 109, in _download_hf_dataset
+    raise RuntimeError(f"Failed to download dataset {repo}: {exc}")
+RuntimeError: Failed to download dataset llm-safety/jailbreakbench: Dataset 'llm-safety/jailbreakbench' doesn't exist on the Hub or cannot be accessed.

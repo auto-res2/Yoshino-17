@@ -23,15 +23,9 @@ from .evaluate import certify_model, save_json, line_plot
 # test and certification pipeline.
 
 # ---------------------------------------------------------------------------
-# 1.  auto_lirpa – real dependency (works with torch<1.13) – we vendor a stub
+# 1.  auto_lirpa – vendored stub (see project-root auto_LiRPA.py)
 # ---------------------------------------------------------------------------
-try:
-    from auto_LiRPA import BoundedModule  # noqa: F401
-except Exception as _e:  # pragma: no cover
-    # This should never trigger because a stub is vendored (see auto_LiRPA.py)
-    raise RuntimeError(
-        "auto_LiRPA is a required dependency – expected the vendored stub to be importable."
-    ) from _e
+from auto_LiRPA import BoundedModule  # noqa: F401 – validated import
 
 # ---------------------------------------------------------------------------
 # 2.  torchvision / timm – lightweight and torch>=2.0 compatible
@@ -240,7 +234,7 @@ class Trainer:
             print(f"Certification-ACC @ {e}: {cert_acc:.3f}")
             certified_acc_history.append(cert_acc)
         # ---------- persist ----------
-        result_dir = pathlib.Path(".research/iteration14")
+        result_dir = pathlib.Path(".research/iteration15")
         result_dir.mkdir(parents=True, exist_ok=True)
         result_path = result_dir / f"{self.cfg['experiment']}_result.json"
         save_json(
@@ -254,6 +248,6 @@ class Trainer:
             certified_acc_history,
             "Certified Accuracy over Epochs",
             "CertAcc",
-            ".research/iteration14/images/training_accuracy",
+            ".research/iteration15/images/training_accuracy",
         )
-        print("Figures generated: .research/iteration14/images/training_accuracy.pdf")
+        print("Figures generated: .research/iteration15/images/training_accuracy.pdf")

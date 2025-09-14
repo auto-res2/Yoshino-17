@@ -11,7 +11,7 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 
-from auto_LiRPA import BoundedTensor  # fail-fast if missing
+from auto_LiRPA import BoundedTensor  # stub or real implementation – must succeed
 
 # Optional plotting libraries (non-critical)
 try:
@@ -27,6 +27,7 @@ def save_json(obj: Dict[str, Any], path: pathlib.Path | str) -> None:  # noqa: D
     p.parent.mkdir(parents=True, exist_ok=True)
     with open(p, "w", encoding="utf-8") as f:
         json.dump(obj, f, indent=2)
+    # Echo to stdout for CI visibility
     print(json.dumps(obj, indent=2))
 
 

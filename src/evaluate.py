@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 """src/evaluate.py
-Metric utilities – paths updated to *iteration8* compliance.
+Metric utilities – paths updated to *iteration9* compliance.
 """
 
 import math
@@ -62,7 +62,7 @@ def evaluate_dataset(
 # Plotting helper ##############################################################
 ###############################################################################
 
-_IMAGES_DIR = Path(".research/iteration8/images")
+_IMAGES_DIR = Path(".research/iteration9/images")
 _IMAGES_DIR.mkdir(parents=True, exist_ok=True)
 
 
@@ -79,5 +79,7 @@ def plot_metric(agg: Dict[str, Dict[str, float]], metric: str, path: Path):  # n
     plt.tight_layout()
 
     path.parent.mkdir(parents=True, exist_ok=True)
-    plt.savefig(path)
-    plt.close()
+    try:
+        plt.savefig(path)
+    finally:
+        plt.close()

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 """src/preprocess.py
-Dataset utilities – paths bumped to *iteration8* as required.
+Dataset utilities – paths bumped to *iteration9* as required.
 """
 
 import json
@@ -43,8 +43,8 @@ def timeit(description: str):
     print(f"[TIMER] {description}: {dur:.3f}s")
 
 
-# JSON artefacts must now be stored under .research/iteration8/ ---------------
-_JSON_ROOT = Path(".research/iteration8")
+# JSON artefacts must now be stored under .research/iteration9/ ---------------
+_JSON_ROOT = Path(".research/iteration9")
 _JSON_ROOT.mkdir(parents=True, exist_ok=True)
 
 
@@ -110,7 +110,7 @@ def _download_hf_dataset(repo: str, split: str):
     try:
         return datasets.load_dataset(repo, split=split, token=os.getenv("HF_TOKEN"))
     except Exception as exc:  # pragma: no cover – network errors are runtime
-        raise RuntimeError(f"Failed to download dataset {repo}: {exc}")
+        raise RuntimeError(f"Failed to download dataset {repo}: {exc}") from exc
 
 
 def _load_local_jsonl(path: Path):
@@ -134,7 +134,16 @@ def load_dataset(cfg_entry: Dict[str, str]):
         if url.startswith("http"):
             local_path = _DATA_ROOT / os.path.basename(url)
             if not local_path.exists():
-                datasets.utils.file_utils.download_url(url, local_path)
+                # Lazy import to avoid breaking on old datasets versions
+                try:
+                    from datasets.utils import download_manager as _dm
+
+                    _dm.DownloadManager(base_path=str(_DATA_ROOT)).download(url)
+                except Exception:
+                    # Fallback – attempt using old helper; may raise if missing
+                    from datasets.utils.file_utils import download_url
+
+                    download_url(url, local_path)
         else:  # treat as local path string
             local_path = Path(url)
         return _load_local_jsonl(local_path)

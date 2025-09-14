@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "hirma-guardrails"
-version = "0.1.0"
-description = "Structured refactor of HIRMA experimentation code (iteration8 refactor)"
+version = "0.2.0"
+description = "Structured refactor of HIRMA experimentation code (iteration9 refactor)"
 requires-python = ">=3.9"
 dependencies = [
   "numpy>=1.21.0",

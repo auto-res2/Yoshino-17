@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 """src/main.py
-Main orchestration – iteration8.
+Main orchestration – iteration9.
 """
 
 import argparse
@@ -68,10 +68,10 @@ def _create_llm(model_cfg):  # noqa: D401
 
 SRC_DIR = Path(__file__).resolve().parent
 _CONFIG_DIR = SRC_DIR.parent / "config"
-_RESULTS_ROOT = Path(".research/iteration8")
+_RESULTS_ROOT = Path(".research/iteration9")
+_RESULTS_ROOT.mkdir(parents=True, exist_ok=True)
 _IMAGES_DIR = _RESULTS_ROOT / "images"
 _IMAGES_DIR.mkdir(parents=True, exist_ok=True)
-_RESULTS_ROOT.mkdir(parents=True, exist_ok=True)
 
 
 def _load_config(smoke: bool) -> ExperimentConfig:  # noqa: D401

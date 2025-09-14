@@ -1,0 +1,10 @@
+Using CPython 3.11.13
+Creating virtual environment at: .venv
+  × No solution found when resolving dependencies:
+  ╰─▶ Because only auto-lirpa<=0.3 is available and your project depends on
+      auto-lirpa>=0.4.2, we can conclude that your project's requirements
+      are unsatisfiable.
+  × No solution found when resolving dependencies:
+  ╰─▶ Because only auto-lirpa<=0.3 is available and your project depends on
+      auto-lirpa>=0.4.2, we can conclude that your project's requirements
+      are unsatisfiable.

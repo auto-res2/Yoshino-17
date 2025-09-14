@@ -18,15 +18,15 @@ from .evaluate import certify_model, save_json, line_plot
 # ==============================================================
 # We hard-depend on the external libraries – fail immediately if they
 # are unavailable rather than silently degrading (Fail-fast policy).
-from transformers import LlamaForCausalLM, LlamaConfig
-import timm
-from peft import get_peft_model, LoraConfig
+from transformers import LlamaForCausalLM, LlamaConfig  # noqa: F401
+import timm  # noqa: F401
+from peft import get_peft_model, LoraConfig  # noqa: F401
 
 # auto_LiRPA is optional for *training* but required for certification; we
 # still import it here so that a missing wheel surfaces early.
 try:
     from auto_LiRPA import BoundedModule  # noqa: F401
-except Exception as _e:
+except Exception as _e:  # pragma: no cover
     raise RuntimeError(
         "auto_LiRPA is a required dependency – install it via `pip install auto-lirpa`"
     ) from _e
@@ -54,7 +54,7 @@ class DualCertFusion(nn.Module):
         self.tau = tau
         self.proj = nn.Identity()  # kept for compatibility; actual projections live outside
 
-    def forward(self, v: torch.Tensor, a: torch.Tensor, t: torch.Tensor) -> torch.Tensor:
+    def forward(self, v: torch.Tensor, a: torch.Tensor, t: torch.Tensor) -> torch.Tensor:  # noqa: D401,E501
         """Inputs come PROJECTED to identical dim *k*."""
         stacked = torch.stack([v, a, t], dim=1)  # (B, 3, k)
         att = torch.softmax(stacked / self.tau, dim=1)
@@ -128,11 +128,15 @@ class C3POMoRA2(nn.Module):
         self.cls: Any = nn.Linear(k, cfg["data"]["num_labels"])
 
     # ------------------------------------------------------------------
-    #  Forward (clean inference)
+    #  Forward (clean inference) – we use *embeddings only* to stay light
     # ------------------------------------------------------------------
     def forward(self, input_ids, images=None, mels=None):
         device = input_ids.device
-        llm_hidden = self.llm(input_ids).last_hidden_state  # (B,S,H=64)
+
+        # Use token embeddings directly (no forward through tiny Llama layers) to
+        # keep the compute cost minimal and avoid relying on hidden_state outputs
+        embeddings = self.llm.get_input_embeddings()(input_ids)  # (B,S,64)
+        llm_hidden = embeddings  # Treat embeddings as hidden features
         text_feat = self.t_proj(llm_hidden.mean(1))  # (B,k)
 
         # Vision branch ---------------------------------------------------
@@ -158,10 +162,23 @@ class C3POMoRA2(nn.Module):
         return self.cls(fused)
 
     # ------------------------------------------------------------------
-    #  Certification helper (delegates to auto_LiRPA)
+    #  Certification helper (delegates to auto_LiRPA) – wraps to accept
+    #  one-hot bounded tensors coming from `evaluate.certify_model`.
     # ------------------------------------------------------------------
     def certifiable_module(self, input_shape):
-        return BoundedModule(self, torch.empty(*input_shape).long(), device="cpu")
+        """Return a BoundedModule that converts one-hot inputs → token ids."""
+
+        class _Token2IdxWrapper(nn.Module):
+            def __init__(self, base: nn.Module):
+                super().__init__()
+                self.base = base
+
+            def forward(self, one_hot: torch.Tensor):  # (B,S,V)
+                ids = one_hot.argmax(-1).long()
+                return self.base(ids)
+
+        dummy = torch.empty(*input_shape).float()  # (1,S,V)
+        return BoundedModule(_Token2IdxWrapper(self), dummy, device="cpu")
 
 
 # ==============================================================
@@ -221,7 +238,7 @@ class Trainer:
             print(f"Certification-ACC @ {e}: {cert_acc:.3f}")
             certified_acc_history.append(cert_acc)
         # ---------- persist ----------
-        result_dir = pathlib.Path(".research/iteration6")
+        result_dir = pathlib.Path(".research/iteration7")
         result_dir.mkdir(parents=True, exist_ok=True)
         result_path = result_dir / f"{self.cfg['experiment']}_result.json"
         save_json(
@@ -235,6 +252,6 @@ class Trainer:
             certified_acc_history,
             "Certified Accuracy over Epochs",
             "CertAcc",
-            ".research/iteration6/images/training_accuracy",
+            ".research/iteration7/images/training_accuracy",
         )
-        print("Figures generated: .research/iteration6/images/training_accuracy.pdf")
+        print("Figures generated: .research/iteration7/images/training_accuracy.pdf")

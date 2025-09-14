@@ -21,7 +21,7 @@ except Exception:  # pragma: no cover
     plt = sns = None
 
 
-def save_json(obj: Dict[str, Any], path: pathlib.Path | str) -> None:
+def save_json(obj: Dict[str, Any], path: pathlib.Path | str) -> None:  # noqa: D401
     """Save a Python dict to *path* and also pretty-print it for the log."""
     p = pathlib.Path(path)
     p.parent.mkdir(parents=True, exist_ok=True)
@@ -63,7 +63,10 @@ def certify_model(model: Any, dataset: Any, cfg: Dict[str, Any]) -> float:  # no
     model.eval()
     acc: List[int] = []
 
-    ibp = model.certifiable_module((1, cfg["data"]["max_len"]))
+    # The wrapper inside the model expects a (B,S,V) one-hot tensor.
+    vocab = 32000
+    seq_len = cfg["data"]["max_len"]
+    ibp = model.certifiable_module((1, seq_len, vocab))
 
     with torch.no_grad():
         for i in range(min(32, len(dataset))):
@@ -71,8 +74,9 @@ def certify_model(model: Any, dataset: Any, cfg: Dict[str, Any]) -> float:  # no
             ids = sample["input_ids"].unsqueeze(0)
             if torch.cuda.is_available():
                 ids = ids.cuda()
+            # Build one-hot representation and uniform ε
             eps = torch.full_like(ids, 0.1).float()
-            one_hot = F.one_hot(ids, num_classes=32000).float()
+            one_hot = F.one_hot(ids, num_classes=vocab).float()
             bt = BoundedTensor(one_hot, eps.unsqueeze(-1))
             out = ibp(bt, method="IBP")
             acc.append(int(out.argmax(-1).item() == sample["label"].item()))

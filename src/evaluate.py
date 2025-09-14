@@ -80,6 +80,7 @@ def certify_model(model: Any, dataset: Any, cfg: Dict[str, Any]) -> float:  # no
             # Build one-hot representation and uniform ε
             eps = torch.full_like(ids, 0.1, dtype=torch.float32)
             one_hot = F.one_hot(ids, num_classes=vocab).float()
+            # eps expanded to last dim for compatibility
             bt = BoundedTensor(one_hot, eps.unsqueeze(-1))
             out = ibp(bt, method="IBP")
             acc.append(int(out.argmax(-1).item() == sample["label"].item()))

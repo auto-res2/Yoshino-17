@@ -185,6 +185,7 @@ class Trainer:
 
     def __init__(self, cfg, model: nn.Module, dataset):
         self.cfg = cfg
+        # Keep model on CPU unless GPU is explicitly available.
         self.model = model.cuda() if torch.cuda.is_available() else model
         self.ds = dataset
         self.dl = DataLoader(
@@ -234,7 +235,7 @@ class Trainer:
             print(f"Certification-ACC @ {e}: {cert_acc:.3f}")
             certified_acc_history.append(cert_acc)
         # ---------- persist ----------
-        result_dir = pathlib.Path(".research/iteration22")
+        result_dir = pathlib.Path(".research/iteration23")
         result_dir.mkdir(parents=True, exist_ok=True)
         result_path = result_dir / f"{self.cfg['experiment']}_result.json"
         save_json(
@@ -248,6 +249,6 @@ class Trainer:
             certified_acc_history,
             "Certified Accuracy over Epochs",
             "CertAcc",
-            ".research/iteration22/images/training_accuracy",
+            ".research/iteration23/images/training_accuracy",
         )
-        print("Figures generated: .research/iteration22/images/training_accuracy.pdf")
+        print("Figures generated: .research/iteration23/images/training_accuracy.pdf")

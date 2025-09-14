@@ -144,7 +144,7 @@ class Trainer:
             dataset,
             batch_size=int(cfg["train"]["batch_size"]),
             shuffle=True,
-            num_workers=4,
+            num_workers=0,  # use single worker for maximal compatibility in CI
             pin_memory=torch.cuda.is_available(),
         )
 
@@ -185,7 +185,9 @@ class Trainer:
             print(f"Certification-ACC @ {e}: {cert_acc:.3f}")
             certified_acc_history.append(cert_acc)
         # ---------- persist ----------
-        result_path = pathlib.Path(".research/iteration2/exp1_result.json")
+        result_dir = pathlib.Path(".research/iteration3")
+        result_dir.mkdir(parents=True, exist_ok=True)
+        result_path = result_dir / f"{self.cfg['experiment']}_result.json"
         save_json(
             {"certified_accuracy": certified_acc_history[-1], "history": certified_acc_history},
             result_path,
@@ -194,6 +196,6 @@ class Trainer:
             certified_acc_history,
             "Certified Accuracy over Epochs",
             "CertAcc",
-            ".research/iteration2/images/training_accuracy",
+            ".research/iteration3/images/training_accuracy",
         )
-        print("Figures generated: .research/iteration2/images/training_accuracy.pdf")
+        print("Figures generated: .research/iteration3/images/training_accuracy.pdf")

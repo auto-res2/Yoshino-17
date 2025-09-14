@@ -33,7 +33,11 @@ class _FallbackDataset(Dataset):
     def __getitem__(self, idx: int) -> Dict[str, Any]:
         torch.manual_seed(idx)
         ids = torch.randint(0, 32000, (self.max_len,), dtype=torch.long)
-        return {"input_ids": ids, "label": torch.tensor(self._data[idx]["label"])}
+        return {
+            "input_ids": ids,
+            "label": torch.tensor(self._data[idx]["label"], dtype=torch.long),
+            "prompt": self._data[idx]["prompt"],  # include prompt so downstream code can access
+        }
 
 
 class PromptBenchXL(Dataset):
@@ -88,11 +92,27 @@ class PromptBenchXL(Dataset):
 
     def __getitem__(self, idx):
         row = self.ds[idx]
-        ids = self.tokenizer(
-            row["prompt"],
-            max_length=self.max_len,
-            truncation=True,
-            padding="max_length",
-            return_tensors="pt",
-        ).input_ids.squeeze(0)
-        return {"input_ids": ids, "label": torch.tensor(row["label"], dtype=torch.long)}
+
+        # Determine whether we already have tokenised ids or need to tokenize
+        if "input_ids" in row and isinstance(row["input_ids"], torch.Tensor):
+            ids = row["input_ids"]
+        elif "prompt" in row:
+            ids = self.tokenizer(
+                row["prompt"],
+                max_length=self.max_len,
+                truncation=True,
+                padding="max_length",
+                return_tensors="pt",
+            ).input_ids.squeeze(0)
+        else:
+            # Absolute fallback – random ids
+            torch.manual_seed(idx)
+            ids = torch.randint(0, 32000, (self.max_len,), dtype=torch.long)
+
+        label_val = row.get("label", 0)
+        if isinstance(label_val, torch.Tensor):
+            label = label_val.long()
+        else:
+            label = torch.tensor(int(label_val), dtype=torch.long)
+
+        return {"input_ids": ids, "label": label}

@@ -1,6 +1,5 @@
 """src/preprocess.py
-Dataset loading utilities + generic helpers (seed, timing, json).
-Removed superfluous `# type: ignore` markers flagged by static validation.
+Dataset utilities – extended with local file support and iteration4 path fixes.
 """
 from __future__ import annotations
 
@@ -9,8 +8,9 @@ import os
 import random
 import time
 from contextlib import contextmanager
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 import datasets
 import numpy as np
@@ -38,6 +38,10 @@ def timeit(description: str):
     print(f"[TIMER] {description}: {dur:.3f}s")
 
 
+# JSON artefacts must now be stored under .research/iteration4/ ----------------
+_JSON_ROOT = Path(".research/iteration4")
+_JSON_ROOT.mkdir(parents=True, exist_ok=True)
+
 def save_json(obj: Any, path):
     Path(path).parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
@@ -47,9 +51,6 @@ def save_json(obj: Any, path):
 ###############################################################################
 # YAML → dataclass loader (used by main) #######################################
 ###############################################################################
-
-from dataclasses import dataclass
-from typing import List
 
 
 @dataclass
@@ -87,19 +88,34 @@ def _download_hf_dataset(repo: str, split: str):
         raise RuntimeError(f"Failed to download dataset {repo}: {exc}")
 
 
+def _load_local_jsonl(path: Path):
+    if not path.exists():
+        raise FileNotFoundError(f"Local dataset file not found: {path}")
+    with open(path, "r", encoding="utf-8") as f:
+        lines = [json.loads(l) for l in f]
+    return datasets.Dataset.from_list(lines)
+
+
 def load_dataset(cfg_entry: Dict[str, str]):
     """Return a 🤗 `datasets.Dataset` object according to the YAML spec."""
 
+    # 1. Hugging Face hub --------------------------------------------------
     if "hf_repo" in cfg_entry:
         return _download_hf_dataset(cfg_entry["hf_repo"], cfg_entry.get("split", "test"))
 
+    # 2. Remote URL (HTTP/HTTPS) ------------------------------------------
     if "url" in cfg_entry:
         url = cfg_entry["url"]
-        local_path = _DATA_ROOT / os.path.basename(url)
-        if not local_path.exists():
-            datasets.utils.file_utils.download_url(url, local_path)
-        with open(local_path, "r", encoding="utf-8") as f:
-            lines = [json.loads(l) for l in f]
-        return datasets.Dataset.from_list(lines)
+        if url.startswith("http"):
+            local_path = _DATA_ROOT / os.path.basename(url)
+            if not local_path.exists():
+                datasets.utils.file_utils.download_url(url, local_path)
+        else:  # treat as local path string
+            local_path = Path(url)
+        return _load_local_jsonl(local_path)
 
-    raise ValueError("Unknown dataset entry config – expected 'hf_repo' or 'url'.")
+    # 3. Direct local file path -------------------------------------------
+    if "file" in cfg_entry:
+        return _load_local_jsonl(Path(cfg_entry["file"]))
+
+    raise ValueError("Unknown dataset entry config – expected 'hf_repo', 'url', or 'file'.")

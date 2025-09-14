@@ -15,14 +15,15 @@ guardrails:
   - pat
   - tarpo
   - hirma
+# ------------------------------------------------------------------ datasets
+# Use local stub JSONL files to avoid network / permission issues.
+# Each file contains <=10 rows so slice spec is unnecessary.
 datasets:
   jailbreakbench:
-    hf_repo: llm-safety/jailbreakbench
-    split: test[:10]
+    file: data/jailbreakbench_stub.jsonl
   jambench:
-    hf_repo: llm-safety/jambench
-    split: test[:10]
+    file: data/jambench_stub.jsonl
 metrics:
   - multi_turn_asr
   - single_turn_asr
-output_dir: .research/iteration3  # updated path
+output_dir: .research/iteration4

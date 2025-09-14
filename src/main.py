@@ -1,6 +1,6 @@
 """src/main.py
-CLI entry-point handling both smoke and full experiment modes.
-Updated paths: all artefacts now live under `.research/iteration3/` as required.
+Paths updated to iteration4; results + images written accordingly.
+Also supports new local-file dataset entries.
 """
 from __future__ import annotations
 
@@ -71,7 +71,7 @@ def _create_llm(model_cfg):  # noqa: D401
 ################################################################################
 
 _CONFIG_DIR = SRC_DIR.parent / "config"
-_RESULTS_ROOT = Path(".research/iteration3")
+_RESULTS_ROOT = Path(".research/iteration4")
 _IMAGES_DIR = _RESULTS_ROOT / "images"
 _IMAGES_DIR.mkdir(parents=True, exist_ok=True)
 _RESULTS_ROOT.mkdir(parents=True, exist_ok=True)

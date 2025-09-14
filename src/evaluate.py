@@ -70,7 +70,7 @@ def certify_model(model: Any, dataset: Any, cfg: Dict[str, Any]) -> float:  # no
 
     # The wrapper inside the model expects a (B,S,V) one-hot tensor.
     vocab = 32000
-    seq_len = cfg["data"]["max_len"]
+    seq_len = int(cfg["data"]["max_len"])
     ibp = model_cpu.certifiable_module((1, seq_len, vocab))
 
     with torch.no_grad():

@@ -11,7 +11,7 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 
-from auto_LiRPA import BoundedTensor  # guaranteed to exist (stub or real)
+from auto_LiRPA import BoundedTensor  # guaranteed to exist (real or stub)
 
 # Optional plotting libraries (non-critical)
 try:

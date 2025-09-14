@@ -142,15 +142,19 @@ class Trainer:
         self.ds = dataset
         self.dl = DataLoader(
             dataset,
-            batch_size=cfg["train"]["batch_size"],
+            batch_size=int(cfg["train"]["batch_size"]),
             shuffle=True,
             num_workers=4,
             pin_memory=torch.cuda.is_available(),
         )
+
+        # Ensure learning-rate and weight-decay are numeric (yaml may load them as strings)
+        lr = float(cfg["train"]["lr"])
+        wd = float(cfg["train"]["wd"])
         self.optim = AdamW(
             filter(lambda p: p.requires_grad, self.model.parameters()),
-            lr=cfg["train"]["lr"],
-            weight_decay=cfg["train"]["wd"],
+            lr=lr,
+            weight_decay=wd,
         )
 
     # ----------------------------------------------------------
@@ -174,14 +178,14 @@ class Trainer:
     # ----------------------------------------------------------
     def fit(self):
         certified_acc_history: List[float] = []
-        epochs = self.cfg["train"]["epochs"]
+        epochs = int(self.cfg["train"]["epochs"])
         for e in range(epochs):
             self.train_epoch(e)
             cert_acc = certify_model(self.model, self.ds, self.cfg)
             print(f"Certification-ACC @ {e}: {cert_acc:.3f}")
             certified_acc_history.append(cert_acc)
         # ---------- persist ----------
-        result_path = pathlib.Path(".research/iteration1/exp1_result.json")
+        result_path = pathlib.Path(".research/iteration2/exp1_result.json")
         save_json(
             {"certified_accuracy": certified_acc_history[-1], "history": certified_acc_history},
             result_path,
@@ -190,6 +194,6 @@ class Trainer:
             certified_acc_history,
             "Certified Accuracy over Epochs",
             "CertAcc",
-            ".research/iteration1/images/training_accuracy",
+            ".research/iteration2/images/training_accuracy",
         )
-        print("Figures generated: .research/iteration1/images/training_accuracy.pdf")
+        print("Figures generated: .research/iteration2/images/training_accuracy.pdf")

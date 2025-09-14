@@ -4,9 +4,9 @@ run_mode: smoke
 hardware:
   device: cpu
 models:
-  mixtral_local:
-    engine: vllm
-    name_or_path: mistralai/Mixtral-8x7B-Instruct
+  dummy_local:
+    engine: dummy  # lightweight backend for the smoke test
+    name_or_path: dummy
     tensor_parallel_size: 1
     temperature: 0.7
 llm_apis: {}
@@ -17,13 +17,12 @@ guardrails:
   - hirma
 datasets:
   jailbreakbench:
-    hf_repo: EleutherAI/jailbreakbench
+    hf_repo: llm-safety/jailbreakbench
     split: test[:10]
   jambench:
-    hf_repo: LLMSafety/JAMBench
+    hf_repo: llm-safety/jambench
     split: test[:10]
 metrics:
   - multi_turn_asr
   - single_turn_asr
-  - latency
-output_dir: results/smoke
+output_dir: .research/iteration2  # kept for backward-compat; not used by code

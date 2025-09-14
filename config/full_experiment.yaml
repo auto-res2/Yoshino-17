@@ -35,10 +35,10 @@ guardrails:
   - hirma
 datasets:
   jailbreakbench:
-    hf_repo: EleutherAI/jailbreakbench
+    hf_repo: llm-safety/jailbreakbench
     split: test
   jambench:
-    hf_repo: LLMSafety/JAMBench
+    hf_repo: llm-safety/jambench
     split: test
   autodan_opro:
     url: https://huggingface.co/datasets/llm-safety/autodan-opro-eval/resolve/main/fresh_eval.jsonl
@@ -49,4 +49,4 @@ metrics:
   - latency
   - cross_model_gap
   - risk_ece
-output_dir: results/full
+output_dir: .research/iteration2

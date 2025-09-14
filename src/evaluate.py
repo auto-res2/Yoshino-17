@@ -9,20 +9,20 @@ import pathlib
 from typing import Any, Dict, List
 
 import numpy as np
+import torch  # Ensure torch is always imported
+import torch.nn.functional as F
 
-# Optional imports – wrapped in try / except for compatibility
+# Optional plotting libraries (may be missing in head-less CI)
 try:
     import matplotlib.pyplot as plt  # noqa: F401
     import seaborn as sns  # noqa: F401
 except Exception:  # pragma: no cover – head-less CI containers often miss these libs
     plt = sns = None
 
+# auto_LiRPA is optional – keep rest of code functional if it is absent
 try:
-    import torch
-    import torch.nn.functional as F
     from auto_LiRPA import BoundedTensor
 except Exception:
-    torch = None
     BoundedTensor = None
 
 
@@ -39,8 +39,7 @@ def save_json(obj: Dict[str, Any], path: pathlib.Path | str) -> None:
 def line_plot(values: List[float], title: str, ylabel: str, name: str) -> None:
     """Line plot helper. Falls back to a no-op when matplotlib is unavailable."""
     if plt is None or sns is None:
-        # Headless environment – silently skip figure generation
-        return
+        return  # gracefully skip when plotting stack is unavailable
 
     import matplotlib.pyplot as _plt  # Local alias for mypy clarity
     import seaborn as _sns
@@ -63,10 +62,8 @@ def line_plot(values: List[float], title: str, ylabel: str, name: str) -> None:
 
 def _dummy_certification(model: Any, dataset: Any, num_items: int = 16) -> float:
     """Very light-weight accuracy estimator used when auto_LiRPA is absent."""
-    if torch is None:
-        raise RuntimeError("PyTorch is required to run even the dummy certification.")
-
     correct = 0
+    model.eval()
     for i in range(min(num_items, len(dataset))):
         batch = dataset[i]
         with torch.no_grad():
@@ -87,10 +84,10 @@ def certify_model(model: Any, dataset: Any, cfg: Dict[str, Any]) -> float:  # no
     checks standard accuracy on a handful of samples – good enough for CI.
     """
 
-    if torch is None or BoundedTensor is None:
+    if BoundedTensor is None:
         return _dummy_certification(model, dataset)
 
-    # Real certification – still restricted to a tiny subset for speed
+    # Real IBP certification – still restricted to a tiny subset for speed
     model.eval()
     acc: List[int] = []
     try:

@@ -22,10 +22,7 @@ try:
     from peft import get_peft_model, LoraConfig
     from auto_LiRPA import BoundedModule
 except Exception as e:
-    # When running smoke-tests in minimal environments we still want import
-    # errors to be raised clearly, but we delay them until the model is
-    # actually instantiated.  This avoids import errors during unit-tests that
-    # never touch the model.
+    # Delay heavy import errors until model construction
     LlamaForCausalLM = LlamaConfig = Wav2Vec2Model = timm = get_peft_model = LoraConfig = BoundedModule = None
     _IMPORT_ERROR = e
 else:
@@ -138,13 +135,16 @@ class Trainer:
 
     def __init__(self, cfg, model: nn.Module, dataset):
         self.cfg = cfg
-        self.model = model.cuda().half() if torch.cuda.is_available() else model
+        # Avoid half precision for the minimalist fallback model – it causes
+        # instability / NaNs on some GPUs.  The full model uses FP16 anyway via
+        # its internal weights, so the outer cast is unnecessary.
+        self.model = model.cuda() if torch.cuda.is_available() else model
         self.ds = dataset
         self.dl = DataLoader(
             dataset,
             batch_size=int(cfg["train"]["batch_size"]),
             shuffle=True,
-            num_workers=0,  # use single worker for maximal compatibility in CI
+            num_workers=0,  # maximal compatibility in CI
             pin_memory=torch.cuda.is_available(),
         )
 
@@ -170,7 +170,12 @@ class Trainer:
                 label = label.cuda()
             logits = self.model(ids)
             loss = F.cross_entropy(logits, label)
-            self.optim.zero_grad(); loss.backward(); self.optim.step()
+            if torch.isnan(loss):
+                raise RuntimeError("NaN encountered in training loss – aborting.")
+            self.optim.zero_grad()
+            loss.backward()
+            torch.nn.utils.clip_grad_norm_(self.model.parameters(), max_norm=1.0)
+            self.optim.step()
             losses.append(loss.item())
             pbar.set_postfix(loss=np.mean(losses))
         return losses
@@ -185,7 +190,7 @@ class Trainer:
             print(f"Certification-ACC @ {e}: {cert_acc:.3f}")
             certified_acc_history.append(cert_acc)
         # ---------- persist ----------
-        result_dir = pathlib.Path(".research/iteration3")
+        result_dir = pathlib.Path(".research/iteration4")
         result_dir.mkdir(parents=True, exist_ok=True)
         result_path = result_dir / f"{self.cfg['experiment']}_result.json"
         save_json(
@@ -196,6 +201,6 @@ class Trainer:
             certified_acc_history,
             "Certified Accuracy over Epochs",
             "CertAcc",
-            ".research/iteration3/images/training_accuracy",
+            ".research/iteration4/images/training_accuracy",
         )
-        print("Figures generated: .research/iteration3/images/training_accuracy.pdf")
+        print("Figures generated: .research/iteration4/images/training_accuracy.pdf")

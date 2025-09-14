@@ -20,7 +20,7 @@ class TinyPromptBench(Dataset):
 
     def __init__(self, split: str, cfg: Dict[str, Any]):
         super().__init__()
-        self.max_len = cfg["data"]["max_len"]
+        self.max_len = int(cfg["data"]["max_len"])
         # Deterministically repeat samples to reach ~20 items for training stability
         repeats = 5 if split.startswith("train") else 1
         self.data: List[Any] = self._SAMPLES * repeats
@@ -30,6 +30,6 @@ class TinyPromptBench(Dataset):
 
     def __getitem__(self, idx: int) -> Dict[str, Any]:
         prompt, label = self.data[idx]
-        torch.manual_seed(idx)
+        torch.manual_seed(idx)  # ensures deterministic synthetic token ids
         ids = torch.randint(0, 32000, (self.max_len,), dtype=torch.long)
         return {"input_ids": ids, "label": torch.tensor(label, dtype=torch.long)}

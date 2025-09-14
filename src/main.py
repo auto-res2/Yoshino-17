@@ -49,10 +49,9 @@ def _set_seed(seed: int) -> None:
 # ------------------------------------------------------------------
 
 def _run(cfg: Dict[str, Any], smoke: bool) -> None:
-    _set_seed(cfg["train"]["seed"])
+    _set_seed(int(cfg["train"]["seed"]))
 
-    split = "train" if not smoke else "train"
-    dataset = TinyPromptBench(split, cfg)
+    dataset = TinyPromptBench("train", cfg)
     model = C3POMoRA2(cfg)
     trainer = Trainer(cfg, model, dataset)
     trainer.fit()
@@ -81,7 +80,7 @@ def main() -> None:  # noqa: D401
         cfg_smoke = _load_yaml("smoke_test.yaml")
         _run(cfg_smoke, smoke=True)
 
-        # Phase 2 – full experiment (same dataset but longer seq len etc.)
+        # Phase 2 – full experiment
         cfg_full = _load_yaml("full_experiment.yaml")
         _run(cfg_full, smoke=False)
         return

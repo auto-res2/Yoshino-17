@@ -4,18 +4,23 @@ version = "0.1.0"
 description = "Refactored C3PO-MoRA-2 research code"
 readme = "README.md"
 requires-python = ">=3.8"
+
+# ---------------------------------------------------------------------------
+# Dependency policy:
+# • auto-lirpa==0.3.* only supports torch <1.13  ⇒ we pin torch<=1.12.*
+# • transformers≥4.29,<4.32 still supports those torch versions and already
+#   includes Llama.  We deliberately drop PEFT / datasets to keep the graph
+#   minimal and compatible.
+# ---------------------------------------------------------------------------
+
 dependencies = [
     "numpy>=1.21.0",
-    "torch>=2.0.0",
+    "torch>=1.8.0,<1.13.0",
     "tqdm>=4.64.0",
     "pyyaml>=6.0",
     "matplotlib>=3.5.0",
     "seaborn>=0.11.0",
-    "transformers>=4.38.0",
+    "transformers>=4.29.0,<4.32.0",
     "timm>=0.9.12",
-    "peft>=0.9.0",
-    "datasets>=2.19.0",
-    # auto-lirpa 0.3.* is the latest version available on the default index at
-    # the time of writing; newer versions are not yet published as wheels.
-    "auto-lirpa>=0.3,<0.4",
+    "auto-lirpa>=0.3,<0.4"
 ]

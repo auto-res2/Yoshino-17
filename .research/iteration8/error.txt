@@ -1,0 +1,9 @@
+Using CPython 3.11.13
+Creating virtual environment at: .venv
+Resolved 83 packages in 893ms
+error: Distribution `torch==1.12.1 @ registry+https://pypi.org/simple` can't be installed because it doesn't have a source distribution or wheel for the current platform
+
+hint: You're using CPython 3.11 (`cp311`), but `torch` (v1.12.1) only has wheels with the following Python ABI tags: `cp38`, `cp39`, `cp310`
+error: Distribution `torch==1.12.1 @ registry+https://pypi.org/simple` can't be installed because it doesn't have a source distribution or wheel for the current platform
+
+hint: You're using CPython 3.11 (`cp311`), but `torch` (v1.12.1) only has wheels with the following Python ABI tags: `cp38`, `cp39`, `cp310`

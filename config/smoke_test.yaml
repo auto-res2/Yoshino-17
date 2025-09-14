@@ -1,0 +1,15 @@
+experiment: "exp1_text_cert"
+mode: "smoke"
+data:
+  max_len: 32   # drastically smaller for CI speed
+  num_labels: 2
+train:
+  epochs: 1      # single epoch smoke test
+  batch_size: 2
+  lr: 3e-4
+  wd: 0.01
+  seed: 42
+model:
+  spanrisk_hidden: 128
+  router_k: 128
+  tau: 1.0

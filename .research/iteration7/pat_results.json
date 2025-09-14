@@ -1,0 +1,26 @@
+{
+  "jailbreakbench": {
+    "multi_turn_asr": 100.0,
+    "single_turn_asr": 100.0,
+    "mt_bench_helpfulness": 10.0,
+    "latency": NaN,
+    "cross_model_gap": NaN,
+    "risk_ece": NaN
+  },
+  "jambench": {
+    "multi_turn_asr": 100.0,
+    "single_turn_asr": 100.0,
+    "mt_bench_helpfulness": 10.0,
+    "latency": NaN,
+    "cross_model_gap": NaN,
+    "risk_ece": NaN
+  },
+  "autodan_opro": {
+    "multi_turn_asr": 100.0,
+    "single_turn_asr": 100.0,
+    "mt_bench_helpfulness": 10.0,
+    "latency": NaN,
+    "cross_model_gap": NaN,
+    "risk_ece": NaN
+  }
+}

@@ -14,6 +14,7 @@ guardrails:
   - none
   - pat
   - tarpo
+  - detector
   - hirma
 # ------------------------------------------------------------------ datasets
 # Use local stub JSONL files to avoid network / permission issues.
@@ -26,4 +27,4 @@ datasets:
 metrics:
   - multi_turn_asr
   - single_turn_asr
-output_dir: .research/iteration4
+output_dir: .research/iteration5

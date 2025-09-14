@@ -1,5 +1,5 @@
 """src/preprocess.py
-Dataset utilities – extended with local file support and iteration4 path fixes.
+Dataset utilities – paths bumped to *iteration5* as required.
 """
 from __future__ import annotations
 
@@ -38,9 +38,10 @@ def timeit(description: str):
     print(f"[TIMER] {description}: {dur:.3f}s")
 
 
-# JSON artefacts must now be stored under .research/iteration4/ ----------------
-_JSON_ROOT = Path(".research/iteration4")
+# JSON artefacts must now be stored under .research/iteration5/ ---------------
+_JSON_ROOT = Path(".research/iteration5")
 _JSON_ROOT.mkdir(parents=True, exist_ok=True)
+
 
 def save_json(obj: Any, path):
     Path(path).parent.mkdir(parents=True, exist_ok=True)

@@ -1,5 +1,5 @@
 """src/evaluate.py
-Updated image output directory to comply with iteration4 rules.
+Metric utilities – paths updated to *iteration5* compliance.
 """
 from __future__ import annotations
 
@@ -61,7 +61,7 @@ def evaluate_dataset(
 # Plotting helper ##############################################################
 ###############################################################################
 
-_IMAGES_DIR = Path(".research/iteration4/images")
+_IMAGES_DIR = Path(".research/iteration5/images")
 _IMAGES_DIR.mkdir(parents=True, exist_ok=True)
 
 

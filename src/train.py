@@ -28,8 +28,9 @@ from .evaluate import certify_model, save_json, line_plot
 try:
     from auto_LiRPA import BoundedModule  # noqa: F401
 except Exception as _e:  # pragma: no cover
+    # This should never trigger because a stub is vendored (see auto_LiRPA.py)
     raise RuntimeError(
-        "auto_LiRPA is a required dependency – a lightweight stub is vendored in the repo but was not found."
+        "auto_LiRPA is a required dependency – expected the vendored stub to be importable."
     ) from _e
 
 # ---------------------------------------------------------------------------
@@ -239,7 +240,7 @@ class Trainer:
             print(f"Certification-ACC @ {e}: {cert_acc:.3f}")
             certified_acc_history.append(cert_acc)
         # ---------- persist ----------
-        result_dir = pathlib.Path(".research/iteration12")
+        result_dir = pathlib.Path(".research/iteration13")
         result_dir.mkdir(parents=True, exist_ok=True)
         result_path = result_dir / f"{self.cfg['experiment']}_result.json"
         save_json(
@@ -253,6 +254,6 @@ class Trainer:
             certified_acc_history,
             "Certified Accuracy over Epochs",
             "CertAcc",
-            ".research/iteration12/images/training_accuracy",
+            ".research/iteration13/images/training_accuracy",
         )
-        print("Figures generated: .research/iteration12/images/training_accuracy.pdf")
+        print("Figures generated: .research/iteration13/images/training_accuracy.pdf")

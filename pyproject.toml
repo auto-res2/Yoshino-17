@@ -5,13 +5,6 @@ description = "Refactored C3PO-MoRA-2 research code"
 readme = "README.md"
 requires-python = ">=3.9"
 
-# ---------------------------------------------------------------------------
-# Dependency policy:
-# • We target Python 3.11 which is only supported by torch>=2.0.
-# • A lightweight *stub* of auto_LiRPA is vendor-shipped, so the external
-#   dependency is dropped to avoid incompatible wheels.
-# ---------------------------------------------------------------------------
-
 dependencies = [
     "numpy>=1.23.0",
     "torch>=2.0.0,<2.4.0",

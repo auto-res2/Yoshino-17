@@ -1,0 +1,4 @@
+=== uv sync start Sun Sep 14 01:31:31 PM UTC 2025 ===
+=== uv install end Sun Sep 14 01:31:40 PM UTC 2025 ===
+=== [PHASE 1/2] Smoke test start Sun Sep 14 01:31:40 PM UTC 2025 ===
+[Warning] Falling back to a minimalist classifier – reason:

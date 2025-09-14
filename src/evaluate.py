@@ -60,24 +60,31 @@ def line_plot(values: List[float], title: str, ylabel: str, name: str) -> None:
 def certify_model(model: Any, dataset: Any, cfg: Dict[str, Any]) -> float:  # noqa: D401
     """Run Interval Bound Propagation certification on *model*."""
 
-    model.eval()
+    # Make sure everything lives on CPU for certification because the auto_LiRPA
+    # stub we rely on may run only on CPU devices. After certification we move
+    # the model back to its original device so that later calls are unaffected.
+    orig_device = next(model.parameters()).device
+    model_cpu = model.cpu()
+
+    model_cpu.eval()
     acc: List[int] = []
 
     # The wrapper inside the model expects a (B,S,V) one-hot tensor.
     vocab = 32000
     seq_len = cfg["data"]["max_len"]
-    ibp = model.certifiable_module((1, seq_len, vocab))
+    ibp = model_cpu.certifiable_module((1, seq_len, vocab))
 
     with torch.no_grad():
         for i in range(min(32, len(dataset))):
             sample = dataset[i]
-            ids = sample["input_ids"].unsqueeze(0)
-            if torch.cuda.is_available():
-                ids = ids.cuda()
+            ids = sample["input_ids"].unsqueeze(0).cpu()
             # Build one-hot representation and uniform ε
-            eps = torch.full_like(ids, 0.1).float()
+            eps = torch.full_like(ids, 0.1, dtype=torch.float32)
             one_hot = F.one_hot(ids, num_classes=vocab).float()
             bt = BoundedTensor(one_hot, eps.unsqueeze(-1))
             out = ibp(bt, method="IBP")
             acc.append(int(out.argmax(-1).item() == sample["label"].item()))
+
+    # Restore original device if needed
+    model.to(orig_device)
     return float(np.mean(acc))

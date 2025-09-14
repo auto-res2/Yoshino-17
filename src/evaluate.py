@@ -1,7 +1,8 @@
-"""src/evaluate.py
-Metric utilities – paths updated to *iteration5* compliance.
-"""
 from __future__ import annotations
+
+"""src/evaluate.py
+Metric utilities – paths updated to *iteration6* compliance.
+"""
 
 import math
 from pathlib import Path
@@ -61,7 +62,7 @@ def evaluate_dataset(
 # Plotting helper ##############################################################
 ###############################################################################
 
-_IMAGES_DIR = Path(".research/iteration5/images")
+_IMAGES_DIR = Path(".research/iteration6/images")
 _IMAGES_DIR.mkdir(parents=True, exist_ok=True)
 
 

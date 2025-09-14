@@ -1,7 +1,8 @@
-"""src/main.py
-Main orchestration – paths updated to *iteration5* compliance.
-"""
 from __future__ import annotations
+
+"""src/main.py
+Main orchestration – paths updated to *iteration6* compliance.
+"""
 
 import argparse
 import json
@@ -31,6 +32,7 @@ from evaluate import evaluate_dataset, plot_metric
 ################################################################################
 # Resilient LLM backend ########################################################
 ################################################################################
+
 
 class _DummyResp:  # pylint: disable=too-few-public-methods
     def __init__(self, text: str):
@@ -70,7 +72,7 @@ def _create_llm(model_cfg):  # noqa: D401
 ################################################################################
 
 _CONFIG_DIR = SRC_DIR.parent / "config"
-_RESULTS_ROOT = Path(".research/iteration5")
+_RESULTS_ROOT = Path(".research/iteration6")
 _IMAGES_DIR = _RESULTS_ROOT / "images"
 _IMAGES_DIR.mkdir(parents=True, exist_ok=True)
 _RESULTS_ROOT.mkdir(parents=True, exist_ok=True)

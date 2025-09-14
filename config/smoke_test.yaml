@@ -18,7 +18,6 @@ guardrails:
   - hirma
 # ------------------------------------------------------------------ datasets
 # Use local stub JSONL files to avoid network / permission issues.
-# Each file contains <=10 rows so slice spec is unnecessary.
 datasets:
   jailbreakbench:
     file: data/jailbreakbench_stub.jsonl
@@ -27,4 +26,4 @@ datasets:
 metrics:
   - multi_turn_asr
   - single_turn_asr
-output_dir: .research/iteration5
+output_dir: .research/iteration6

@@ -5,3 +5,940 @@
   publisher = {GitHub},
   url       = {https://github.com/airas-org/airas}
 }
+
+% ===========================================
+% REQUIRED CITATIONS
+% These papers must be cited in the manuscript
+% ===========================================
+
+@article{abbasi-2023-brainwash,
+ abstract = {Continual learning has gained substantial attention within the deep learning
+community, offering promising solutions to the challenging problem of
+sequential learning. Yet, a largely unexplored facet of this paradigm is its
+susceptibility to adversarial attacks, especially with the aim of inducing
+forgetting. In this paper, we introduce "BrainWash," a novel data poisoning
+method tailored to impose forgetting on a continual learner. By adding the
+BrainWash noise to a variety of baselines, we demonstrate how a trained
+continual learner can be induced to forget its previously learned tasks
+catastrophically, even when using these continual learning baselines. An
+important feature of our approach is that the attacker requires no access to
+previous tasks' data and is armed merely with the model's current parameters
+and the data belonging to the most recent task. Our extensive experiments
+highlight the efficacy of BrainWash, showcasing degradation in performance
+across various regularization-based continual learning methods.},
+ arxiv_url = {https://arxiv.org/pdf/2311.11995v3.pdf},
+ author = {Ali Abbasi and Parsa Nooralinejad and Hamed Pirsiavash and Soheil Kolouri},
+ title = {BrainWash: A Poisoning Attack to Forget in Continual Learning},
+ year = {2023}
+}
+
+@article{andriushchenko-2020-understanding,
+ abstract = {A recent line of work focused on making adversarial training computationally
+efficient for deep learning models. In particular, Wong et al. (2020) showed
+that $\ell_\infty$-adversarial training with fast gradient sign method (FGSM)
+can fail due to a phenomenon called "catastrophic overfitting", when the model
+quickly loses its robustness over a single epoch of training. We show that
+adding a random step to FGSM, as proposed in Wong et al. (2020), does not
+prevent catastrophic overfitting, and that randomness is not important per se
+-- its main role being simply to reduce the magnitude of the perturbation.
+Moreover, we show that catastrophic overfitting is not inherent to deep and
+overparametrized networks, but can occur in a single-layer convolutional
+network with a few filters. In an extreme case, even a single filter can make
+the network highly non-linear locally, which is the main reason why FGSM
+training fails. Based on this observation, we propose a new regularization
+method, GradAlign, that prevents catastrophic overfitting by explicitly
+maximizing the gradient alignment inside the perturbation set and improves the
+quality of the FGSM solution. As a result, GradAlign allows to successfully
+apply FGSM training also for larger $\ell_\infty$-perturbations and reduce the
+gap to multi-step adversarial training. The code of our experiments is
+available at https://github.com/tml-epfl/understanding-fast-adv-training.},
+ arxiv_url = {https://arxiv.org/pdf/2007.02617v2.pdf},
+ author = {Maksym Andriushchenko and Nicolas Flammarion},
+ github_url = {https://github.com/tml-epfl/understanding-fast-adv-training},
+ title = {Understanding and Improving Fast Adversarial Training},
+ year = {2020}
+}
+
+@article{author-year-adversarial,
+ title = {Adversarial Learning for Robust Deep Clustering}
+}
+
+@article{author-year-adversarially,
+ title = {Adversarially Robust Few-shot Learning via Parameter Co-distillation of Similarity and Class Concept Learners}
+}
+
+@article{author-year-armoured,
+ title = {ARMOURED: Adversarially Robust MOdels using Unlabeled data by REgularizing Diversity}
+}
+
+@article{author-year-dual,
+ title = {Dual-Path Distillation: A Unified Framework to Improve Black-Box Attacks}
+}
+
+@article{author-year-poisoning,
+ title = {Poisoning Generative Replay in Continual Learning to Promote Forgetting}
+}
+
+@article{author-year-rethinking,
+ title = {Rethinking Adversarial Robustness in the Context of the Right to be Forgotten}
+}
+
+@article{author-year-retrospective,
+ title = {Retrospective Adversarial Replay for Continual Learning}
+}
+
+@article{author-year-superdeepfool,
+ title = {SuperDeepFool: a new fast and accurate minimal adversarial attack}
+}
+
+@article{author-year-tarp,
+ title = {TARP-VP: Towards Evaluation of Transferred  Adversarial Robustness and Privacy on Label  Mapping Visual Prompting Models}
+}
+
+@article{author-year-toward,
+ title = {Toward Evaluating Robustness of Deep Reinforcement Learning with Continuous Control}
+}
+
+@article{author-year-towards,
+ title = {Towards Efficient and Effective Adversarial Training}
+}
+
+@article{author-year-unit,
+ title = {UniT: A Unified Look at Certified Robust Training against Text Adversarial Perturbation}
+}
+
+@article{clarysse-2022-why,
+ abstract = {Machine learning classifiers with high test accuracy often perform poorly
+under adversarial attacks. It is commonly believed that adversarial training
+alleviates this issue. In this paper, we demonstrate that, surprisingly, the
+opposite may be true -- Even though adversarial training helps when enough data
+is available, it may hurt robust generalization in the small sample size
+regime. We first prove this phenomenon for a high-dimensional linear
+classification setting with noiseless observations. Our proof provides
+explanatory insights that may also transfer to feature learning models.
+Further, we observe in experiments on standard image datasets that the same
+behavior occurs for perceptible attacks that effectively reduce class
+information such as mask attacks and object corruptions.},
+ arxiv_url = {https://arxiv.org/pdf/2203.02006v1.pdf},
+ author = {Jacob Clarysse and Julia Hörrmann and Fanny Yang},
+ title = {Why adversarial training can hurt robust accuracy},
+ year = {2022}
+}
+
+@article{coalson-2023-bert,
+ abstract = {In this paper, we systematically evaluate the robustness of multi-exit
+language models against adversarial slowdown. To audit their robustness, we
+design a slowdown attack that generates natural adversarial text bypassing
+early-exit points. We use the resulting WAFFLE attack as a vehicle to conduct a
+comprehensive evaluation of three multi-exit mechanisms with the GLUE benchmark
+against adversarial slowdown. We then show our attack significantly reduces the
+computational savings provided by the three methods in both white-box and
+black-box settings. The more complex a mechanism is, the more vulnerable it is
+to adversarial slowdown. We also perform a linguistic analysis of the perturbed
+text inputs, identifying common perturbation patterns that our attack
+generates, and comparing them with standard adversarial text attacks. Moreover,
+we show that adversarial training is ineffective in defeating our slowdown
+attack, but input sanitization with a conversational model, e.g., ChatGPT, can
+remove perturbations effectively. This result suggests that future work is
+needed for developing efficient yet robust multi-exit models. Our code is
+available at: https://github.com/ztcoalson/WAFFLE},
+ arxiv_url = {https://arxiv.org/pdf/2310.19152v2.pdf},
+ author = {Zachary Coalson and Gabriel Ritter and Rakesh Bobba and Sanghyun Hong},
+ github_url = {https://github.com/QData/TextAttack},
+ title = {BERT Lost Patience Won't Be Robust to Adversarial Slowdown},
+ year = {2023}
+}
+
+@article{dong-2021-towards,
+ abstract = {Robustness against word substitutions has a well-defined and widely
+acceptable form, i.e., using semantically similar words as substitutions, and
+thus it is considered as a fundamental stepping-stone towards broader
+robustness in natural language processing. Previous defense methods capture
+word substitutions in vector space by using either $l_2$-ball or
+hyper-rectangle, which results in perturbation sets that are not inclusive
+enough or unnecessarily large, and thus impedes mimicry of worst cases for
+robust training. In this paper, we introduce a novel \textit{Adversarial Sparse
+Convex Combination} (ASCC) method. We model the word substitution attack space
+as a convex hull and leverages a regularization term to enforce perturbation
+towards an actual substitution, thus aligning our modeling better with the
+discrete textual space. Based on the ASCC method, we further propose
+ASCC-defense, which leverages ASCC to generate worst-case perturbations and
+incorporates adversarial training towards robustness. Experiments show that
+ASCC-defense outperforms the current state-of-the-arts in terms of robustness
+on two prevailing NLP tasks, \emph{i.e.}, sentiment analysis and natural
+language inference, concerning several attacks across multiple model
+architectures. Besides, we also envision a new class of defense towards
+robustness in NLP, where our robustly trained word vectors can be plugged into
+a normally trained model and enforce its robustness without applying any other
+defense techniques.},
+ arxiv_url = {https://arxiv.org/pdf/2107.13541v1.pdf},
+ author = {Xinshuai Dong and Anh Tuan Luu and Rongrong Ji and Hong Liu},
+ github_url = {https://github.com/dongxinshuai/ASCC},
+ title = {Towards Robustness Against Natural Language Word Substitutions},
+ year = {2021}
+}
+
+@article{fan-2021-when,
+ abstract = {Contrastive learning (CL) can learn generalizable feature representations and
+achieve the state-of-the-art performance of downstream tasks by finetuning a
+linear classifier on top of it. However, as adversarial robustness becomes
+vital in image classification, it remains unclear whether or not CL is able to
+preserve robustness to downstream tasks. The main challenge is that in the
+self-supervised pretraining + supervised finetuning paradigm, adversarial
+robustness is easily forgotten due to a learning task mismatch from pretraining
+to finetuning. We call such a challenge 'cross-task robustness
+transferability'. To address the above problem, in this paper we revisit and
+advance CL principles through the lens of robustness enhancement. We show that
+(1) the design of contrastive views matters: High-frequency components of
+images are beneficial to improving model robustness; (2) Augmenting CL with
+pseudo-supervision stimulus (e.g., resorting to feature clustering) helps
+preserve robustness without forgetting. Equipped with our new designs, we
+propose AdvCL, a novel adversarial contrastive pretraining framework. We show
+that AdvCL is able to enhance cross-task robustness transferability without
+loss of model accuracy and finetuning efficiency. With a thorough experimental
+study, we demonstrate that AdvCL outperforms the state-of-the-art
+self-supervised robust learning methods across multiple datasets (CIFAR-10,
+CIFAR-100, and STL-10) and finetuning schemes (linear evaluation and full model
+finetuning).},
+ arxiv_url = {https://arxiv.org/pdf/2111.01124v1.pdf},
+ author = {Lijie Fan and Sijia Liu and Pin-Yu Chen and Gaoyuan Zhang and Chuang Gan},
+ github_url = {https://github.com/LijieFan/AdvCL},
+ title = {When does Contrastive Learning Preserve Adversarial Robustness from Pretraining to Finetuning?},
+ year = {2021}
+}
+
+@article{goswami-2024-resurrecting,
+ abstract = {Continual learning methods are known to suffer from catastrophic forgetting,
+a phenomenon that is particularly hard to counter for methods that do not store
+exemplars of previous tasks. Therefore, to reduce potential drift in the
+feature extractor, existing exemplar-free methods are typically evaluated in
+settings where the first task is significantly larger than subsequent tasks.
+Their performance drops drastically in more challenging settings starting with
+a smaller first task. To address this problem of feature drift estimation for
+exemplar-free methods, we propose to adversarially perturb the current samples
+such that their embeddings are close to the old class prototypes in the old
+model embedding space. We then estimate the drift in the embedding space from
+the old to the new model using the perturbed images and compensate the
+prototypes accordingly. We exploit the fact that adversarial samples are
+transferable from the old to the new feature space in a continual learning
+setting. The generation of these images is simple and computationally cheap. We
+demonstrate in our experiments that the proposed approach better tracks the
+movement of prototypes in embedding space and outperforms existing methods on
+several standard continual learning benchmarks as well as on fine-grained
+datasets. Code is available at https://github.com/dipamgoswami/ADC.},
+ arxiv_url = {https://arxiv.org/pdf/2405.19074v1.pdf},
+ author = {Dipam Goswami and Albin Soutif--Cormerais and Yuyang Liu and Sandesh Kamath and Bartłomiej Twardowski and Joost van de Weijer},
+ github_url = {https://github.com/dipamgoswami/ADC},
+ title = {Resurrecting Old Classes with New Data for Exemplar-Free Continual Learning},
+ year = {2024}
+}
+
+@article{ho-2020-contrastive,
+ abstract = {Contrastive learning (CL) is a popular technique for self-supervised learning
+(SSL) of visual representations. It uses pairs of augmentations of unlabeled
+training examples to define a classification task for pretext learning of a
+deep embedding. Despite extensive works in augmentation procedures, prior works
+do not address the selection of challenging negative pairs, as images within a
+sampled batch are treated independently. This paper addresses the problem, by
+introducing a new family of adversarial examples for constrastive learning and
+using these examples to define a new adversarial training algorithm for SSL,
+denoted as CLAE. When compared to standard CL, the use of adversarial examples
+creates more challenging positive pairs and adversarial training produces
+harder negative pairs by accounting for all images in a batch during the
+optimization. CLAE is compatible with many CL methods in the literature.
+Experiments show that it improves the performance of several existing CL
+baselines on multiple datasets.},
+ arxiv_url = {https://arxiv.org/pdf/2010.12050v1.pdf},
+ author = {Chih-Hui Ho and Nuno Vasconcelos},
+ title = {Contrastive Learning with Adversarial Examples },
+ year = {2020}
+}
+
+@article{hou-2022-textgrad,
+ abstract = {Robustness evaluation against adversarial examples has become increasingly
+important to unveil the trustworthiness of the prevailing deep models in
+natural language processing (NLP). However, in contrast to the computer vision
+domain where the first-order projected gradient descent (PGD) is used as the
+benchmark approach to generate adversarial examples for robustness evaluation,
+there lacks a principled first-order gradient-based robustness evaluation
+framework in NLP. The emerging optimization challenges lie in 1) the discrete
+nature of textual inputs together with the strong coupling between the
+perturbation location and the actual content, and 2) the additional constraint
+that the perturbed text should be fluent and achieve a low perplexity under a
+language model. These challenges make the development of PGD-like NLP attacks
+difficult. To bridge the gap, we propose TextGrad, a new attack generator using
+gradient-driven optimization, supporting high-accuracy and high-quality
+assessment of adversarial robustness in NLP. Specifically, we address the
+aforementioned challenges in a unified optimization framework. And we develop
+an effective convex relaxation method to co-optimize the continuously-relaxed
+site selection and perturbation variables and leverage an effective sampling
+method to establish an accurate mapping from the continuous optimization
+variables to the discrete textual perturbations. Moreover, as a first-order
+attack generation method, TextGrad can be baked into adversarial training to
+further improve the robustness of NLP models. Extensive experiments are
+provided to demonstrate the effectiveness of TextGrad not only in attack
+generation for robustness evaluation but also in adversarial defense.},
+ arxiv_url = {https://arxiv.org/pdf/2212.09254v1.pdf},
+ author = {Bairu Hou and Jinghan Jia and Yihua Zhang and Guanhua Zhang and Yang Zhang and Sijia Liu and Shiyu Chang},
+ github_url = {https://github.com/UCSB-NLP-Chang/TextGrad},
+ title = {TextGrad: Advancing Robustness Evaluation in NLP by Gradient-Driven Optimization},
+ year = {2022}
+}
+
+@article{hsu-2024-safe,
+ abstract = {While large language models (LLMs) such as Llama-2 or GPT-4 have shown
+impressive zero-shot performance, fine-tuning is still necessary to enhance
+their performance for customized datasets, domain-specific tasks, or other
+private needs. However, fine-tuning all parameters of LLMs requires significant
+hardware resources, which can be impractical for typical users. Therefore,
+parameter-efficient fine-tuning such as LoRA have emerged, allowing users to
+fine-tune LLMs without the need for considerable computing resources, with
+little performance degradation compared to fine-tuning all parameters.
+Unfortunately, recent studies indicate that fine-tuning can increase the risk
+to the safety of LLMs, even when data does not contain malicious content. To
+address this challenge, we propose Safe LoRA, a simple one-liner patch to the
+original LoRA implementation by introducing the projection of LoRA weights from
+selected layers to the safety-aligned subspace, effectively reducing the safety
+risks in LLM fine-tuning while maintaining utility. It is worth noting that
+Safe LoRA is a training-free and data-free approach, as it only requires the
+knowledge of the weights from the base and aligned LLMs. Our extensive
+experiments demonstrate that when fine-tuning on purely malicious data, Safe
+LoRA retains similar safety performance as the original aligned model.
+Moreover, when the fine-tuning dataset contains a mixture of both benign and
+malicious data, Safe LoRA mitigates the negative effect made by malicious data
+while preserving performance on downstream tasks. Our codes are available at
+\url{https://github.com/IBM/SafeLoRA}.},
+ arxiv_url = {https://arxiv.org/pdf/2405.16833v2.pdf},
+ author = {Chia-Yi Hsu and Yu-Lin Tsai and Chih-Hsun Lin and Pin-Yu Chen and Chia-Mu Yu and Chun-Ying Huang},
+ github_url = {https://github.com/IBM/SafeLoRA},
+ title = {Safe LoRA: The Silver Lining of Reducing Safety Risks when Finetuning Large Language Models},
+ year = {2024}
+}
+
+@article{hua-2023-initialization,
+ abstract = {With the prevalence of the Pretraining-Finetuning paradigm in transfer
+learning, the robustness of downstream tasks has become a critical concern. In
+this work, we delve into adversarial robustness in transfer learning and reveal
+the critical role of initialization, including both the pretrained model and
+the linear head. First, we discover the necessity of an adversarially robust
+pretrained model. Specifically, we reveal that with a standard pretrained
+model, Parameter-Efficient Finetuning (PEFT) methods either fail to be
+adversarially robust or continue to exhibit significantly degraded adversarial
+robustness on downstream tasks, even with adversarial training during
+finetuning. Leveraging a robust pretrained model, surprisingly, we observe that
+a simple linear probing can outperform full finetuning and other PEFT methods
+with random initialization on certain datasets. We further identify that linear
+probing excels in preserving robustness from the robust pretraining. Based on
+this, we propose Robust Linear Initialization (RoLI) for adversarial
+finetuning, which initializes the linear head with the weights obtained by
+adversarial linear probing to maximally inherit the robustness from
+pretraining. Across five different image classification datasets, we
+demonstrate the effectiveness of RoLI and achieve new state-of-the-art results.
+Our code is available at \url{https://github.com/DongXzz/RoLI}.},
+ arxiv_url = {https://arxiv.org/pdf/2312.05716v2.pdf},
+ author = {Andong Hua and Jindong Gu and Zhiyu Xue and Nicholas Carlini and Eric Wong and Yao Qin},
+ github_url = {https://github.com/DongXzz/RoLI},
+ title = {Initialization Matters for Adversarial Transfer Learning},
+ year = {2023}
+}
+
+@article{kim-2020-adversarial,
+ abstract = {Existing adversarial learning approaches mostly use class labels to generate
+adversarial samples that lead to incorrect predictions, which are then used to
+augment the training of the model for improved robustness. While some recent
+works propose semi-supervised adversarial learning methods that utilize
+unlabeled data, they still require class labels. However, do we really need
+class labels at all, for adversarially robust training of deep neural networks?
+In this paper, we propose a novel adversarial attack for unlabeled data, which
+makes the model confuse the instance-level identities of the perturbed data
+samples. Further, we present a self-supervised contrastive learning framework
+to adversarially train a robust neural network without labeled data, which aims
+to maximize the similarity between a random augmentation of a data sample and
+its instance-wise adversarial perturbation. We validate our method, Robust
+Contrastive Learning (RoCL), on multiple benchmark datasets, on which it
+obtains comparable robust accuracy over state-of-the-art supervised adversarial
+learning methods, and significantly improved robustness against the black box
+and unseen types of attacks. Moreover, with further joint fine-tuning with
+supervised adversarial loss, RoCL obtains even higher robust accuracy over
+using self-supervised learning alone. Notably, RoCL also demonstrate impressive
+results in robust transfer learning.},
+ arxiv_url = {https://arxiv.org/pdf/2006.07589v2.pdf},
+ author = {Minseon Kim and Jihoon Tack and Sung Ju Hwang},
+ github_url = {https://github.com/Kim-Minseon/RoCL},
+ title = {Adversarial Self-Supervised Contrastive Learning},
+ year = {2020}
+}
+
+@article{kolev-2023-online,
+ abstract = {In many applications, learning systems are required to process continuous
+non-stationary data streams. We study this problem in an online learning
+framework and propose an algorithm that can deal with adversarial time-varying
+and nonlinear constraints. As we show in our work, the algorithm called
+Constraint Violation Velocity Projection (CVV-Pro) achieves $\sqrt{T}$ regret
+and converges to the feasible set at a rate of $1/\sqrt{T}$, despite the fact
+that the feasible set is slowly time-varying and a priori unknown to the
+learner. CVV-Pro only relies on local sparse linear approximations of the
+feasible set and therefore avoids optimizing over the entire set at each
+iteration, which is in sharp contrast to projected gradients or Frank-Wolfe
+methods. We also empirically evaluate our algorithm on two-player games, where
+the players are subjected to a shared constraint.},
+ arxiv_url = {https://arxiv.org/pdf/2306.03655v2.pdf},
+ author = {Pavel Kolev and Georg Martius and Michael Muehlebach},
+ title = {Online Learning under Adversarial Nonlinear Constraints},
+ year = {2023}
+}
+
+@article{li-2023-language,
+ abstract = {Deep Neural Networks (DNNs) are known to be susceptible to adversarial
+attacks. Previous researches mainly focus on improving adversarial robustness
+in the fully supervised setting, leaving the challenging domain of zero-shot
+adversarial robustness an open question. In this work, we investigate this
+domain by leveraging the recent advances in large vision-language models, such
+as CLIP, to introduce zero-shot adversarial robustness to DNNs. We propose
+LAAT, a Language-driven, Anchor-based Adversarial Training strategy. LAAT
+utilizes the features of a text encoder for each category as fixed anchors
+(normalized feature embeddings) for each category, which are then employed for
+adversarial training. By leveraging the semantic consistency of the text
+encoders, LAAT aims to enhance the adversarial robustness of the image model on
+novel categories. However, naively using text encoders leads to poor results.
+Through analysis, we identified the issue to be the high cosine similarity
+between text encoders. We then design an expansion algorithm and an alignment
+cross-entropy loss to alleviate the problem. Our experimental results
+demonstrated that LAAT significantly improves zero-shot adversarial robustness
+over state-of-the-art methods. LAAT has the potential to enhance adversarial
+robustness by large-scale multimodal models, especially when labeled data is
+unavailable during training.},
+ arxiv_url = {https://arxiv.org/pdf/2301.13096v3.pdf},
+ author = {Xiao Li and Wei Zhang and Yining Liu and Zhanhao Hu and Bo Zhang and Xiaolin Hu},
+ github_url = {https://github.com/LixiaoTHU/LAAT},
+ title = {Language-Driven Anchors for Zero-Shot Adversarial Robustness},
+ year = {2023}
+}
+
+@article{mao-2022-understanding,
+ abstract = {Pretrained large-scale vision-language models like CLIP have exhibited strong
+generalization over unseen tasks. Yet imperceptible adversarial perturbations
+can significantly reduce CLIP's performance on new tasks. In this work, we
+identify and explore the problem of \emph{adapting large-scale models for
+zero-shot adversarial robustness}. We first identify two key factors during
+model adaption -- training losses and adaptation methods -- that affect the
+model's zero-shot adversarial robustness. We then propose a text-guided
+contrastive adversarial training loss, which aligns the text embeddings and the
+adversarial visual features with contrastive learning on a small set of
+training data. We apply this training loss to two adaption methods, model
+finetuning and visual prompt tuning. We find that visual prompt tuning is more
+effective in the absence of texts, while finetuning wins in the existence of
+text guidance. Overall, our approach significantly improves the zero-shot
+adversarial robustness over CLIP, seeing an average improvement of over 31
+points over ImageNet and 15 zero-shot datasets. We hope this work can shed
+light on understanding the zero-shot adversarial robustness of large-scale
+models.},
+ arxiv_url = {https://arxiv.org/pdf/2212.07016v2.pdf},
+ author = {Chengzhi Mao and Scott Geng and Junfeng Yang and Xin Wang and Carl Vondrick},
+ title = {Understanding Zero-shot Adversarial Robustness for Large-Scale Models},
+ year = {2022}
+}
+
+@article{margiotta-2023-attacks,
+ abstract = {Machine learning models are famously vulnerable to adversarial attacks: small
+ad-hoc perturbations of the data that can catastrophically alter the model
+predictions. While a large literature has studied the case of test-time attacks
+on pre-trained models, the important case of attacks in an online learning
+setting has received little attention so far. In this work, we use a
+control-theoretical perspective to study the scenario where an attacker may
+perturb data labels to manipulate the learning dynamics of an online learner.
+We perform a theoretical analysis of the problem in a teacher-student setup,
+considering different attack strategies, and obtaining analytical results for
+the steady state of simple linear learners. These results enable us to prove
+that a discontinuous transition in the learner's accuracy occurs when the
+attack strength exceeds a critical threshold. We then study empirically attacks
+on learners with complex architectures using real data, confirming the insights
+of our theoretical analysis. Our findings show that greedy attacks can be
+extremely efficient, especially when data stream in small batches.},
+ arxiv_url = {https://arxiv.org/pdf/2305.11132v2.pdf},
+ author = {Riccardo Giuseppe Margiotta and Sebastian Goldt and Guido Sanguinetti},
+ journal = {NeurIPS 2023},
+ title = {Attacks on Online Learners: a Teacher-Student Analysis},
+ year = {2023}
+}
+
+@article{navaneet-2023-slowformer,
+ abstract = {Recently, there has been a lot of progress in reducing the computation of
+deep models at inference time. These methods can reduce both the computational
+needs and power usage of deep models. Some of these approaches adaptively scale
+the compute based on the input instance. We show that such models can be
+vulnerable to a universal adversarial patch attack, where the attacker
+optimizes for a patch that when pasted on any image, can increase the compute
+and power consumption of the model. We run experiments with three different
+efficient vision transformer methods showing that in some cases, the attacker
+can increase the computation to the maximum possible level by simply pasting a
+patch that occupies only 8\% of the image area. We also show that a standard
+adversarial training defense method can reduce some of the attack's success. We
+believe adaptive efficient methods will be necessary for the future to lower
+the power usage of deep models, so we hope our paper encourages the community
+to study the robustness of these methods and develop better defense methods for
+the proposed attack.},
+ arxiv_url = {https://arxiv.org/pdf/2310.02544v1.pdf},
+ author = {KL Navaneet and Soroush Abbasi Koohpayegani and Essam Sleiman and Hamed Pirsiavash},
+ github_url = {https://github.com/UCDvision/SlowFormer},
+ title = {SlowFormer: Adversarial Attack on Compute and Energy Consumption of Efficient Vision Transformers},
+ year = {2023}
+}
+
+@article{rocamora-2024-efficient,
+ abstract = {Catastrophic overfitting (CO) in single-step adversarial training (AT)
+results in abrupt drops in the adversarial test accuracy (even down to 0%). For
+models trained with multi-step AT, it has been observed that the loss function
+behaves locally linearly with respect to the input, this is however lost in
+single-step AT. To address CO in single-step AT, several methods have been
+proposed to enforce local linearity of the loss via regularization. However,
+these regularization terms considerably slow down training due to Double
+Backpropagation. Instead, in this work, we introduce a regularization term,
+called ELLE, to mitigate CO effectively and efficiently in classical AT
+evaluations, as well as some more difficult regimes, e.g., large adversarial
+perturbations and long training schedules. Our regularization term can be
+theoretically linked to curvature of the loss function and is computationally
+cheaper than previous methods by avoiding Double Backpropagation. Our thorough
+experimental validation demonstrates that our work does not suffer from CO,
+even in challenging settings where previous works suffer from it. We also
+notice that adapting our regularization parameter during training (ELLE-A)
+greatly improves the performance, specially in large $\epsilon$ setups. Our
+implementation is available in https://github.com/LIONS-EPFL/ELLE .},
+ arxiv_url = {https://arxiv.org/pdf/2401.11618v2.pdf},
+ author = {Elias Abad Rocamora and Fanghui Liu and Grigorios G. Chrysos and Pablo M. Olmos and Volkan Cevher},
+ github_url = {https://github.com/LIONS-EPFL/ELLE},
+ title = {Efficient local linearity regularization to overcome catastrophic overfitting},
+ year = {2024}
+}
+
+@article{schlarmann-2024-robust,
+ abstract = {Multi-modal foundation models like OpenFlamingo, LLaVA, and GPT-4 are
+increasingly used for various real-world tasks. Prior work has shown that these
+models are highly vulnerable to adversarial attacks on the vision modality.
+These attacks can be leveraged to spread fake information or defraud users, and
+thus pose a significant risk, which makes the robustness of large multi-modal
+foundation models a pressing problem. The CLIP model, or one of its variants,
+is used as a frozen vision encoder in many large vision-language models
+(LVLMs), e.g. LLaVA and OpenFlamingo. We propose an unsupervised adversarial
+fine-tuning scheme to obtain a robust CLIP vision encoder, which yields
+robustness on all vision down-stream tasks (LVLMs, zero-shot classification)
+that rely on CLIP. In particular, we show that stealth-attacks on users of
+LVLMs by a malicious third party providing manipulated images are no longer
+possible once one replaces the original CLIP model with our robust one. No
+retraining or fine-tuning of the down-stream LVLMs is required. The code and
+robust models are available at https://github.com/chs20/RobustVLM},
+ arxiv_url = {https://arxiv.org/pdf/2402.12336v2.pdf},
+ author = {Christian Schlarmann and Naman Deep Singh and Francesco Croce and Matthias Hein},
+ title = {Robust CLIP: Unsupervised Adversarial Fine-Tuning of Vision Embeddings for Robust Large Vision-Language Models},
+ year = {2024}
+}
+
+@article{wong-2020-fast,
+ abstract = {Adversarial training, a method for learning robust deep networks, is
+typically assumed to be more expensive than traditional training due to the
+necessity of constructing adversarial examples via a first-order method like
+projected gradient decent (PGD). In this paper, we make the surprising
+discovery that it is possible to train empirically robust models using a much
+weaker and cheaper adversary, an approach that was previously believed to be
+ineffective, rendering the method no more costly than standard training in
+practice. Specifically, we show that adversarial training with the fast
+gradient sign method (FGSM), when combined with random initialization, is as
+effective as PGD-based training but has significantly lower cost. Furthermore
+we show that FGSM adversarial training can be further accelerated by using
+standard techniques for efficient training of deep networks, allowing us to
+learn a robust CIFAR10 classifier with 45% robust accuracy to PGD attacks with
+$\epsilon=8/255$ in 6 minutes, and a robust ImageNet classifier with 43% robust
+accuracy at $\epsilon=2/255$ in 12 hours, in comparison to past work based on
+"free" adversarial training which took 10 and 50 hours to reach the same
+respective thresholds. Finally, we identify a failure mode referred to as
+"catastrophic overfitting" which may have caused previous attempts to use FGSM
+adversarial training to fail. All code for reproducing the experiments in this
+paper as well as pretrained model weights are at
+https://github.com/locuslab/fast_adversarial.},
+ arxiv_url = {https://arxiv.org/pdf/2001.03994v1.pdf},
+ author = {Eric Wong and Leslie Rice and J. Zico Kolter},
+ github_url = {https://github.com/locuslab/fast_adversarial},
+ title = {Fast is better than free: Revisiting adversarial training},
+ year = {2020}
+}
+
+@article{wu-2023-rapid,
+ abstract = {In the realm of daily services, the deployment of deep neural networks
+underscores the paramount importance of their reliability. However, the
+vulnerability of these networks to adversarial attacks, primarily
+evasion-based, poses a concerning threat to their functionality. Common methods
+for enhancing robustness involve heavy adversarial training or leveraging
+learned knowledge from clean data, both necessitating substantial computational
+resources. This inherent time-intensive nature severely limits the agility of
+large foundational models to swiftly counter adversarial perturbations. To
+address this challenge, this paper focuses on the Rapid Plug-in Defender
+(RaPiD) problem, aiming to rapidly counter adversarial perturbations without
+altering the deployed model. Drawing inspiration from the generalization and
+the universal computation ability of pre-trained transformer models, we propose
+a novel method termed CeTaD (Considering Pre-trained Transformers as Defenders)
+for RaPiD, optimized for efficient computation. CeTaD strategically fine-tunes
+the normalization layer parameters within the defender using a limited set of
+clean and adversarial examples. Our evaluation centers on assessing CeTaD's
+effectiveness, transferability, and the impact of different components in
+scenarios involving one-shot adversarial examples. The proposed method is
+capable of rapidly adapting to various attacks and different application
+scenarios without altering the target model and clean training data. We also
+explore the influence of varying training data conditions on CeTaD's
+performance. Notably, CeTaD exhibits adaptability across differentiable service
+models and proves the potential of continuous learning.},
+ arxiv_url = {https://arxiv.org/pdf/2306.01762v4.pdf},
+ author = {Kai Wu and Yujian Betterest Li and Jian Lou and Xiaoyu Zhang and Handing Wang and Jing Liu},
+ title = {Rapid Plug-in Defenders},
+ year = {2023}
+}
+
+@article{wu-2023-toward,
+ abstract = {Beyond the success story of adversarial training (AT) in the recent text
+domain on top of pre-trained language models (PLMs), our empirical study
+showcases the inconsistent gains from AT on some tasks, e.g. commonsense
+reasoning, named entity recognition. This paper investigates AT from the
+perspective of the contextualized language representation outputted by PLM
+encoders. We find the current AT attacks lean to generate sub-optimal
+adversarial examples that can fool the decoder part but have a minor effect on
+the encoder. However, we find it necessary to effectively deviate the latter
+one to allow AT to gain. Based on the observation, we propose simple yet
+effective \textit{Contextualized representation-Adversarial Training} (CreAT),
+in which the attack is explicitly optimized to deviate the contextualized
+representation of the encoder. It allows a global optimization of adversarial
+examples that can fool the entire model. We also find CreAT gives rise to a
+better direction to optimize the adversarial examples, to let them less
+sensitive to hyperparameters. Compared to AT, CreAT produces consistent
+performance gains on a wider range of tasks and is proven to be more effective
+for language pre-training where only the encoder part is kept for downstream
+tasks. We achieve the new state-of-the-art performances on a series of
+challenging benchmarks, e.g. AdvGLUE (59.1 $ \rightarrow $ 61.1), HellaSWAG
+(93.0 $ \rightarrow $ 94.9), ANLI (68.1 $ \rightarrow $ 69.3).},
+ arxiv_url = {https://arxiv.org/pdf/2305.04557v1.pdf},
+ author = {Hongqiu Wu and Yongxiang Liu and Hanwen Shi and Hai Zhao and Min Zhang},
+ github_url = {https://github.com/gingasan/CreAT},
+ title = {Toward Adversarial Training on Contextualized Language Representation},
+ year = {2023}
+}
+
+@article{xhonneux-2024-efficient,
+ abstract = {Large language models (LLMs) are vulnerable to adversarial attacks that can
+bypass their safety guardrails. In many domains, adversarial training has
+proven to be one of the most promising methods to reliably improve robustness
+against such attacks. Yet, in the context of LLMs, current methods for
+adversarial training are hindered by the high computational costs required to
+perform discrete adversarial attacks at each training iteration. We address
+this problem by instead calculating adversarial attacks in the continuous
+embedding space of the LLM, which is orders of magnitudes more efficient. We
+propose a fast adversarial training algorithm (C-AdvUL) composed of two losses:
+the first makes the model robust on continuous embedding attacks computed on an
+adversarial behaviour dataset; the second ensures the usefulness of the final
+model by fine-tuning on utility data. Moreover, we introduce C-AdvIPO, an
+adversarial variant of IPO that does not require utility data for adversarially
+robust alignment. Our empirical evaluation on five models from different
+families (Gemma, Phi3, Mistral, Zephyr, Llama2) and at different scales (2B,
+3.8B, 7B) shows that both algorithms substantially enhance LLM robustness
+against discrete attacks (GCG, AutoDAN, PAIR), while maintaining utility. Our
+results demonstrate that robustness to continuous perturbations can extrapolate
+to discrete threat models. Thereby, we present a path toward scalable
+adversarial training algorithms for robustly aligning LLMs.},
+ arxiv_url = {https://arxiv.org/pdf/2405.15589v3.pdf},
+ author = {Sophie Xhonneux and Alessandro Sordoni and Stephan Günnemann and Gauthier Gidel and Leo Schwinn},
+ github_url = {https://github.com/sophie-xhonneux/Continuous-AdvTrain},
+ title = {Efficient Adversarial Training in LLMs with Continuous Attacks},
+ year = {2024}
+}
+
+@article{xu-2023-autolora,
+ abstract = {Robust Fine-Tuning (RFT) is a low-cost strategy to obtain adversarial
+robustness in downstream applications, without requiring a lot of computational
+resources and collecting significant amounts of data. This paper uncovers an
+issue with the existing RFT, where optimizing both adversarial and natural
+objectives through the feature extractor (FE) yields significantly divergent
+gradient directions. This divergence introduces instability in the optimization
+process, thereby hindering the attainment of adversarial robustness and
+rendering RFT highly sensitive to hyperparameters. To mitigate this issue, we
+propose a low-rank (LoRa) branch that disentangles RFT into two distinct
+components: optimizing natural objectives via the LoRa branch and adversarial
+objectives via the FE. Besides, we introduce heuristic strategies for
+automating the scheduling of the learning rate and the scalars of loss terms.
+Extensive empirical evaluations demonstrate that our proposed automated RFT
+disentangled via the LoRa branch (AutoLoRa) achieves new state-of-the-art
+results across a range of downstream tasks. AutoLoRa holds significant
+practical utility, as it automatically converts a pre-trained FE into an
+adversarially robust model for downstream tasks without the need for searching
+hyperparameters.},
+ arxiv_url = {https://arxiv.org/pdf/2310.01818v1.pdf},
+ author = {Xilie Xu and Jingfeng Zhang and Mohan Kankanhalli},
+ title = {AutoLoRa: An Automated Robust Fine-Tuning Framework},
+ year = {2023}
+}
+
+@article{xu-2023-llm,
+ abstract = {The wide-ranging applications of large language models (LLMs), especially in
+safety-critical domains, necessitate the proper evaluation of the LLM's
+adversarial robustness. This paper proposes an efficient tool to audit the
+LLM's adversarial robustness via a prompt-based adversarial attack
+(PromptAttack). PromptAttack converts adversarial textual attacks into an
+attack prompt that can cause the victim LLM to output the adversarial sample to
+fool itself. The attack prompt is composed of three important components: (1)
+original input (OI) including the original sample and its ground-truth label,
+(2) attack objective (AO) illustrating a task description of generating a new
+sample that can fool itself without changing the semantic meaning, and (3)
+attack guidance (AG) containing the perturbation instructions to guide the LLM
+on how to complete the task by perturbing the original sample at character,
+word, and sentence levels, respectively. Besides, we use a fidelity filter to
+ensure that PromptAttack maintains the original semantic meanings of the
+adversarial examples. Further, we enhance the attack power of PromptAttack by
+ensembling adversarial examples at different perturbation levels. Comprehensive
+empirical results using Llama2 and GPT-3.5 validate that PromptAttack
+consistently yields a much higher attack success rate compared to AdvGLUE and
+AdvGLUE++. Interesting findings include that a simple emoji can easily mislead
+GPT-3.5 to make wrong predictions.},
+ arxiv_url = {https://arxiv.org/pdf/2310.13345v1.pdf},
+ author = {Xilie Xu and Keyi Kong and Ning Liu and Lizhen Cui and Di Wang and Jingfeng Zhang and Mohan Kankanhalli},
+ github_url = {https://github.com/zhuchen03/FreeLB},
+ title = {An LLM can Fool Itself: A Prompt-Based Adversarial Attack},
+ year = {2023}
+}
+
+@article{zhang-2020-robustness,
+ abstract = {Deep neural networks for natural language processing tasks are vulnerable to
+adversarial input perturbations. In this paper, we present a versatile language
+for programmatically specifying string transformations -- e.g., insertions,
+deletions, substitutions, swaps, etc. -- that are relevant to the task at hand.
+We then present an approach to adversarially training models that are robust to
+such user-defined string transformations. Our approach combines the advantages
+of search-based techniques for adversarial training with abstraction-based
+techniques. Specifically, we show how to decompose a set of user-defined string
+transformations into two component specifications, one that benefits from
+search and another from abstraction. We use our technique to train models on
+the AG and SST2 datasets and show that the resulting models are robust to
+combinations of user-defined transformations mimicking spelling mistakes and
+other meaning-preserving transformations.},
+ arxiv_url = {https://arxiv.org/pdf/2002.09579v4.pdf},
+ author = {Yuhao Zhang and Aws Albarghouthi and Loris D'Antoni},
+ title = {Robustness to Programmable String Transformations via Augmented Abstract Training},
+ year = {2020}
+}
+
+@article{zhang-2023-dynamically,
+ abstract = {Training Generative Adversarial Networks (GANs) remains a challenging
+problem. The discriminator trains the generator by learning the distribution of
+real/generated data. However, the distribution of generated data changes
+throughout the training process, which is difficult for the discriminator to
+learn. In this paper, we propose a novel method for GANs from the viewpoint of
+online continual learning. We observe that the discriminator model, trained on
+historically generated data, often slows down its adaptation to the changes in
+the new arrival generated data, which accordingly decreases the quality of
+generated results. By treating the generated data in training as a stream, we
+propose to detect whether the discriminator slows down the learning of new
+knowledge in generated data. Therefore, we can explicitly enforce the
+discriminator to learn new knowledge fast. Particularly, we propose a new
+discriminator, which automatically detects its retardation and then dynamically
+masks its features, such that the discriminator can adaptively learn the
+temporally-vary distribution of generated data. Experimental results show our
+method outperforms the state-of-the-art approaches.},
+ arxiv_url = {https://arxiv.org/pdf/2306.07716v3.pdf},
+ author = {Wentian Zhang and Haozhe Liu and Bing Li and Jinheng Xie and Yawen Huang and Yuexiang Li and Yefeng Zheng and Bernard Ghanem},
+ github_url = {https://github.com/WentianZhang-ML/DMD},
+ title = {Dynamically Masked Discriminator for GANs},
+ year = {2023}
+}
+
+@article{zhou-2022-adversarial,
+ abstract = {Adversarial training (AT) with imperfect supervision is significant but
+receives limited attention. To push AT towards more practical scenarios, we
+explore a brand new yet challenging setting, i.e., AT with complementary labels
+(CLs), which specify a class that a data sample does not belong to. However,
+the direct combination of AT with existing methods for CLs results in
+consistent failure, but not on a simple baseline of two-stage training. In this
+paper, we further explore the phenomenon and identify the underlying challenges
+of AT with CLs as intractable adversarial optimization and low-quality
+adversarial examples. To address the above problems, we propose a new learning
+strategy using gradually informative attacks, which consists of two critical
+components: 1) Warm-up Attack (Warm-up) gently raises the adversarial
+perturbation budgets to ease the adversarial optimization with CLs; 2)
+Pseudo-Label Attack (PLA) incorporates the progressively informative model
+predictions into a corrected complementary loss. Extensive experiments are
+conducted to demonstrate the effectiveness of our method on a range of
+benchmarked datasets. The code is publicly available at:
+https://github.com/RoyalSkye/ATCL.},
+ arxiv_url = {https://arxiv.org/pdf/2211.00269v1.pdf},
+ author = {Jianan Zhou and Jianing Zhu and Jingfeng Zhang and Tongliang Liu and Gang Niu and Bo Han and Masashi Sugiyama},
+ github_url = {https://github.com/RoyalSkye/ATCL},
+ title = {Adversarial Training with Complementary Labels: On the Benefit of Gradually Informative Attacks},
+ year = {2022}
+}
+
+@article{zhou-2024-defense,
+ abstract = {Deep neural networks have demonstrated susceptibility to adversarial attacks.
+Adversarial defense techniques often focus on one-shot setting to maintain
+robustness against attack. However, new attacks can emerge in sequences in
+real-world deployment scenarios. As a result, it is crucial for a defense model
+to constantly adapt to new attacks, but the adaptation process can lead to
+catastrophic forgetting of previously defended against attacks. In this paper,
+we discuss for the first time the concept of continual adversarial defense
+under a sequence of attacks, and propose a lifelong defense baseline called
+Anisotropic \& Isotropic Replay (AIR), which offers three advantages: (1)
+Isotropic replay ensures model consistency in the neighborhood distribution of
+new data, indirectly aligning the output preference between old and new tasks.
+(2) Anisotropic replay enables the model to learn a compromise data manifold
+with fresh mixed semantics for further replay constraints and potential future
+attacks. (3) A straightforward regularizer mitigates the 'plasticity-stability'
+trade-off by aligning model output between new and old tasks. Experiment
+results demonstrate that AIR can approximate or even exceed the empirical
+performance upper bounds achieved by Joint Training.},
+ arxiv_url = {https://arxiv.org/pdf/2404.01828v1.pdf},
+ author = {Yuhang Zhou and Zhongyun Hua},
+ title = {Defense without Forgetting: Continual Adversarial Defense with Anisotropic & Isotropic Pseudo Replay},
+ year = {2024}
+}
+
+@article{zhou-2024-few,
+ abstract = {The vulnerability of deep neural networks to imperceptible adversarial
+perturbations has attracted widespread attention. Inspired by the success of
+vision-language foundation models, previous efforts achieved zero-shot
+adversarial robustness by aligning adversarial visual features with text
+supervision. However, in practice, they are still unsatisfactory due to several
+issues, including heavy adaptation cost, suboptimal text supervision, and
+uncontrolled natural generalization capacity. In this paper, to address these
+issues, we propose a few-shot adversarial prompt framework where adapting input
+sequences with limited data makes significant adversarial robustness
+improvement. Specifically, we achieve this by providing adversarially
+correlated text supervision that is end-to-end learned from adversarial
+examples. We also propose a novel training objective that enhances the
+consistency of multi-modal features while encourages differentiated uni-modal
+features between natural and adversarial examples. The proposed framework gives
+access to learn adversarial text supervision, which provides superior
+cross-modal adversarial alignment and matches state-of-the-art zero-shot
+adversarial robustness with only 1% training data. Code is available at:
+https://github.com/lionel-w2/FAP.},
+ arxiv_url = {https://arxiv.org/pdf/2403.14774v2.pdf},
+ author = {Yiwei Zhou and Xiaobo Xia and Zhiwei Lin and Bo Han and Tongliang Liu},
+ github_url = {https://github.com/lionel-w2/FAP},
+ title = {Few-Shot Adversarial Prompt Learning on Vision-Language Models},
+ year = {2024}
+}
+
+@article{zhu-2019-freelb,
+ abstract = {Adversarial training, which minimizes the maximal risk for label-preserving
+input perturbations, has proved to be effective for improving the
+generalization of language models. In this work, we propose a novel adversarial
+training algorithm, FreeLB, that promotes higher invariance in the embedding
+space, by adding adversarial perturbations to word embeddings and minimizing
+the resultant adversarial risk inside different regions around input samples.
+To validate the effectiveness of the proposed approach, we apply it to
+Transformer-based models for natural language understanding and commonsense
+reasoning tasks. Experiments on the GLUE benchmark show that when applied only
+to the finetuning stage, it is able to improve the overall test scores of
+BERT-base model from 78.3 to 79.4, and RoBERTa-large model from 88.5 to 88.8.
+In addition, the proposed approach achieves state-of-the-art single-model test
+accuracies of 85.44\% and 67.75\% on ARC-Easy and ARC-Challenge. Experiments on
+CommonsenseQA benchmark further demonstrate that FreeLB can be generalized and
+boost the performance of RoBERTa-large model on other tasks as well. Code is
+available at \url{https://github.com/zhuchen03/FreeLB .},
+ arxiv_url = {https://arxiv.org/pdf/1909.11764v5.pdf},
+ author = {Chen Zhu and Yu Cheng and Zhe Gan and Siqi Sun and Tom Goldstein and Jingjing Liu},
+ github_url = {https://github.com/zhuchen03/FreeLB},
+ title = {FreeLB: Enhanced Adversarial Training for Natural Language Understanding},
+ year = {2019}
+}
+
+@article{zong-2023-fool,
+ abstract = {Large language and vision-language models are rapidly being deployed in
+practice thanks to their impressive capabilities in instruction following,
+in-context learning, and so on. This raises an urgent need to carefully analyse
+their robustness so that stakeholders can understand if and when such models
+are trustworthy enough to be relied upon in any given application. In this
+paper, we highlight a specific vulnerability in popular models, namely
+permutation sensitivity in multiple-choice question answering (MCQA).
+Specifically, we show empirically that popular models are vulnerable to
+adversarial permutation in answer sets for multiple-choice prompting, which is
+surprising as models should ideally be as invariant to prompt permutation as
+humans are. These vulnerabilities persist across various model sizes, and exist
+in very recent language and vision-language models. Code is available at
+https://github.com/ys-zong/FoolyourVLLMs.},
+ arxiv_url = {https://arxiv.org/pdf/2310.01651v3.pdf},
+ author = {Yongshuo Zong and Tingyang Yu and Ruchika Chavhan and Bingchen Zhao and Timothy Hospedales},
+ title = {Fool Your (Vision and) Language Model with Embarrassingly Simple Permutations},
+ year = {2023}
+}
+
+% ===========================================
+% REFERENCE CANDIDATES
+% Additional reference papers for context
+% ===========================================
+
+@article{chen-2020-simple,
+ abstract = {This paper presents SimCLR: a simple framework for contrastive learning of
+visual representations. We simplify recently proposed contrastive
+self-supervised learning algorithms without requiring specialized architectures
+or a memory bank. In order to understand what enables the contrastive
+prediction tasks to learn useful representations, we systematically study the
+major components of our framework. We show that (1) composition of data
+augmentations plays a critical role in defining effective predictive tasks, (2)
+introducing a learnable nonlinear transformation between the representation and
+the contrastive loss substantially improves the quality of the learned
+representations, and (3) contrastive learning benefits from larger batch sizes
+and more training steps compared to supervised learning. By combining these
+findings, we are able to considerably outperform previous methods for
+self-supervised and semi-supervised learning on ImageNet. A linear classifier
+trained on self-supervised representations learned by SimCLR achieves 76.5%
+top-1 accuracy, which is a 7% relative improvement over previous
+state-of-the-art, matching the performance of a supervised ResNet-50. When
+fine-tuned on only 1% of the labels, we achieve 85.8% top-5 accuracy,
+outperforming AlexNet with 100X fewer labels.},
+ arxiv_url = {https://arxiv.org/pdf/2002.05709v3.pdf},
+ author = {Ting Chen and Simon Kornblith and Mohammad Norouzi and Geoffrey Hinton},
+ title = {A simple framework for contrastive learning of visual representations},
+ year = {2020}
+}
+
+@article{tian-2019-contrastive,
+ abstract = {Humans view the world through many sensory channels, e.g., the
+long-wavelength light channel, viewed by the left eye, or the high-frequency
+vibrations channel, heard by the right ear. Each view is noisy and incomplete,
+but important factors, such as physics, geometry, and semantics, tend to be
+shared between all views (e.g., a "dog" can be seen, heard, and felt). We
+investigate the classic hypothesis that a powerful representation is one that
+models view-invariant factors. We study this hypothesis under the framework of
+multiview contrastive learning, where we learn a representation that aims to
+maximize mutual information between different views of the same scene but is
+otherwise compact. Our approach scales to any number of views, and is
+view-agnostic. We analyze key properties of the approach that make it work,
+finding that the contrastive loss outperforms a popular alternative based on
+cross-view prediction, and that the more views we learn from, the better the
+resulting representation captures underlying scene semantics. Our approach
+achieves state-of-the-art results on image and video unsupervised learning
+benchmarks. Code is released at: http://github.com/HobbitLong/CMC/.},
+ arxiv_url = {https://arxiv.org/pdf/1906.05849v5.pdf},
+ author = {Yonglong Tian and Dilip Krishnan and Phillip Isola},
+ title = {Contrastive multiview coding},
+ year = {2019}
+}
+
+@article{tramr-2019-adversarial,
+ abstract = {Defenses against adversarial examples, such as adversarial training, are
+typically tailored to a single perturbation type (e.g., small
+$\ell_\infty$-noise). For other perturbations, these defenses offer no
+guarantees and, at times, even increase the model's vulnerability. Our aim is
+to understand the reasons underlying this robustness trade-off, and to train
+models that are simultaneously robust to multiple perturbation types. We prove
+that a trade-off in robustness to different types of $\ell_p$-bounded and
+spatial perturbations must exist in a natural and simple statistical setting.
+We corroborate our formal analysis by demonstrating similar robustness
+trade-offs on MNIST and CIFAR10. Building upon new multi-perturbation
+adversarial training schemes, and a novel efficient attack for finding
+$\ell_1$-bounded adversarial examples, we show that no model trained against
+multiple attacks achieves robustness competitive with that of models trained on
+each attack individually. In particular, we uncover a pernicious
+gradient-masking phenomenon on MNIST, which causes adversarial training with
+first-order $\ell_\infty, \ell_1$ and $\ell_2$ adversaries to achieve merely
+$50\%$ accuracy. Our results question the viability and computational
+scalability of extending adversarial robustness, and adversarial training, to
+multiple perturbation types.},
+ arxiv_url = {https://arxiv.org/pdf/1904.13000v2.pdf},
+ author = {Florian Tramèr and Dan Boneh},
+ title = {Adversarial training and robustness for multiple perturbations},
+ year = {2019}
+}

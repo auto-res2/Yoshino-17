@@ -6,5 +6,157 @@
     "attack diversity metrics",
     "combinatorial attack generation",
     "OWASP Top10 LLM coverage"
+  ],
+  "research_study_list": [
+    {
+      "title": "Uncovering Safety Risks of Large Language Models through Concept Activation Vector"
+    },
+    {
+      "title": "COLD-Attack: Jailbreaking LLMs with Stealthiness and Controllability"
+    },
+    {
+      "title": "Tree of Attacks: Jailbreaking Black-Box LLMs Automatically"
+    },
+    {
+      "title": "Rainbow Teaming: Open-Ended Generation of Diverse Adversarial Prompts"
+    },
+    {
+      "title": "Catastrophic Jailbreak of Open-source LLMs via Exploiting Generation"
+    },
+    {
+      "title": "Watch Out for Your Agents! Investigating Backdoor Threats to LLM-Based Agents"
+    },
+    {
+      "title": "AutoDAN: Generating Stealthy Jailbreak Prompts on Aligned Large Language Models"
+    },
+    {
+      "title": "Are aligned neural networks adversarially aligned?"
+    },
+    {
+      "title": "HarmBench: A Standardized Evaluation Framework for Automated Red Teaming and Robust Refusal"
+    },
+    {
+      "title": "TrojLLM: A Black-box Trojan Prompt Attack on Large Language Models"
+    },
+    {
+      "title": "Curiosity-driven Red-teaming for Large Language Models"
+    },
+    {
+      "title": "Adversarial Diversity in Hanabi"
+    },
+    {
+      "title": "Adversarial Diversity in Hanabi"
+    },
+    {
+      "title": "Rainbow Teaming: Open-Ended Generation of Diverse Adversarial Prompts"
+    },
+    {
+      "title": "HarmBench: A Standardized Evaluation Framework for Automated Red Teaming and Robust Refusal"
+    },
+    {
+      "title": "Modelling Behavioural Diversity for Learning in Open-Ended Games"
+    },
+    {
+      "title": "Modelling Behavioural Diversity for Learning in Open-Ended Games"
+    },
+    {
+      "title": "Towards Unifying Behavioral and Response Diversity for Open-ended Learning in Zero-sum Games"
+    },
+    {
+      "title": "A Unified Diversity Measure for Multiagent Reinforcement Learning"
+    },
+    {
+      "title": "Policy Space Diversity for Non-Transitive Games"
+    },
+    {
+      "title": "Diversity can be Transferred: Output Diversification for White- and Black-box Attacks"
+    },
+    {
+      "title": "Modelling Behavioural Diversity for Learning in Open-Ended Games"
+    },
+    {
+      "title": "Modelling Behavioural Diversity for Learning in Open-Ended Games"
+    },
+    {
+      "title": "Revisiting Injective Attacks on Recommender Systems"
+    },
+    {
+      "title": "A Unified Diversity Measure for Multiagent Reinforcement Learning"
+    },
+    {
+      "title": "Towards Unifying Behavioral and Response Diversity for Open-ended Learning in Zero-sum Games"
+    },
+    {
+      "title": "MultiRobustBench: Benchmarking Robustness Against Multiple Attacks"
+    },
+    {
+      "title": "On the Relation between Quality-Diversity Evaluation and Distribution-Fitting Goal in Text Generation"
+    },
+    {
+      "title": "Measures of diversity and space-filling designs for categorical data"
+    },
+    {
+      "title": "Protecting DNNs from Theft using an Ensemble of Diverse Models"
+    },
+    {
+      "title": "Adversarial Attacks on Combinatorial Multi-Armed Bandits"
+    },
+    {
+      "title": "MAGANet: Achieving Combinatorial Generalization by Modeling a Group Action"
+    },
+    {
+      "title": "COLD-Attack: Jailbreaking LLMs with Stealthiness and Controllability"
+    },
+    {
+      "title": "Automated Discovery of Adaptive Attacks on Adversarial Defenses"
+    },
+    {
+      "title": "Trained Random Forests Completely Reveal your Dataset"
+    },
+    {
+      "title": "Trained Random Forests Completely Reveal your Dataset"
+    },
+    {
+      "title": "Semantic-Aware Multi-Label Adversarial Attacks"
+    },
+    {
+      "title": "ROCO: A General Framework for Evaluating Robustness of Combinatorial Optimization Solvers on Graphs"
+    },
+    {
+      "title": "Tree of Attacks: Jailbreaking Black-Box LLMs Automatically"
+    },
+    {
+      "title": "Learning to Extrapolate: A Transductive Approach"
+    },
+    {
+      "title": "PrivAuditor: Benchmarking Data Protection Vulnerabilities in LLM Adaptation Techniques"
+    },
+    {
+      "title": "NYU CTF Bench: A Scalable Open-Source Benchmark Dataset for Evaluating LLMs in Offensive Security"
+    },
+    {
+      "title": "Uncovering Safety Risks of Large Language Models through Concept Activation Vector"
+    },
+    {
+      "title": "Dataset and Lessons Learned from the 2024 SaTML LLM Capture-the-Flag Competition"
+    },
+    {
+      "title": "Bag of Tricks: Benchmarking of Jailbreak Attacks on LLMs"
+    },
+    {
+      "title": "Position: TrustLLM: Trustworthiness in Large Language Models"
+    },
+    {
+      "title": "TrojLLM: A Black-box Trojan Prompt Attack on Large Language Models"
+    },
+    {
+      "title": "Watermark Stealing in Large Language Models"
+    },
+    {
+      "title": "Position: Fundamental Limitations of LLM Censorship Necessitate New Approaches"
+    },
+    {
+      "title": "Tree of Attacks: Jailbreaking Black-Box LLMs Automatically"
+    }
   ]
 }

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 """src/preprocess.py
-Dataset utilities – paths bumped to *iteration7* as required.
+Dataset utilities – paths bumped to *iteration8* as required.
 """
 
 import json
@@ -24,11 +24,15 @@ import yaml
 def set_seed(seed: int):  # noqa: D401
     random.seed(seed)
     np.random.seed(seed)
-    import torch  # local import to avoid hard dependency in non-torch envs
+    try:
+        import torch  # local import to avoid hard dependency in non-torch envs
 
-    torch.manual_seed(seed)
-    if torch.cuda.is_available():
-        torch.cuda.manual_seed_all(seed)
+        torch.manual_seed(seed)
+        if torch.cuda.is_available():
+            torch.cuda.manual_seed_all(seed)
+    except ImportError:
+        # Torch missing – best effort seeding for CPU-only environment.
+        pass
 
 
 @contextmanager
@@ -39,8 +43,8 @@ def timeit(description: str):
     print(f"[TIMER] {description}: {dur:.3f}s")
 
 
-# JSON artefacts must now be stored under .research/iteration7/ ---------------
-_JSON_ROOT = Path(".research/iteration7")
+# JSON artefacts must now be stored under .research/iteration8/ ---------------
+_JSON_ROOT = Path(".research/iteration8")
 _JSON_ROOT.mkdir(parents=True, exist_ok=True)
 
 

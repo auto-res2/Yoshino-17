@@ -1,12 +1,11 @@
 from __future__ import annotations
 
 """src/main.py
-Main orchestration – paths updated to *iteration7* compliance.
+Main orchestration – iteration8.
 """
 
 import argparse
 import json
-import sys
 from collections import defaultdict
 from pathlib import Path
 from typing import Dict, Tuple
@@ -14,20 +13,16 @@ from typing import Dict, Tuple
 import datasets  # Needed for type annotations and runtime checks
 import numpy as np
 
-# Ensure that imports like `import train` resolve to this very directory --------
-SRC_DIR = Path(__file__).resolve().parent
-sys.path.append(str(SRC_DIR))
-
-# Local imports ----------------------------------------------------------------
-from preprocess import (
+# Local relative imports -------------------------------------------------------
+from .preprocess import (
     ExperimentConfig,
     load_dataset,
     save_json,
     set_seed,
     timeit,
 )
-from train import build_guard
-from evaluate import evaluate_dataset, plot_metric
+from .train import build_guard
+from .evaluate import evaluate_dataset, plot_metric
 
 ################################################################################
 # Resilient LLM backend ########################################################
@@ -68,11 +63,12 @@ def _create_llm(model_cfg):  # noqa: D401
     return _try_create_vllm(model_cfg)
 
 ################################################################################
-# Internal helpers ##############################################################
+# Internal helpers #############################################################
 ################################################################################
 
+SRC_DIR = Path(__file__).resolve().parent
 _CONFIG_DIR = SRC_DIR.parent / "config"
-_RESULTS_ROOT = Path(".research/iteration7")
+_RESULTS_ROOT = Path(".research/iteration8")
 _IMAGES_DIR = _RESULTS_ROOT / "images"
 _IMAGES_DIR.mkdir(parents=True, exist_ok=True)
 _RESULTS_ROOT.mkdir(parents=True, exist_ok=True)
@@ -83,7 +79,7 @@ def _load_config(smoke: bool) -> ExperimentConfig:  # noqa: D401
     return ExperimentConfig.load(str(cfg_file))
 
 ################################################################################
-# Main pipeline #################################################################
+# Main pipeline ################################################################
 ################################################################################
 
 def run_experiment(smoke: bool):  # noqa: D401
@@ -146,7 +142,7 @@ def run_experiment(smoke: bool):  # noqa: D401
     print("Figures generated:", fig_path)
 
 ################################################################################
-# CLI ###########################################################################
+# CLI ##########################################################################
 ################################################################################
 
 if __name__ == "__main__":

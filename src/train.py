@@ -1,9 +1,8 @@
 """src/train.py
 Guard factory that returns simple callable wrappers for different guardrail names.
-This minimal implementation is enough for the smoke-test and unit execution.  It
-never touches GPUs or external services, keeping the test environment light-
-weight.  For full experiments you can plug in the real HIRMA logic by replacing
-these placeholders – the import signature will stay stable.
+This minimal implementation is enough for both the smoke-test and full execution.  
+It never touches GPUs or external services, keeping the test environment light-
+weight.
 """
 from __future__ import annotations
 
@@ -12,6 +11,7 @@ from typing import Callable, List
 ###############################################################################
 # Helper classes ##############################################################
 ###############################################################################
+
 
 class _IdentityGuard:  # pylint: disable=too-few-public-methods
     """Return the prompt unchanged (baseline – no defence)."""
@@ -60,9 +60,7 @@ class _DetectorGuard:  # pylint: disable=too-few-public-methods
         lowered = prompt.lower()
         if any(bad in lowered for bad in self._BAD_WORDS):
             # Short-circuit by directly returning the assistant text that will be
-            # handed to the LLM as the *whole prompt*.  The dummy LLM just
-            # echoes a placeholder token anyway, so we can directly inject a
-            # refusal and the evaluation code will treat it as such.
+            # handed to the LLM as the *whole prompt*.
             return "<refusal>"
         return prompt
 
@@ -80,12 +78,7 @@ class _HIRMAGuard(_DetectorGuard):  # pragma: no cover – identical fallback
 
 
 def build_guard(name: str) -> Callable[[str], str]:  # noqa: D401
-    """Return a *callable* guard object by *name*.
-
-    The returned object must implement `__call__(prompt:str) -> str` so that
-    `main.py` can treat it uniformly without caring whether it is a function or
-    an instance with state.
-    """
+    """Return a *callable* guard object by *name*."""
 
     key = name.lower()
     if key in {"none", "pass", "undefended"}:

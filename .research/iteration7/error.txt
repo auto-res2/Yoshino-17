@@ -1,0 +1,14 @@
+Using CPython 3.11.13
+Creating virtual environment at: .venv
+  × No solution found when resolving dependencies:
+  ╰─▶ Because only auto-lirpa<=0.3 is available and auto-lirpa==0.3 depends
+      on torch>=1.8.0,<1.13.0, we can conclude that auto-lirpa>=0.3 depends on
+      torch>=1.8.0,<1.13.0.
+      And because your project depends on auto-lirpa>=0.3 and torch>=2.0.0, we
+      can conclude that your project's requirements are unsatisfiable.
+  × No solution found when resolving dependencies:
+  ╰─▶ Because only auto-lirpa<=0.3 is available and auto-lirpa==0.3 depends
+      on torch>=1.8.0,<1.13.0, we can conclude that auto-lirpa>=0.3 depends on
+      torch>=1.8.0,<1.13.0.
+      And because your project depends on auto-lirpa>=0.3 and torch>=2.0.0, we
+      can conclude that your project's requirements are unsatisfiable.

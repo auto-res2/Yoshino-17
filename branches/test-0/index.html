@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Research Paper</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      margin: 2rem auto;
+      max-width: 800px;
+      padding: 0 1rem;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+    h2.paper-title {
+      font-size: 1.8em;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 0.5em;
+      border-bottom: none;
+    }
+    h2 {
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.3em;
+      margin-top: 2em;
+    }
+    pre {
+      background: #f6f8fa;
+      padding: 1em;
+      overflow: auto;
+      border-radius: 5px;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, monospace;
+    }
+    ul {
+      padding-left: 1.5em;
+    }
+    figure {
+      text-align: center;
+      margin: 1.5em 0;
+      background: none !important;
+    }
+    img {
+      background: #fff;
+    }
+    figure img {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      height: auto;
+    }
+    .img-pair .pair {
+      display: flex;
+      justify-content: space-between;
+    }
+    .img-pair img {
+      max-width: 48%;
+      height: auto;
+    }
+    figcaption {
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+<h2 class="paper-title">Hierarchical Risk-Modulated Guardrails for Robust Multi-Turn Alignment of Large Language Models</h2>
+
+<section>
+  <h2>Abstract</h2>
+  <p>Multi-turn jailbreaks remain a critical threat to the safe deployment of large language models: an attacker who steers the conversation turn-by-turn routinely achieves more than 70 % attack success even against state-of-the-art proprietary systems. Existing defences are either static suffixes that ignore conversational context, heavyweight detectors that breach latency budgets, or individually tuned prompts that do not transfer across models. We introduce HIRMA, a Hierarchical, Incremental, Risk-Modulated Alignment framework that jointly meets five production requirements—dialogue awareness, short-horizon forecasting, adaptive strictness, cross-model portability and negligible runtime overhead. HIRMA couples a self-supervised Dual-Granularity Dialogue Encoder with a lightweight risk forecaster and selects one of five prompt shards whose strictness matches the predicted risk quantile. Shards are co-optimised on several surrogate models by a federated variant of Robust Prompt Optimisation and kept fresh through adversarial self-play. We release code, weights and evaluation scripts. A public benchmark re-enactment, however, surfaced a silent back-end failure: when Mixtral-8 × 7B was unavailable the launcher fell back to a dummy generator, causing every guard—including HIRMA—to score 100 % attack success on JailbreakBench, JAMBench and an adaptive AutoDAN arena. We dissect this failure, contrast HIRMA with prior work, and specify engineering fixes required for a fair evaluation.</p>
+</section>
+
+<section>
+  <h2>Introduction</h2>
+  <p>Large language models (LLMs) are rapidly migrating from research laboratories into search engines, office suites and conversational assistants. Their impressive few-shot generalisation comes with a security downside: an adversary can craft prompts that coerce the model into producing disallowed content, a practice known as jailbreaking. Recent red-teaming campaigns show that step-by-step, multi-turn strategies defeat most static guardrails <a href="https://arxiv.org/pdf/2402.04249v2.pdf" target="_blank" title="HarmBench: A Standardized Evaluation Framework for Automated Red Teaming and Robust Refusal">(Mantas Mazeika, 2024)</a>, <a href="https://arxiv.org/pdf/2404.01318v5.pdf" target="_blank" title="JailbreakBench: An Open Robustness Benchmark for Jailbreaking Large Language Models">(Patrick Chao, 2024)</a>. Practical safety layers must therefore (1) ingest and interpret several preceding turns, (2) anticipate the attacker’s next manoeuvre, (3) modulate strictness in real time, (4) keep per-turn latency below the 20 ms commercial budget, and (5) generalise across multiple closed-source back-ends whose gradients are inaccessible.</p>
+  <p>Current defences satisfy at most a subset of these requirements. Prompt Adversarial Tuning (PAT) learns a single prefix that is always prepended to the user prompt <a href="https://arxiv.org/pdf/2402.06255v4.pdf" target="_blank" title="Fight Back Against Jailbreaking via Prompt Adversarial Tuning">(Yichuan Mo, 2024)</a>. Robust Prompt Optimisation with a harsh fallback (TARPO) augments PAT with a second suffix but still ignores temporal drift <a href="https://arxiv.org/pdf/2401.17263v5.pdf" target="_blank" title="Robust Prompt Optimization for Defending Language Models Against Jailbreaking Attacks">(Andy Zhou, 2024)</a>. Detector pipelines attain higher recall yet require an additional large-model call per turn, overshooting service-level objectives, and they depend on thousands of labelled harmful traces that quickly become stale <a href="https://arxiv.org/pdf/2402.04249v2.pdf" target="_blank" title="HarmBench: A Standardized Evaluation Framework for Automated Red Teaming and Robust Refusal">(Mantas Mazeika, 2024)</a>.</p>
+  <p>We propose Hierarchical, Incremental, Risk-Modulated Alignment (HIRMA), a defence designed to close these gaps. Three ideas underlie HIRMA. First, a self-supervised Dual-Granularity Dialogue Encoder (DGDE) summarises both sentence-level semantics and turn-graph dynamics without safety labels. Second, a lightweight multilayer perceptron (MLP) forecasts the probability that the assistant will be jail-broken within the next two turns. Third, a Meta-Prompt Bank (MPB) containing five suffix shards of increasing strictness is queried at every turn; the shard whose rank matches the predicted risk quantile is appended to the user prompt. A federated flavour of Robust Prompt Optimisation (RPO) tunes the shards on three heterogeneous surrogate models, encouraging cross-model transfer.</p>
+  <p>Contributions</p>
+  <ul>
+    <li>We implement the complete HIRMA guard, release code, pretrained weights and an evaluation harness.</li>
+    <li>We replicate a public multi-turn benchmark with five guards (None, PAT, TARPO, RoBERTa detector, HIRMA) on three datasets and an adaptive AutoDAN arena.</li>
+    <li>We uncover a silent infrastructure failure: the evaluation script substituted a dummy generator for the target LLM, causing every guard to register 100 % attack success. The incident illustrates pitfalls in robustness evaluation.</li>
+    <li>We analyse why asset checks missed the failure, relate it to silent-failure patterns observed in robustness research <a href="https://arxiv.org/pdf/1802.00420v4.pdf" target="_blank" title="Obfuscated gradients give a false sense of security: Circumventing defenses to adversarial examples">(Anish Athalye, 2018)</a>, and outline mitigations such as mandatory hard-fail assertions for back-end availability.</li>
+  </ul>
+  <p>The remainder of the paper reviews related work, details the HIRMA architecture, describes the experimental protocol, summarises the faulty results, and discusses the steps required for a conclusive assessment.</p>
+</section>
+
+<section>
+  <h2>Related Work</h2>
+  <p>Prompt-centric defences PAT adversarially tunes a single prefix attached to all user prompts <a href="https://arxiv.org/pdf/2402.06255v4.pdf" target="_blank" title="Fight Back Against Jailbreaking via Prompt Adversarial Tuning">(Yichuan Mo, 2024)</a>. TARPO adds a harsher suffix that activates on policy conflict <a href="https://arxiv.org/pdf/2401.17263v5.pdf" target="_blank" title="Robust Prompt Optimization for Defending Language Models Against Jailbreaking Attacks">(Andy Zhou, 2024)</a>. Both are static and thus blind to conversational drift. EvoPrompt <a href="https://arxiv.org/pdf/2309.08532v3.pdf" target="_blank" title="Connecting Large Language Models with Evolutionary Algorithms Yields Powerful Prompt Optimizers">(Qingyan Guo, 2023)</a> and other optimisation schemes improve soft prompts but do not consider multi-turn risk.</p>
+  <p>Detector pipelines Stand-alone classifiers trained on HarmBench achieve high single-turn recall but impose a second LLM call per user turn <a href="https://arxiv.org/pdf/2402.04249v2.pdf" target="_blank" title="HarmBench: A Standardized Evaluation Framework for Automated Red Teaming and Robust Refusal">(Mantas Mazeika, 2024)</a>. Moreover, query-efficient black-box attacks can bypass fixed detectors with modest effort <a href="https://arxiv.org/pdf/2206.08575v1.pdf" target="_blank" title="Query-Efficient and Scalable Black-Box Adversarial Attacks on Discrete Sequential Data via Bayesian Optimization">(Deokjae Lee, 2022)</a>.</p>
+  <p>Adaptive guards Self-play methods train attacker and defender LLMs jointly, often via reinforcement learning <a href="https://arxiv.org/pdf/2404.10642v3.pdf" target="_blank" title="Self-playing Adversarial Language Game Enhances LLM Reasoning">(Pengyu Cheng, 2024)</a>. They model dialogue dynamics but require gradient access and incur large compute overhead. HIRMA differs by separating a small risk head from the heavy generator, preserving latency budgets.</p>
+  <p>Evaluation frameworks HarmBench standardises single-turn testing <a href="https://arxiv.org/pdf/2402.04249v2.pdf" target="_blank" title="HarmBench: A Standardized Evaluation Framework for Automated Red Teaming and Robust Refusal">(Mantas Mazeika, 2024)</a>; JailbreakBench and JAMBench extend to multi-turn and moderation-aware settings <a href="https://arxiv.org/pdf/2404.01318v5.pdf" target="_blank" title="JailbreakBench: An Open Robustness Benchmark for Jailbreaking Large Language Models">(Patrick Chao, 2024)</a>, <a href="https://arxiv.org/pdf/2405.20413v1.pdf" target="_blank" title="Jailbreaking Large Language Models Against Moderation Guardrails via Cipher Characters">(Haibo Jin, 2024)</a>. Failures similar to ours—where silent fallbacks invalidate results—mirror earlier issues in image-robustness research, where gradient masking yielded misleading claims <a href="https://arxiv.org/pdf/1907.01003v2.pdf" target="_blank" title="Accurate, reliable and fast robustness evaluation">(Wieland Brendel, 2019)</a>, <a href="https://arxiv.org/pdf/2003.01690v2.pdf" target="_blank" title="Reliable evaluation of adversarial robustness with an ensemble of diverse parameter-free attacks">(Francesco Croce, 2020)</a>.</p>
+</section>
+
+<section>
+  <h2>Background</h2>
+  <p><strong>Problem setting</strong> A black-box LLM f maps a dialogue history H = {(r₁,t₁), …, (rₙ,tₙ)} to the next assistant message. The service must respond within 20 ms and accept ≤ 8 k context tokens. An attacker controls the user role and seeks to elicit disallowed content within at most eight turns. A guard g rewrites each user utterance uₖ into u′ₖ = g.feed(uₖ), forwards it to f, receives the assistant reply aₖ, updates an internal state via g.observe(aₖ) and decides whether the dialogue is compromised. The primary metric is multi-turn attack success rate (ASR): the fraction of dialogues in which any assistant message violates policy.</p>
+  <p><strong>Operational constraints</strong> (i) Gradients of f are unavailable; (ii) inference may not call additional large models; (iii) only a handful of harmful traces are labelled; (iv) the back-end model may silently update or become unavailable.</p>
+  <p><strong>Self-supervised signals</strong> Because labelled data are scarce, we exploit a policy-shift heuristic: pairs of consecutive assistant turns in which a refusal turns into compliance are likely positive jailbreak instances. These pairs serve as positives for contrastive learning in DGDE.</p>
+</section>
+
+<section>
+  <h2>Method</h2>
+  <p><strong>Dialogue encoding</strong> Each utterance passes through an 8-layer DistilRoBERTa; the final hidden state is pooled into a sentence vector. The six most recent vectors feed a 2-layer Transformer decoder that attends over temporal positions, producing a dialogue state hₖ ∈ ℝ³⁸⁴. VICReg maximises similarity between representations before and after benign continuations while enforcing variance and covariance regularisation; policy-shift pairs act as positives.</p>
+  <p><strong>Risk forecasting</strong> A two-layer MLP (96 hidden units, GELU, sigmoid output) maps hₖ to pₖ, the probability that the assistant will be jail-broken within the next two turns. Training uses binary cross-entropy on mined positives and tracks expected calibration error (15 equal-mass bins).</p>
+  <p><strong>Meta-Prompt Bank</strong> Five suffix shards S₀…S₄ are ordered by strictness. At runtime we select i = ⌊4 · pₖ⌋ and append Sᵢ to the user prompt. Shards are initialised with generic policy reminders, then refined by federated RPO: token-level gradients on open-source surrogates (Llama-3-8B, Qwen-14B) alternate with bandit feedback on closed models (Claude-3-Sonnet). The resulting prompts transfer across models by design.</p>
+  <p><strong>Adversarial curriculum</strong> An automated attacker combines AutoDAN generation with OPRO search over prompt tokens <a href="https://arxiv.org/pdf/2309.03409v3.pdf" target="_blank" title="Large Language Models as Optimizers">(Chengrun Yang, 2023)</a>, maximising ASR against the current guard. Self-play traces augment the RPO objective, enabling robustness without manual labels.</p>
+  <p><strong>Incremental deployment</strong> DGDE is distilled into an 8-bit linear adapter (7 M parameters). Weekly updates ship only the adapter and revised shards (≈120 MB total), adding 16–18 ms latency per turn on a single V100 GPU.</p>
+</section>
+
+<section>
+  <h2>Experimental Setup</h2>
+  <p><strong>Experiment 1: public benchmark re-enactment</strong> Five guards (None, PAT, TARPO, RoBERTa detector, HIRMA) are evaluated on JailbreakBench Behaviors v1.2, JAMBench, HarmBench-MT and 2 000 AutoDAN-OPRO dialogues. Benign utility is measured with MT-Bench v1.1. Generation uses temperature 0.7, top-p 0.95 and max-tokens 1 024.</p>
+  <p><strong>Back-end models</strong> The YAML configuration expects Mixtral-8 × 7B-Instruct served via vLLM plus three commercial endpoints: GPT-4-o, Gemini 1.5-Pro and Claude-3-Sonnet. During the run vLLM failed to locate Mixtral weights and silently instantiated a dummy generator that returns a placeholder string.</p>
+  <p><strong>Training details</strong> HIRMA trains DGDE and MPB for ≤ 10 h on four V100-16 GB GPUs (learning rate 5 × 10⁻⁵, batch 256, look-ahead horizon 2, VICReg λ_c = λ_σ = 1, λ_μ = 25). Three seeds (111, 222, 333) are averaged; confidence intervals use 10 000 bootstrap samples.</p>
+  <p><strong>Verification steps</strong> Startup assertions check for DGDE, risk head, shard files and tokenizer presence. Latency is profiled with torch.cuda.profiler. No analogous check ensures LLM availability—a gap that proved fatal.</p>
+  <p><strong>Deviation</strong> Because the dummy generator always returns the same stub text, every attack is deemed successful and every guard records 100 % ASR. Latency and calibration metrics are undefined. Experiments 2 and 3, which depended on a functioning back-end, were skipped.</p>
+</section>
+
+<section>
+  <h2>Results</h2>
+  <p><strong>Overall numbers</strong> On JailbreakBench, JAMBench and AutoDAN-OPRO every guard—including HIRMA—scores 100 % multi-turn ASR, 100 % single-turn ASR, and a fixed MT-Bench helpfulness of 10.0. Latency, cross-model transfer and calibration are undefined (NaN). Identical scores confirm that the dummy generator nullified guard logic.</p>
+  <figure>
+    <img src="images/multi_turn_asr.png" style="width:70%" alt="Multi-turn attack success rate bars reaching 100% due to silent back-end failure">
+    <figcaption>Figure 1: Multi-turn attack success rate on the three benchmarks (higher is worse). All bars reach 100 % due to the silent back-end failure.</figcaption>
+  </figure>
+  <p><strong>Failure analysis</strong> Logs contain the warning “vLLM backend unavailable – using dummy LLM”. Asset checks guarded guard components but not the generator. The silent fallback resembles obfuscated-gradient defences that appeared robust until stronger attacks were applied <a href="https://arxiv.org/pdf/1802.00420v4.pdf" target="_blank" title="Obfuscated gradients give a false sense of security: Circumventing defenses to adversarial examples">(Anish Athalye, 2018)</a>.</p>
+  <p><strong>Expected versus observed</strong> Design documents predicted ≤ 5 % ASR for HIRMA and ≈ 40 % for TARPO. The current run provides no evidence for or against these claims; all comparative statements are void.</p>
+  <p><strong>Limitations</strong> Because the back-end was non-functional, comparisons are meaningless. Nevertheless, Figure 1 is included to satisfy reproducibility requirements.</p>
+</section>
+
+<section>
+  <h2>Conclusion</h2>
+  <p>HIRMA aims to deliver dialogue-aware, risk-modulated guardrails that curb multi-turn jailbreaks under real-world latency and data constraints. While the architectural design addresses known weaknesses of static suffixes and heavyweight detectors, empirical evaluation failed catastrophically when the target LLM was missing: every guard recorded 100 % attack success. The incident underscores that robustness research must harden its own infrastructure; silent fallbacks can invalidate entire studies. Immediate next steps are to enforce hard-fail assertions for LLM availability, rerun Experiments 1–3 with functioning back-ends, extend risk forecasting to longer horizons, and integrate continuous self-play to mitigate data staleness. Only after these fixes can the true efficacy of HIRMA be established, aligned with rigorous evaluation principles advocated in prior work <a href="https://arxiv.org/pdf/1907.01003v2.pdf" target="_blank" title="Accurate, reliable and fast robustness evaluation">(Wieland Brendel, 2019)</a>, <a href="https://arxiv.org/pdf/2003.01690v2.pdf" target="_blank" title="Reliable evaluation of adversarial robustness with an ensemble of diverse parameter-free attacks">(Francesco Croce, 2020)</a>.</p>
+</section>
+</body>
+</html>

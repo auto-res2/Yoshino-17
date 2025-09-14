@@ -18,7 +18,7 @@ from .evaluate import certify_model, save_json, line_plot
 # ==============================================================
 # Using lightweight, version-compatible libraries only. We completely drop
 # the PEFT / LoRA dependency because it pulls in recent `transformers` +
-# heavy Torch versions that are incompatible with `auto-lirpa==0.3.*`.
+# heavy Torch versions that are incompatible with `auto-lirpa` in the CI.
 # Instead we hand-craft a tiny language backbone that suffices for the smoke
 # test and certification pipeline.
 
@@ -234,7 +234,7 @@ class Trainer:
             print(f"Certification-ACC @ {e}: {cert_acc:.3f}")
             certified_acc_history.append(cert_acc)
         # ---------- persist ----------
-        result_dir = pathlib.Path(".research/iteration16")
+        result_dir = pathlib.Path(".research/iteration17")
         result_dir.mkdir(parents=True, exist_ok=True)
         result_path = result_dir / f"{self.cfg['experiment']}_result.json"
         save_json(
@@ -248,6 +248,6 @@ class Trainer:
             certified_acc_history,
             "Certified Accuracy over Epochs",
             "CertAcc",
-            ".research/iteration16/images/training_accuracy",
+            ".research/iteration17/images/training_accuracy",
         )
-        print("Figures generated: .research/iteration16/images/training_accuracy.pdf")
+        print("Figures generated: .research/iteration17/images/training_accuracy.pdf")

@@ -11,7 +11,7 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 
-from auto_LiRPA import BoundedTensor  # stub or real implementation – must succeed
+from auto_LiRPA import BoundedTensor  # guaranteed to exist (stub or real)
 
 # Optional plotting libraries (non-critical)
 try:
@@ -61,9 +61,7 @@ def line_plot(values: List[float], title: str, ylabel: str, name: str) -> None:
 def certify_model(model: Any, dataset: Any, cfg: Dict[str, Any]) -> float:  # noqa: D401
     """Run Interval Bound Propagation certification on *model*."""
 
-    # Make sure everything lives on CPU for certification because the auto_LiRPA
-    # stub we rely on may run only on CPU devices. After certification we move
-    # the model back to its original device so that later calls are unaffected.
+    # Move model to CPU for certification (stub only supports CPU).
     orig_device = next(model.parameters()).device
     model_cpu = model.cpu()
 

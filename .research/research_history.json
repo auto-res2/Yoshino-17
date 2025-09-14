@@ -1,0 +1,10 @@
+{
+  "research_topic": "パラメータ効率的敵対的学習（C-AdvUL）の改善による堅牢性スコア向上とユーティリティ維持を目的とし、現状ではフルスケールの敵対的学習は計算負荷が高すぎ、既存の軽量手法は堅牢性の向上が不十分である（Lil'Log）という問題に対して、C-AdvULによる連続的敵対的学習でASRを15%未満に抑制しつつ下流タスクのユーティリティを95%以上に維持することを具体的目標とし、利用可能なリソースとしてAdvGLUE（マルチタスク堅牢性評価、arXiv +2）をベンチマークとし、ベースラインとしてC-AdvULが7Bモデルで動作し16GB V100で実行可能であること（arXiv）、実装として研究手法がarXiv:2405.15589に記載されていることを踏まえ、評価指標にはASR、ユーティリティ保持、学習効率を用い、研究の新規性としてLoRAアダプタを組み合わせた連続空間での敵対的学習により効率的かつスケーラブルな堅牢性向上を実現する点にある（Lil'Log, Databricks）。",
+  "queries": [
+    "C-AdvUL adversarial",
+    "continuous adversarial learning",
+    "LoRA adversarial robustness",
+    "parameter-efficient adversarial",
+    "AdvGLUE robustness"
+  ]
+}

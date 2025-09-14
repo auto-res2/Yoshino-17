@@ -239,7 +239,7 @@ class Trainer:
             print(f"Certification-ACC @ {e}: {cert_acc:.3f}")
             certified_acc_history.append(cert_acc)
         # ---------- persist ----------
-        result_dir = pathlib.Path(".research/iteration10")
+        result_dir = pathlib.Path(".research/iteration11")
         result_dir.mkdir(parents=True, exist_ok=True)
         result_path = result_dir / f"{self.cfg['experiment']}_result.json"
         save_json(
@@ -253,6 +253,6 @@ class Trainer:
             certified_acc_history,
             "Certified Accuracy over Epochs",
             "CertAcc",
-            ".research/iteration10/images/training_accuracy",
+            ".research/iteration11/images/training_accuracy",
         )
-        print("Figures generated: .research/iteration10/images/training_accuracy.pdf")
+        print("Figures generated: .research/iteration11/images/training_accuracy.pdf")

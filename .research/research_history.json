@@ -6,5 +6,157 @@
     "LoRA adversarial robustness",
     "parameter-efficient adversarial",
     "AdvGLUE robustness"
+  ],
+  "research_study_list": [
+    {
+      "title": "Efficient Adversarial Training in LLMs with Continuous Attacks"
+    },
+    {
+      "title": "Rethinking Adversarial Robustness in the Context of the Right to be Forgotten"
+    },
+    {
+      "title": "Adversarial Self-Supervised Contrastive Learning"
+    },
+    {
+      "title": "Contrastive Learning with Adversarial Examples "
+    },
+    {
+      "title": "Adversarially Robust Few-shot Learning via Parameter Co-distillation of Similarity and Class Concept Learners"
+    },
+    {
+      "title": "When does Contrastive Learning Preserve Adversarial Robustness from Pretraining to Finetuning?"
+    },
+    {
+      "title": "Adversarial Learning for Robust Deep Clustering"
+    },
+    {
+      "title": "ARMOURED: Adversarially Robust MOdels using Unlabeled data by REgularizing Diversity"
+    },
+    {
+      "title": "Adversarial Training with Complementary Labels: On the Benefit of Gradually Informative Attacks"
+    },
+    {
+      "title": "Adversarial Training with Complementary Labels: On the Benefit of Gradually Informative Attacks"
+    },
+    {
+      "title": "Defense without Forgetting: Continual Adversarial Defense with Anisotropic & Isotropic Pseudo Replay"
+    },
+    {
+      "title": "Efficient Adversarial Training in LLMs with Continuous Attacks"
+    },
+    {
+      "title": "Attacks on Online Learners: a Teacher-Student Analysis"
+    },
+    {
+      "title": "Resurrecting Old Classes with New Data for Exemplar-Free Continual Learning"
+    },
+    {
+      "title": "Toward Evaluating Robustness of Deep Reinforcement Learning with Continuous Control"
+    },
+    {
+      "title": "Poisoning Generative Replay in Continual Learning to Promote Forgetting"
+    },
+    {
+      "title": "Online Learning under Adversarial Nonlinear Constraints"
+    },
+    {
+      "title": "Retrospective Adversarial Replay for Continual Learning"
+    },
+    {
+      "title": "Dynamically Masked Discriminator for GANs"
+    },
+    {
+      "title": "BrainWash: A Poisoning Attack to Forget in Continual Learning"
+    },
+    {
+      "title": "AutoLoRa: An Automated Robust Fine-Tuning Framework"
+    },
+    {
+      "title": "Safe LoRA: The Silver Lining of Reducing Safety Risks when Finetuning Large Language Models"
+    },
+    {
+      "title": "Efficient Adversarial Training in LLMs with Continuous Attacks"
+    },
+    {
+      "title": "Language-Driven Anchors for Zero-Shot Adversarial Robustness"
+    },
+    {
+      "title": "Initialization Matters for Adversarial Transfer Learning"
+    },
+    {
+      "title": "Understanding Zero-shot Adversarial Robustness for Large-Scale Models"
+    },
+    {
+      "title": "Robust CLIP: Unsupervised Adversarial Fine-Tuning of Vision Embeddings for Robust Large Vision-Language Models"
+    },
+    {
+      "title": "Robust CLIP: Unsupervised Adversarial Fine-Tuning of Vision Embeddings for Robust Large Vision-Language Models"
+    },
+    {
+      "title": "TARP-VP: Towards Evaluation of Transferred  Adversarial Robustness and Privacy on Label  Mapping Visual Prompting Models"
+    },
+    {
+      "title": "Few-Shot Adversarial Prompt Learning on Vision-Language Models"
+    },
+    {
+      "title": "Dual-Path Distillation: A Unified Framework to Improve Black-Box Attacks"
+    },
+    {
+      "title": "Towards Efficient and Effective Adversarial Training"
+    },
+    {
+      "title": "Fast is better than free: Revisiting adversarial training"
+    },
+    {
+      "title": "Efficient local linearity regularization to overcome catastrophic overfitting"
+    },
+    {
+      "title": "On Adversarial Training without Perturbing all Examples"
+    },
+    {
+      "title": "SlowFormer: Adversarial Attack on Compute and Energy Consumption of Efficient Vision Transformers"
+    },
+    {
+      "title": "Rapid Plug-in Defenders"
+    },
+    {
+      "title": "Why adversarial training can hurt robust accuracy"
+    },
+    {
+      "title": "Understanding and Improving Fast Adversarial Training"
+    },
+    {
+      "title": "SuperDeepFool: a new fast and accurate minimal adversarial attack"
+    },
+    {
+      "title": "TextGrad: Advancing Robustness Evaluation in NLP by Gradient-Driven Optimization"
+    },
+    {
+      "title": "BERT Lost Patience Won't Be Robust to Adversarial Slowdown"
+    },
+    {
+      "title": "FreeLB: Enhanced Adversarial Training for Natural Language Understanding"
+    },
+    {
+      "title": "Towards Robustness Against Natural Language Word Substitutions"
+    },
+    {
+      "title": "Robustness to Programmable String Transformations via Augmented Abstract Training"
+    },
+    {
+      "title": "Efficient Adversarial Training in LLMs with Continuous Attacks"
+    },
+    {
+      "title": "An LLM can Fool Itself: A Prompt-Based Adversarial Attack"
+    },
+    {
+      "title": "Toward Adversarial Training on Contextualized Language Representation"
+    },
+    {
+      "title": "UniT: A Unified Look at Certified Robust Training against Text Adversarial Perturbation"
+    },
+    {
+      "title": "Fool Your (Vision and) Language Model with Embarrassingly Simple Permutations"
+    }
   ]
 }

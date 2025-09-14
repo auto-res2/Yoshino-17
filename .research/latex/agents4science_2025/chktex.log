@@ -1,0 +1,120 @@
+Warning 2 in paper.tex line 49: Non-breaking space (`~') should have been used.
+Large language models (LLMs) are rapidly migrating from research laboratories into search engines, office suites and conversational assistants. Their impressive few-shot generalisation comes with a security downside: an adversary can craft prompts that coerce the model into producing disallowed content, a practice known as jailbreaking. Recent red-teaming campaigns show that step-by-step, multi-turn strategies defeat most static guardrails \cite{mazeika-2024-harmbench,chao-2024-jailbreakbench}. Practical safety layers must therefore (1) ingest and interpret several preceding turns, (2) anticipate the attacker’s next manoeuvre, (3) modulate strictness in real time, (4) keep per-turn latency below the 20 ms commercial budget, and (5) generalise across multiple closed-source back-ends whose gradients are inaccessible.  
+                                                                                                                                                                                                                                                                                                                                                                                                                                                           ^
+Warning 2 in paper.tex line 51: Non-breaking space (`~') should have been used.
+Current defences satisfy at most a subset of these requirements. Prompt Adversarial Tuning (PAT) learns a single prefix that is always prepended to the user prompt \cite{mo-2024-fight}. Robust Prompt Optimisation with a harsh fallback (TARPO) augments PAT with a second suffix but still ignores temporal drift \cite{zhou-2024-robust}. Detector pipelines attain higher recall yet require an additional large-model call per turn, overshooting service-level objectives, and they depend on thousands of labelled harmful traces that quickly become stale \cite{mazeika-2024-harmbench}.  
+                                                                                                                                                                   ^
+Warning 2 in paper.tex line 51: Non-breaking space (`~') should have been used.
+Current defences satisfy at most a subset of these requirements. Prompt Adversarial Tuning (PAT) learns a single prefix that is always prepended to the user prompt \cite{mo-2024-fight}. Robust Prompt Optimisation with a harsh fallback (TARPO) augments PAT with a second suffix but still ignores temporal drift \cite{zhou-2024-robust}. Detector pipelines attain higher recall yet require an additional large-model call per turn, overshooting service-level objectives, and they depend on thousands of labelled harmful traces that quickly become stale \cite{mazeika-2024-harmbench}.  
+                                                                                                                                                                                                                                                                                                                     ^
+Warning 2 in paper.tex line 51: Non-breaking space (`~') should have been used.
+Current defences satisfy at most a subset of these requirements. Prompt Adversarial Tuning (PAT) learns a single prefix that is always prepended to the user prompt \cite{mo-2024-fight}. Robust Prompt Optimisation with a harsh fallback (TARPO) augments PAT with a second suffix but still ignores temporal drift \cite{zhou-2024-robust}. Detector pipelines attain higher recall yet require an additional large-model call per turn, overshooting service-level objectives, and they depend on thousands of labelled harmful traces that quickly become stale \cite{mazeika-2024-harmbench}.  
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ^
+Warning 13 in paper.tex line 53: Intersentence spacing (`\@') should perhaps be used.
+We propose Hierarchical, Incremental, Risk-Modulated Alignment (HIRMA), a defence designed to close these gaps. Three ideas underlie HIRMA. First, a self-supervised Dual-Granularity Dialogue Encoder (DGDE) summarises both sentence-level semantics and turn-graph dynamics without safety labels. Second, a lightweight multilayer perceptron (MLP) forecasts the probability that the assistant will be jail-broken within the next two turns. Third, a Meta-Prompt Bank (MPB) containing five suffix shards of increasing strictness is queried at every turn; the shard whose rank matches the predicted risk quantile is appended to the user prompt. A federated flavour of Robust Prompt Optimisation (RPO) tunes the shards on three heterogeneous surrogate models, encouraging cross-model transfer.  
+                                                                                                                                          ^
+Warning 2 in paper.tex line 60: Non-breaking space (`~') should have been used.
+    \item \textbf{Analysis and mitigations:} We analyse why asset checks missed the failure, relate it to silent-failure patterns observed in robustness research \cite{athalye-2018-obfuscated}, and outline mitigations such as mandatory hard-fail assertions for back-end availability.  
+                                                                                                                                                                 ^
+Warning 2 in paper.tex line 67: Non-breaking space (`~') should have been used.
+PAT adversarially tunes a single prefix attached to all user prompts \cite{mo-2024-fight}. TARPO adds a harsher suffix that activates on policy conflict \cite{zhou-2024-robust}. Both are static and thus blind to conversational drift. EvoPrompt \cite{guo-2023-connecting} and other optimisation schemes improve soft prompts but do not consider multi-turn risk.  
+                                                                    ^
+Warning 2 in paper.tex line 67: Non-breaking space (`~') should have been used.
+PAT adversarially tunes a single prefix attached to all user prompts \cite{mo-2024-fight}. TARPO adds a harsher suffix that activates on policy conflict \cite{zhou-2024-robust}. Both are static and thus blind to conversational drift. EvoPrompt \cite{guo-2023-connecting} and other optimisation schemes improve soft prompts but do not consider multi-turn risk.  
+                                                                                                                                                        ^
+Warning 2 in paper.tex line 67: Non-breaking space (`~') should have been used.
+PAT adversarially tunes a single prefix attached to all user prompts \cite{mo-2024-fight}. TARPO adds a harsher suffix that activates on policy conflict \cite{zhou-2024-robust}. Both are static and thus blind to conversational drift. EvoPrompt \cite{guo-2023-connecting} and other optimisation schemes improve soft prompts but do not consider multi-turn risk.  
+                                                                                                                                                                                                                                                   ^
+Warning 2 in paper.tex line 70: Non-breaking space (`~') should have been used.
+Stand-alone classifiers trained on HarmBench achieve high single-turn recall but impose a second LLM call per user turn \cite{mazeika-2024-harmbench}. Moreover, query-efficient black-box attacks can bypass fixed detectors with modest effort \cite{lee-2022-query}.  
+                                                                                                                       ^
+Warning 2 in paper.tex line 70: Non-breaking space (`~') should have been used.
+Stand-alone classifiers trained on HarmBench achieve high single-turn recall but impose a second LLM call per user turn \cite{mazeika-2024-harmbench}. Moreover, query-efficient black-box attacks can bypass fixed detectors with modest effort \cite{lee-2022-query}.  
+                                                                                                                                                                                                                                                ^
+Warning 2 in paper.tex line 73: Non-breaking space (`~') should have been used.
+Self-play methods train attacker and defender LLMs jointly, often via reinforcement learning \cite{cheng-2024-self}. They model dialogue dynamics but require gradient access and incur large compute overhead. HIRMA differs by separating a small risk head from the heavy generator, preserving latency budgets.  
+                                                                                            ^
+Warning 2 in paper.tex line 76: Non-breaking space (`~') should have been used.
+HarmBench standardises single-turn testing \cite{mazeika-2024-harmbench}; JailbreakBench and JAMBench extend to multi-turn and moderation-aware settings \cite{chao-2024-jailbreakbench,jin-2024-jailbreaking}. Failures similar to ours—where silent fallbacks invalidate results—mirror earlier issues in image-robustness research, where gradient masking yielded misleading claims \cite{brendel-2019-accurate,croce-2020-reliable}.  
+                                          ^
+Warning 2 in paper.tex line 76: Non-breaking space (`~') should have been used.
+HarmBench standardises single-turn testing \cite{mazeika-2024-harmbench}; JailbreakBench and JAMBench extend to multi-turn and moderation-aware settings \cite{chao-2024-jailbreakbench,jin-2024-jailbreaking}. Failures similar to ours—where silent fallbacks invalidate results—mirror earlier issues in image-robustness research, where gradient masking yielded misleading claims \cite{brendel-2019-accurate,croce-2020-reliable}.  
+                                                                                                                                                        ^
+Warning 2 in paper.tex line 76: Non-breaking space (`~') should have been used.
+HarmBench standardises single-turn testing \cite{mazeika-2024-harmbench}; JailbreakBench and JAMBench extend to multi-turn and moderation-aware settings \cite{chao-2024-jailbreakbench,jin-2024-jailbreaking}. Failures similar to ours—where silent fallbacks invalidate results—mirror earlier issues in image-robustness research, where gradient masking yielded misleading claims \cite{brendel-2019-accurate,croce-2020-reliable}.  
+                                                                                                                                                                                                                                                                                                                                                                                           ^
+Warning 13 in paper.tex line 86: Intersentence spacing (`\@') should perhaps be used.
+Because labelled data are scarce, we exploit a policy-shift heuristic: pairs of consecutive assistant turns in which a refusal turns into compliance are likely positive jailbreak instances. These pairs serve as positives for contrastive learning in DGDE.  
+                                                                                                                                                                                                                                                             ^
+Warning 13 in paper.tex line 96: Intersentence spacing (`\@') should perhaps be used.
+Five suffix shards \(S_0\ldots S_4\) are ordered by strictness. At runtime we select \(i = \lfloor 4 \cdot p_k \rfloor\) and append \(S_i\) to the user prompt. Shards are initialised with generic policy reminders, then refined by federated RPO: token-level gradients on open-source surrogates (Llama-3-8B, Qwen-14B) alternate with bandit feedback on closed models (Claude-3-Sonnet). The resulting prompts transfer across models by design.  
+                                                                                                                                                                                                                                                   ^
+Warning 8 in paper.tex line 96: Wrong length of dash may have been used.
+Five suffix shards \(S_0\ldots S_4\) are ordered by strictness. At runtime we select \(i = \lfloor 4 \cdot p_k \rfloor\) and append \(S_i\) to the user prompt. Shards are initialised with generic policy reminders, then refined by federated RPO: token-level gradients on open-source surrogates (Llama-3-8B, Qwen-14B) alternate with bandit feedback on closed models (Claude-3-Sonnet). The resulting prompts transfer across models by design.  
+                                                                                                                                                                                                                                                                                                             ^
+Warning 2 in paper.tex line 99: Non-breaking space (`~') should have been used.
+An automated attacker combines AutoDAN generation with OPRO search over prompt tokens \cite{yang-2023-large}, maximising ASR against the current guard. Self-play traces augment the RPO objective, enabling robustness without manual labels.  
+                                                                                     ^
+Warning 1 in paper.tex line 102: Command terminated with space.
+DGDE is distilled into an 8-bit linear adapter (7 M parameters). Weekly updates ship only the adapter and revised shards (\(\approx\)120 MB total), adding 16\textendash 18 ms latency per turn on a single V100 GPU.  
+                                                                                                                                                                        ^
+Warning 13 in paper.tex line 102: Intersentence spacing (`\@') should perhaps be used.
+DGDE is distilled into an 8-bit linear adapter (7 M parameters). Weekly updates ship only the adapter and revised shards (\(\approx\)120 MB total), adding 16\textendash 18 ms latency per turn on a single V100 GPU.  
+                                                                                                                                                                                                                    ^
+Warning 1 in paper.tex line 107: Command terminated with space.
+\State Initialise internal state; load DGDE encoder, risk head, shards \(S_0\ldots S_4\)  
+      ^
+Warning 1 in paper.tex line 109: Command terminated with space.
+  \State Receive user utterance \(u_k\)  
+        ^
+Warning 1 in paper.tex line 110: Command terminated with space.
+  \State Encode recent dialogue context with DGDE to obtain \(h_k\)  
+        ^
+Warning 1 in paper.tex line 111: Command terminated with space.
+  \State Compute risk: \(p_k \leftarrow \mathrm{MLP}(h_k)\)  
+        ^
+Warning 1 in paper.tex line 112: Command terminated with space.
+  \State Select shard index: \(i \leftarrow \lfloor 4 \cdot p_k \rfloor\) with clipping to \([0,4]\)  
+        ^
+Warning 1 in paper.tex line 113: Command terminated with space.
+  \State Form guarded prompt: \(u'_k \leftarrow u_k \mathbin{\|\|} S_i\)  
+        ^
+Warning 1 in paper.tex line 114: Command terminated with space.
+  \State Query back-end LLM: \(a_k \leftarrow f(u'_k)\)  
+        ^
+Warning 13 in paper.tex line 114: Intersentence spacing (`\@') should perhaps be used.
+  \State Query back-end LLM: \(a_k \leftarrow f(u'_k)\)  
+                           ^
+Warning 1 in paper.tex line 115: Command terminated with space.
+  \State Update internal observations: \(\mathrm{observe}(a_k)\)  
+        ^
+Warning 1 in paper.tex line 116: Command terminated with space.
+  \State Optionally terminate if compromise detected  
+        ^
+Warning 1 in paper.tex line 117: Command terminated with space.
+\EndFor  
+       ^
+Warning 8 in paper.tex line 129: Wrong length of dash may have been used.
+HIRMA trains DGDE and MPB for \(\leq 10\) h on four V100-16 GB GPUs (learning rate \(5 \times 10^{-5}\), batch 256, look-ahead horizon 2, VICReg \(\lambda_c = \lambda_\sigma = 1, \lambda_\mu = 25\)). Three seeds (111, 222, 333) are averaged; confidence intervals use 10\,000 bootstrap samples.  
+                                                        ^
+Warning 13 in paper.tex line 135: Intersentence spacing (`\@') should perhaps be used.
+Because the dummy generator always returns the same stub text, every attack is deemed successful and every guard records 100\ \% ASR. Latency and calibration metrics are undefined. Experiments 2 and 3, which depended on a functioning back-end, were skipped.  
+                                                                                                                                    ^
+Warning 24 in paper.tex line 145: Delete this space to maintain correct pagereferences.
+  \label{fig:multi_turn_asr}  
+ ^
+Warning 8 in paper.tex line 151: Wrong length of dash may have been used.
+Logs contain the warning ``vLLM backend unavailable - using dummy LLM''. Asset checks guarded guard components but not the generator. The silent fallback resembles obfuscated-gradient defences that appeared robust until stronger attacks were applied \cite{athalye-2018-obfuscated}.  
+                                                    ^
+Warning 2 in paper.tex line 151: Non-breaking space (`~') should have been used.
+Logs contain the warning ``vLLM backend unavailable - using dummy LLM''. Asset checks guarded guard components but not the generator. The silent fallback resembles obfuscated-gradient defences that appeared robust until stronger attacks were applied \cite{athalye-2018-obfuscated}.  
+                                                                                                                                                                                                                                                         ^
+Warning 13 in paper.tex line 154: Intersentence spacing (`\@') should perhaps be used.
+Design documents predicted \(\leq 5\ \%\) ASR for HIRMA and \(\approx 40\ \%\) for TARPO. The current run provides no evidence for or against these claims; all comparative statements are void.  
+                                                                                        ^
+Warning 8 in paper.tex line 160: Wrong length of dash may have been used.
+HIRMA aims to deliver dialogue-aware, risk-modulated guardrails that curb multi-turn jailbreaks under real-world latency and data constraints. While the architectural design addresses known weaknesses of static suffixes and heavyweight detectors, empirical evaluation failed catastrophically when the target LLM was missing: every guard recorded 100\ \% attack success. The incident underscores that robustness research must harden its own infrastructure; silent fallbacks can invalidate entire studies. Immediate next steps are to enforce hard-fail assertions for LLM availability, rerun Experiments 1-3 with functioning back-ends, extend risk forecasting to longer horizons, and integrate continuous self-play to mitigate data staleness. Only after these fixes can the true efficacy of HIRMA be established, aligned with rigorous evaluation principles advocated in prior work \cite{brendel-2019-accurate,croce-2020-reliable}.  
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ^
+Warning 2 in paper.tex line 160: Non-breaking space (`~') should have been used.
+HIRMA aims to deliver dialogue-aware, risk-modulated guardrails that curb multi-turn jailbreaks under real-world latency and data constraints. While the architectural design addresses known weaknesses of static suffixes and heavyweight detectors, empirical evaluation failed catastrophically when the target LLM was missing: every guard recorded 100\ \% attack success. The incident underscores that robustness research must harden its own infrastructure; silent fallbacks can invalidate entire studies. Immediate next steps are to enforce hard-fail assertions for LLM availability, rerun Experiments 1-3 with functioning back-ends, extend risk forecasting to longer horizons, and integrate continuous self-play to mitigate data staleness. Only after these fixes can the true efficacy of HIRMA be established, aligned with rigorous evaluation principles advocated in prior work \cite{brendel-2019-accurate,croce-2020-reliable}.  
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ^
